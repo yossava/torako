@@ -1,6 +1,6 @@
 class TokosController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_toko, only: [:show, :edit, :update, :destroy]
+  before_action :set_toko, only: [:show, :edit, :update, :destroy, :review]
 
   # GET /tokos
   # GET /tokos.json
@@ -12,6 +12,7 @@ class TokosController < ApplicationController
   end
   def index
   end
+
   def kategori
   end
   def pengiriman
@@ -54,7 +55,7 @@ class TokosController < ApplicationController
     @cityx = JSON.parse citiesx
     @prox = @provincex['rajaongkir']['results']['province']
     @citx = @cityx['rajaongkir']['results']['city_name']
-    
+
     if params[:kota]
     subs = RestClient.get 'http://pro.rajaongkir.com/api/subdistrict', {:params => {:city => params[:kota], :key => '45c5c245f49664fcd38a86f3c24f7763'}}
     @kecamatan = JSON.parse subs

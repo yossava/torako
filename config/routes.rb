@@ -66,6 +66,8 @@ Rails.application.routes.draw do
   get 'admin/beadmin/:id' => "admins#becomeadmin"
   get 'admin/deladmin/:id' => "admins#deleteadmin"
   get 'admin/users' => "admins#users"
+  get 'admin/edituser/:id' => "admins#users"
+  post 'admin/edituser/:id' => "admins#users"
   get 'admin/homepage' => "admins#homepage"
   get 'admin/homepage/:id' => "admins#homepage"
   get 'admin/stores' => "admins#stores"

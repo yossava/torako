@@ -48,6 +48,14 @@ class AdminsController < ApplicationController
   end
   def users
     @users = User.paginate(:page => params[:page], :per_page => 15)
+    if params[:id]
+    @user = User.find(params[:id])
+      if params[:namalengkap] &&  params[:email]
+        @user.update(:namalengkap => params[:namalengkap])
+        @user.update(:email => params[:email])
+        redirect_to :back, notice: "User diupdate."
+      end
+    end
   end
   def stores
     @stores = Toko.paginate(:page => params[:page], :per_page => 15)

@@ -7,7 +7,7 @@ Rails.application.configure do
       :enable_starttls_auto => true,
       :address => "smtp.gmail.com",
       :port => 587,
-      :domain => "nitrous.io",
+      :domain => "loveitmart.herokuapp.com",
       :authentication => :login,
       :user_name => "tokenlr2@gmail.com",
       :password => "ty0ssaV@t"

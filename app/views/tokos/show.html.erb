@@ -1,0 +1,135 @@
+    <%= render 'layouts/header' %>
+		<div id="topkeyword">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mobilemenu-opener ma5-toggle-menu"><i class="fa fa-bars"></i></div>
+						<%= render 'layouts/menumobile' %>
+						<span id="labeltopkeyword">Top Keyword</span>
+						<%= render 'layouts/topkey' %>
+						<%= render 'layouts/trolimobile' %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="nav-breadcumb">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="compresedmenu">
+							<div class="headingcompresed">
+								<i class="fa fa-bars"></i> &nbsp; <span>Kategori</span> &nbsp; <i class="fa fa-angle-down"></i>
+							</div>
+							<%= render 'layouts/sidemenu' %>
+						</div>
+						<div class="breadcumb">
+							<span><a href="#">Home</a></span>
+							<span>></span>
+							<span><a href="#">Toko</a></span>
+							<span>></span>
+							<span><a href="#"><%= @toko.nama_toko %></a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ./Header -->
+
+		<div class="spacermedium"></div>
+
+		<div class="container">
+			<div class="header_lp-toko">
+				<div class="wrap-left-htoko">
+					<div class="foto_toko"><img src="<%= @toko.toko_image.url %>" class="responsiveimg"></div>
+					<h1 class="title_toko"><%= @toko.nama_toko %> &nbsp; <span <% if @toko.status == "Tutup" %> style="background-color:red;"<% end %> class="label_sttoko"> Toko <%= @toko.status %></span></h1>
+          <% if @toko.status == "Tutup" %>
+          <br>Tutup Sampai: <%= @toko.tutup_sampai %>
+          <hr>
+          <% end %>
+					<label class="sttltoko"><%= @toko.slogan %></label>
+					<p class="shortse_toko">
+						<span class="quote_toko"><i class="fa fa-quote-left"></i></span> <%= @toko.deskripsi %>
+					</p>
+          <% if current_user.id == @toko.user_id %>
+					<a href="<%= edit_toko_path %>" class="linktokoedit"><i class="fa fa-cog"></i> Setting</a>
+          <% end %>
+				</div>
+			</div>
+			<div class="core_menu_toko">
+				<ul class="list-unstyled cmt-list">
+					<li class="active"><a href="#">Produk</a></li>
+					<li><a href="/tokos/<%= @toko.id %>/review">Review</a></li>
+					<li><a href="#">Informasi Toko</a></li>
+					<li><a href="#">Catatan</a></li>
+				</ul>
+
+			</div>
+			<div class="row mainkntn_toko">
+				<div class="col-md-3">
+					<div class="sidebartoko">
+						<div class="schb_onotko">
+							<input type="text" name="" placeholder="Cari Produk">
+							<button class="scbbtn" name=""><i class="fa fa-search"></i></button>
+						</div>
+						<div class="list_mnkategori_toko">
+							<h4 class="titlesdk">Kategori</h4>
+							<ul class="mainmn_kt_toko list-unstyled">
+                <% @cats = [] %>
+                <%  User.find(@toko.user_id).produks.each do |produk| %>
+                <% @cats << produk.category_id %>
+                <% end %>
+                <% @cats = @cats.uniq %>
+                <% @cats.each do |cat| %>
+                <% if cat %>
+								<li><a href="#"><%= Category.find(cat).kategori %></a></li>
+                <% end %>
+                <% end %>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div class="listproduk_toko">
+						<div class="controll_tkproduk">
+							<h3>Semua Produk</h3>
+							<div class="absfilter">
+								<label>Urutkan :</label>
+								<select class="form-control">
+									<option>Terbaru</option>
+									<option>Terlaris</option>
+									<option>Promo</option>
+								</select>
+							</div>
+						</div>
+						<div class="kt-list-produk">
+              <% @mytoko.each do |produk| %>
+							<div class="produkcarousel myakunproduk toko">
+								<div class="thumbfoto-produk">
+									<a href="/produks/<%= produk.id %>"><img src="<%= produk.foto_produk1.url %>" class="responsiveimg"/></a>
+                  <% if produk.harga_diskon %>
+									<span class="lagidiskon">-<%= produk.diskon %>%</span>
+                  <% end %>
+								</div>
+								<a href="/produks/<%= produk.id %>"><h4 class="titleproduk"><%= produk.nama_produk %></h4></a>
+								<div class="hargaasli">Rp <%= produk.harga %></div>
+								<div class="hargacoret">Rp <%= produk.harga_diskon %></div>
+								<a href="/tokos/<%= Toko.find(produk.toko_id).id %>" class="tambahketroli"><span class="troliblack"></span><span class="ttb"><%= Toko.find(produk.toko_id).nama_toko %></span></a>
+							</div>
+              <% end %>
+						</div>
+					</div>
+
+					<div class="pagingarea">
+						<div class="halaman">
+            <%= will_paginate @mytoko %>
+            </div>
+						<p class="typelight">Menampilkan 1-12 dari <%= @mytoko.count %> Produk</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="spacerbig"></div>
+    <%= render 'layouts/footer' %>

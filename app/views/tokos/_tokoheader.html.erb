@@ -1,0 +1,32 @@
+<li class="tokosaya">
+								<a href="#"  data-toggle="dropdown" role="button"><span class="tokoicon"></span>Toko Saya</a>
+								<!--<div class="dropdown-menu">
+									<div class="buattokowrap">
+									<p>Anda Belum Memiliki Toko</p>
+									<a href="#"><span>Buat Toko</span></a>
+									</div>
+								</div>-->
+								<div class="dropdown-menu">
+									<div class="wraplistdrpmenu">
+										<div class="mnv2">
+											<a href="#">
+                        <% if @toko && !current_page?('/tokos/new') %>
+                        <% if @toko.toko_image.url.nil? %>
+                        <span class="picdrpmyakun"><img src="<%= image_path 'tokopic.png' %>" class="responsiveimg"/></span>
+                        <% else %>
+												<span class="picdrpmyakun"><img src="<%= image_path @toko.toko_image.url %>" class="responsiveimg"/></span>
+                        <% end %>
+												<h4 class="nameprofile-drmyakun"><%= @toko.nama_toko %></h4>
+												<span class="ketlinedrmyakun" style="position: relative;top: 2px;">Toko Saya</span>
+											</a>
+										</div>
+										<div class="mnv2"><a href="/pesanan-baru" class="styleddrop"><i class="fa fa-money"></i> &nbsp; Penjualan</a></div>
+										<div class="mnv2"><a href="<%= new_produk_path %>" class="styleddrop"><i class="fa fa-plus"></i> &nbsp; Tambah Produk</a></div>
+										<div class="mnv2"><a href="<%= produks_path %>" class="styleddrop"><i class="fa fa-list-ul"></i> &nbsp; Daftar Produk</a></div>
+                    <div class="mnv2"><a href="/tokos/<%= @toko.id %>/edit" class="styleddrop"><i class="fa fa-wrench"></i> &nbsp; Pengaturan Toko</a></div>
+                    <% else %>
+                    Belum memiliki toko. <a style="color:orange;"  href="<%= new_toko_path %>">Buat toko?</a>
+                    <% end %>
+									</div>
+								</div>
+							</li>

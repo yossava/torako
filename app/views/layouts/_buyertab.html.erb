@@ -1,0 +1,22 @@
+<ul class="tablink-akun">
+                <% if current_page?('/konfirmasi-pembayaran') %>
+								<li class="activeli"><a href="/konfirmasi-pembayaran">Konfirmasi Pembayaran</a><span class="countlabel"><%= @troli2.count %></span></li>
+                <% else %>
+                <li><a href="/konfirmasi-pembayaran">Konfirmasi Pembayaran</a><span class="countlabel"><%= @troli2.count %></span></li>
+                <% end %>
+                <% if current_page?('/status-pemesanan') %>
+								<li class="activeli"><a href="/status-pemesanan">Status Pemesanan</a><span class="countlabel"><%= @troli2.count + @troli3.count + @troli4.count + @troli7.count + @troli8.count %></span></li>
+                <% else %>
+                <li><a href="/status-pemesanan">Status Pemesanan</a><span class="countlabel"><%= @troli2.count + @troli3.count + @troli4.count + @troli7.count + @troli8.count %></span></li>
+                <% end %>
+                <% if current_page?('/konfirmasi-penerimaan') %>
+								<li class="activeli"><a href="/konfirmasi-penerimaan">Konfirmasi Penerimaan</a><span class="countlabel"><%= @troli5.count %></span></li>
+                <% else %>
+  						  <li><a href="/konfirmasi-penerimaan">Konfirmasi Penerimaan</a><span class="countlabel"><%= @troli5.count %></span></li>
+                <% end %>
+                <% if current_page?('/daftar-transaksi') %>
+								<li class="activeli"><a href="/daftar-transaksi">Daftar Transaksi</a></li>
+                <% else %>
+                <li><a href="/daftar-transaksi">Daftar Transaksi</a></li>
+                <% end %>
+							</ul>

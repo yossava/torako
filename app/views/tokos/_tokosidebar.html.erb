@@ -1,0 +1,29 @@
+<% if @toko && !current_page?('/tokos/new') %>
+<div class="rowMas-control">
+								<div class="childrow">
+									<div class="Mas-tokosaya">
+										<div class="myFotoThumb">
+                      <% if @toko.toko_image.url.nil? %>
+                      <img src="<%= image_path 'tokopic.png' %>" class="responsiveimg" />
+                      <% else %>
+                      <img src="<%= image_path @toko.toko_image.url %>" class="responsiveimg" />
+                      <% end %>
+										</div>
+										<h4 class="title">
+                      <%= @toko.nama_toko %></h4>
+										<p class="subtitle">Toko Saya</p>
+									</div>
+								</div>
+								<div class="absolute-editbtn">
+                  <a href="/tokos/<%= @toko.id %>/edit" class="editalm"><i class="fa fa-pencil-square-o"></i></a>
+								</div>
+							</div><% end %>
+<div class="rowMas-control">
+                <% if @toko %>
+                <% else %>
+								<div class="Mas-buattoko">
+									<p>Anda belum memiliki Toko</p>
+									<a href="<%= new_toko_path %>" class="orangebtn">Buat Toko</a>
+								</div>
+                <% end %>
+							</div>

@@ -1,0 +1,143 @@
+    <%= render 'layouts/header' %>
+		<div id="topkeyword">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mobilemenu-opener ma5-toggle-menu"><i class="fa fa-bars"></i></div>
+						<%= render 'layouts/menumobile' %>
+						<span id="labeltopkeyword">Top Keyword</span>
+						<%= render 'layouts/topkey' %>
+						<%= render 'layouts/trolimobile' %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="nav-breadcumb">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="compresedmenu">
+							<div class="headingcompresed">
+								<i class="fa fa-bars"></i> &nbsp; <span>Kategori</span> &nbsp; <i class="fa fa-angle-down"></i>
+							</div>
+							<%= render 'layouts/sidemenu' %>
+						</div>
+						
+            <%= render 'layouts/bread' %>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ./Header -->
+
+		<div class="spacermedium"></div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<button type="button" class="btn" id="btn-SHsidebar"><i class="fa fa-user" style="margin-right:1em;"></i> Member Menu</button>
+				</div>
+			</div>
+			<div class="row">
+				<%= render 'layouts/sidebar' %>
+				<div class="col-md-9 col-sm-9 wrappermakctn">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="headingmac">
+								<h4>Daftar Produk</h4>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="filterdftr">
+								<form>
+									<div class="row">
+										<div class="col-md-2">
+											<div class="form-row">
+												<strong class="ttllstrong">Cari Produk</strong>
+											</div>
+										</div>
+										<div class="col-md-5 listfmxx">
+											<div class="form-row styledfmrow">
+												<input type="text" name="" id="penerima" placeholder="Nama Produk">
+											</div>
+										</div>
+										<div class="col-md-3 listfmxx">
+											<div class="form-row styledfmrow">
+												<select id="prov">
+													<option>- Pilih Kategori -</option>
+													<option>Kategori1</option>
+													<option>Kategori2</option>
+													<option>Kategori3</option>
+													<option>Kategori4</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-md-2 listfmxx">
+											<div class="form-row styledfmrow">
+												<input type="submit" name="" value="Cari" class="gosignin" >
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<ul id="listDFproduk">
+                <p id="notice"><%= notice %></p>
+                <% if @myproduks %>
+                <% @myproduks.each do |produk| %>
+								<li>
+									<div class="row">
+										<div class="col-md-3 col-sm-3 col-xs-6">
+											<span><img src="<%= produk.foto_produk1.url %>" class="responsiveimg"></span>
+										</div>
+										<div class="col-md-4 col-sm-4 col-xs-6">
+											<h4><%= produk.nama_produk %></h4>
+											<p class="typelight">
+												<span class="label label-default typelight"><%= Category.find(produk.category_id).kategori %></span> &nbsp; <i class="fa fa-arrow-right"></i> &nbsp; <span class="label label-default typelight"><%= Subcategory.find(produk.subcategory_id).subkategori %></span>
+											</p>
+										</div>
+										<div class="col-md-3 col-sm-3 col-xs-6">
+											<label for="hgitmtx">Harga per Buah</label>
+											<h4 class="hgitmtx typeorange">Rp <%= produk.harga %>,-</h4>
+											<label for="hggrosirtx">Harga Grosir</label>
+											<p class="hggrosirtx">
+												<span><%= produk.jumlah_grosir1min %>-<%= produk.jumlah_grosir1max %> &nbsp; : &nbsp; Rp <%= produk.harga_grosir1 %></span>
+												<span><%= produk.jumlah_grosir2min %>-<%= produk.jumlah_grosir2max %> &nbsp; : &nbsp; Rp <%= produk.harga_grosir2 %></span>
+                        <span><%= produk.jumlah_grosir3min %>-<%= produk.jumlah_grosir3max %> &nbsp; : &nbsp; Rp <%= produk.harga_grosir3 %></span>
+                        <span><%= produk.jumlah_grosir4min %>-<%= produk.jumlah_grosir4max %> &nbsp; : &nbsp; Rp <%= produk.harga_grosir4 %></span>
+                        <span><%= produk.jumlah_grosir5min %>-<%= produk.jumlah_grosir5max %> &nbsp; : &nbsp; Rp <%= produk.harga_grosir5 %></span>
+											</p>
+										</div>
+										<div class="col-md-2 col-sm-2 col-xs-6">
+											<a style="padding:4px 9px;" href="<%= edit_produk_path(produk) %>" class="edit-edpg" data-toggle="tooltip" title="ubah"><i class="fa fa-pencil"></i></a>
+                      <a style="padding:4px 9px;" class="del-edpg" data-confirm="Apakah anda yakin?" rel="nofollow" data-method="delete" href="produks/<%= produk.id %>" data-toggle="tooltip" title="Hapus"><i class="fa fa-trash-o"></i></a>
+										</div>
+									</div>
+								</li>
+                <% end %>
+                <% end %>
+
+							</ul>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+                <div class="halaman">
+                <%= will_paginate @myproduks %>
+                </div>
+						</div>
+						<div class="col-md-12">
+							<p class="typelight">Menampilkan 1-5 dari <%= @myproduks.count %> Produk</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="spacerbig"></div>
+    <%= render 'layouts/footer' %>

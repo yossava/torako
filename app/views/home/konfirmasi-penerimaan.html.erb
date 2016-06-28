@@ -1,0 +1,160 @@
+		<%= render 'layouts/header' %>
+		<div id="topkeyword">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mobilemenu-opener ma5-toggle-menu"><i class="fa fa-bars"></i></div>
+						<%= render 'layouts/menumobile' %>
+						<span id="labeltopkeyword">Top Keyword</span>
+						<%= render 'layouts/topkey' %>
+						<%= render 'layouts/trolimobile' %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="nav-breadcumb">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="compresedmenu">
+							<div class="headingcompresed">
+								<i class="fa fa-bars"></i> &nbsp; <span>Kategori</span> &nbsp; <i class="fa fa-angle-down"></i>
+							</div>
+							<%= render 'layouts/sidemenu' %>
+						</div>
+
+            <%= render 'layouts/bread' %>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ./Header -->
+
+		<div class="spacermedium"></div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<button type="button" class="btn" id="btn-SHsidebar"><i class="fa fa-user" style="margin-right:1em;"></i> Member Menu</button>
+				</div>
+			</div>
+			<div class="row">
+			  <%= render 'layouts/sidebar' %>
+				<div class="col-md-9 col-sm-9 wrappermakctn">
+					<div class="row">
+						<div class="col-md-12">
+							<%= render 'layouts/buyertab' %>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="colomacr">
+                <% if @troli5.blank? %>
+                <p>Anda tidak memiliki pengiriman yang perlu dikonfirmasi</p>
+                <% end %>
+                <% @troli5.each do |t| %>
+								<div class="list-konpem-outer">
+									<p class="invoice">Invoice : <strong><%= t.invoice %></strong></p>
+									<p class="dtime-transaksi">Tanggal Transaksi : <%= t.created_at %></p>
+									<p style="text-transform:capitalize;" >Pembelian dari Toko : <strong><%= Toko.find(t.toko_id).nama_toko %></strong></p>
+									<p class="ttl-tagihan">Total Tagihan : <strong><%= t.subtotal %></strong></p>
+									<p>Status Pemesanan : <strong class="statusorder past">Transaksi Selesai</strong> &nbsp; <em class="notepesanan">*Pesanan Anda telah tiba di tempat tujuan</em></p>
+									<p class="ttl-tagihan">Nomor Resi Pesanan : <strong><%= t.resi %></strong></p>
+									<div class="spacermedium"></div>
+									<div class="wrapdtkonf">
+										<div class="heading-wdkf">
+											<h4>Pembelian dari Toko : <strong><%= Toko.find(t.toko_id).nama_toko %></strong></h4>
+											<span class="inv"><%= t.invoice %></span>
+										</div>
+										<div class="row">
+											<div class="col-md-6 lpwp">
+												<span class="imglpwp"><img src="<%= Produk.find(t.produk_id).foto_produk1.url %>" class="responsiveimg"></span>
+												<h4><%= Produk.find(t.produk_id).nama_produk %></h4>
+												<p><%= t.jumlah %> X <%= Produk.find(t.produk_id).harga_beli %></p>
+											</div>
+											<div class="col-md-3">
+												<label>Subtotal</label>
+												<p><%= Produk.find(t.produk_id).harga_beli * t.jumlah %></p>
+											</div>
+											<div class="col-md-3">
+												<label>Ongkir</label>
+												<p><%= t.ongkir %></p>
+											</div>
+										</div>
+										<hr style="border-color:#ddd;"></hr>
+										<div class="row">
+											<div class="col-md-6">
+												<label>Tujuan Pengiriman</label>
+												<p>Penerima : <%= Alamat.find(t.alamat_id).sebagai %></p>
+												<p>Telp : <%= Alamat.find(t.alamat_id).nomor_telepon %></p>
+												<p>
+													<%= Alamat.find(t.alamat_id).alamat %>, <%= Alamat.find(t.alamat_id).kecamatan %>, <%= Alamat.find(t.alamat_id).provinsi %> <%= Alamat.find(t.alamat_id).kode_pos %>
+												</p>
+											</div>
+											<div class="col-md-6">
+												<label>Kurir</label>
+												<p><%= t.kurir %></p>
+												<label>Keterangan</label>
+												<p><%= t.catatan %></p>
+											</div>
+										</div>
+										<hr style="border-color:#ddd;"></hr>
+										<div class="row">
+											<div class="col-md-12" style="text-align:right;font-size:18px;">
+												<label class="typeorange">Total : <%= t.subtotal %></label>
+											</div>
+										</div>
+									</div>
+									<div class="spacermedium"></div>
+									<a href="#" class="showdtkonf blokmbl" style="padding:7px 10px;position: relative;top: -1px;"><i class="fa fa-plus"></i>&nbsp; Tampilkan Detail</a>
+									<a href="#" class="hidedtkonf hide blokmbl" style="padding:7px 10px;position: relative;top: -1px;"><i class="fa fa-minus"></i>&nbsp; Sembunyikan Detail</a>
+                <%= form_for Feedback.new do |f| %>
+                <textarea name="feedback[feed]" rows="4" cols="60" placeholder="Barang bagus, packing rapi.." ></textarea><br/>
+              <p>
+                Rating:
+                <span class="starRating">
+                  <input id="rating5" type="radio" name="feedback[rating]" value="5">
+                  <label for="rating5">5</label>
+                  <input id="rating4" type="radio" name="feedback[rating]" value="4">
+                  <label for="rating4">4</label>
+                  <input id="rating3" type="radio" name="feedback[rating]" value="3" checked>
+                  <label for="rating3">3</label>
+                  <input id="rating2" type="radio" name="feedback[rating]" value="2">
+                  <label for="rating2">2</label>
+                  <input id="rating1" type="radio" name="feedback[rating]" value="1">
+                  <label for="rating1">1</label>
+                </span>
+              </p><br/>
+                <div style="font-size:12px;">
+                <img style="width:20x;height:20px;" src="<%= image_path 'star-on.png' %>"> = Buruk<br/>
+                <img style="width:20x;height:20px;" src="<%= image_path 'star-on.png' %>"><img style="width:20x;height:20px;" src="<%= image_path 'star-on.png' %>"><img style="width:20x;height:20px;" src="<%= image_path 'star-on.png' %>"><img style="width:20x;height:20px;" src="<%= image_path 'star-on.png' %>"><img style="width:20x;height:20px;" src="<%= image_path 'star-on.png' %>"> = Sempurna</div><br/>
+                <span style="font-size:12px;">*Feedback adalah final, pastikan Anda telah menerima barang sebelum memberikan feedback</span><br/><br/>
+
+                <input type="hidden" name="feedback[toko_id]" value="<%= Toko.find(t.toko_id).id %>" />
+                <input type="hidden" name="feedback[produk_id]" value="<%= t.produk_id %>" />
+                <input type="hidden" name="cart_id" value="<%= t.id %>" />
+                <button type="submit" class="gosignin blokmbl" ><i class="fa fa-check"></i> Barang Telah Diterima & Kirim Feedback</button>
+                <% end %>
+								</div>
+                <% end %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="spacerbig"></div>
+		<%= render 'layouts/footer' %>
+<script>
+  	$('.gosignin').click(function(){
+		var $this = $(this);
+		$this.toggleClass('See');
+		if($this.hasClass('Sees')){
+			$this.text('See');
+		} else {
+			$this.text('Mohon Tunggu..');
+		}
+	});
+</script>

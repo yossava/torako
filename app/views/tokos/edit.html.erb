@@ -1,0 +1,404 @@
+<% if @toko.user_id == current_user.id %>
+<%= render 'layouts/header' %>
+<div id="topkeyword">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mobilemenu-opener ma5-toggle-menu"><i class="fa fa-bars"></i></div>
+						<%= render 'layouts/menumobile' %>
+						<span id="labeltopkeyword">Top Keyword</span>
+						<%= render 'layouts/topkey' %>
+						<%= render 'layouts/trolimobile' %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="nav-breadcumb">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="compresedmenu">
+							<div class="headingcompresed">
+								<i class="fa fa-bars"></i> &nbsp; <span>Kategori</span> &nbsp; <i class="fa fa-angle-down"></i>
+							</div>
+							<div id="sidemenu" class="ctn-compresed">
+								<ul>
+									<li>
+										<span class="iconsidemenu ifashion"></span> Fashion
+										<div class="submenu">
+											<div class="rowsubmenu col-md-6">
+												<a href="#"><h4 class="haedingsub">Pakaian Terbaru</h4></a>
+												<ul>
+													<li><a href="#">Pria</a></li>
+													<li><a href="#">Wanita</a></li>
+													<li><a href="#">Anak</a></li>
+												</ul>
+											</div>
+											<div class="rowsubmenu  col-md-6">
+												<a href="#"><h4 class="haedingsub">Pakaian Terpopuler</h4></a>
+												<ul>
+													<li><a href="#">Pria</a></li>
+													<li><a href="#">Wanita</a></li>
+													<li><a href="#">Anak</a></li>
+												</ul>
+											</div>
+											<div class="rowsubmenu col-md-6">
+												<a href="#"><h4 class="haedingsub">Pakaian Terbaru</h4></a>
+												<ul>
+													<li><a href="#">Pria</a></li>
+													<li><a href="#">Wanita</a></li>
+													<li><a href="#">Anak</a></li>
+												</ul>
+											</div>
+											<div class="rowsubmenu  col-md-6">
+												<a href="#"><h4 class="haedingsub">Pakaian Terpopuler</h4></a>
+												<ul>
+													<li><a href="#">Pria</a></li>
+													<li><a href="#">Wanita</a></li>
+													<li><a href="#">Anak</a></li>
+												</ul>
+											</div>
+										</div>
+									</li>
+									<li>
+										<span class="iconsidemenu igadget"></span> Gadget / Komputer
+									</li>
+									<li>
+										<span class="iconsidemenu ibeauty"></span> Beauty / Health
+									</li>
+									<li>
+										<span class="iconsidemenu ielektro"></span> Elektronik
+									</li>
+									<li>
+										<span class="iconsidemenu isport"></span> Sport / Hobi / Otomotif
+									</li>
+									<li>
+										<span class="iconsidemenu ihome"></span> Home / Garden
+									</li>
+									<li>
+										<span class="iconsidemenu iservice"></span> Service
+									</li>
+									<li>
+										<span class="iconsidemenu imakanan"></span> Makanan & Minuman
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="breadcumb">
+							<span><a href="#">Home</a></span>
+							<span>></span>
+							<span><a href="#">Akun Saya</a></span>
+							<span>></span>
+							<span><a href="#">Pengaturan Toko</a></span>
+							<span>></span>
+							<span><a href="#">Informasi Toko</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ./Header -->
+
+		<div class="spacermedium"></div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<button type="button" class="btn" id="btn-SHsidebar"><i class="fa fa-user" style="margin-right:1em;"></i> Member Menu</button>
+				</div>
+			</div>
+			<div class="row">
+				<%= render 'layouts/sidebar' %>
+				<div class="col-md-9 col-sm-9 wrappermakctn">
+					<div class="row">
+						<div class="col-md-12">
+							<ul class="tablink-akun">
+								<li id="infotoko" class="activeli"><a href="#/">Informasi Toko</a></li>
+								<li id="pengiriman" ><a href="#/">Pengiriman</a></li>
+								<li id="pembayarantoko" ><a href="#/">Pembayaran</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="colomacr tp-produkform">
+								<div class="ctnblok-logreg">
+                  <p id="notice"><%= notice %></p>
+                  <%= form_for(@toko) do |f| %>
+                  <div id="edittoko">
+                  <div class="form-row">
+                    <%= f.label :nama_toko %><br>
+                    <%= f.text_field :nama_toko %>
+                    <p class="text-muted">Maksimal 24 karakter</p>
+                  </div>
+                  <div class="form-row">
+                    <%= f.label :slogan %><br>
+                    <%= f.text_field :slogan %>
+                  </div>
+                  <div class="form-row">
+                    <%= f.label :deskripsi %><br>
+                    <%= f.text_area :deskripsi %>
+                    <p class="text-muted">Maksimal  500 karakter</p>
+                  </div>
+									<hr style="border-color:#ddd;"></hr>
+									<div class="form-row">
+										<div class="row">
+											<div class="col-md-12">
+												<label for="tpt">Lokasi *</label>
+											</div>
+										</div>
+										<div class="spacermedium"></div>
+										<div class="row" id="tpt">
+											<div class="col-md-4 spacermobile">
+												<label for="tpt" class="minitextlbl">Pilih Provinsi</label>
+                        <select class="provinsi" required="true" name="toko[provinsi]">
+                         <option selected="selected" value="<%= @toko.provinsi %>"><%= @prox %></option>
+                        <% @pro.each do |p| %>
+                        <option value="<%= p['province_id'] %>"><%= p['province'] %></option>
+                        <% end %>
+                        </select>
+											</div>
+											<div class="col-md-4 spacermobile">
+												<label for="tpt" class="minitextlbl">Pilih Kota</label>
+												<select class="kota" required="true" name="toko[kota]">
+                        <% if params[:provinsi] %>
+                        <% @cit.each do |p| %>
+                        <option value="<%= p['city_id'] %>"><%= p['city_name'] %></option>
+                        <% end %>
+                        <% else %>
+                        <option selected="selected" value="<%= @toko.kota %>"><%= @citx %></option>
+                        <% end %>
+                        </select>
+											</div>
+											<div class="col-md-4 spacermobile">
+												<label for="tpt" class="minitextlbl">Pilih Kecamatan</label>
+                        <select class="kecamatan" required="true" name="toko[kecamatan]" >
+												<% if params[:kota] != "undefined" && params[:kota] %>
+                        <% @kec.each do |p| %>
+                        <option value="<%= p['subdistrict_id'] %>"><%= p['subdistrict_name'] %></option>
+                        <% end %>
+                        <% else %>
+                        <option selected="selected" value="<%= @toko.kecamatan %>"><%= @kecx %></option>
+                        <% end %>
+                        </select>
+												<div class="spacermedium"></div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+                        <%= f.text_area :alamat, id: "des", rows: "4", style: "resize:none;", placeholder: "selengkapnya.." %>
+											</div>
+										</div>
+									</div>
+									<hr style="border-color:#ddd;"></hr>
+									<div class="form-row">
+										<label for="sttk">Status</label>
+										<%= f.select :status, ["Tutup", "Buka"], id: "sttk" %>
+										<div class="spacermedium"></div>
+									</div>
+									<div class="form-row">
+										<label for="cttn">Catatan</label>
+                    <%= f.text_field :catatan, id: "cttn", placeholder: "comming soon" %>
+									</div>
+									<div class="form-row">
+										<label for="tglend">Tutup Sampai</label>
+                    <%= f.text_field :tutup_sampai, id: "tglend", class: "datepicker" %>
+									</div>
+									<hr style="border-color:#ddd;"></hr>
+									<div class="form-row">
+										<div class="row">
+											<div class="col-md-4">
+												<label for="ftpr">Gambar Toko</label>
+                        <% if @toko.toko_image.url %>
+												<span><img src="<%= @toko.toko_image.url %>" class="responsiveimg"></span>
+                        <% else %>
+                        <span><img src="<%= image_path 'tokopic.png' %>" class="responsiveimg"></span>
+                        <% end %>
+											</div>
+											<div class="col-md-8">
+                        <%= f.file_field :toko_image, id: "input-42", class: "file-loading" %>
+												<p class="text-muted">Ekstensi yang diperbolehkan: .JPG .JPEG .GIF .PNG</p>
+											</div>
+										</div>
+									</div>
+									<div class="form-row">
+										<label for="ftpr">Banner Toko</label>
+                    <%= f.file_field :banner1, id: "input-42", class: "file-loading" %>
+                    <%= f.file_field :banner2, id: "input-42", class: "file-loading" %>
+                    <%= f.file_field :banner3, id: "input-42", class: "file-loading" %>
+										<div class="row">
+											<div class="colthumbnail">
+                        <% if @toko.banner1.url %>
+												<div class="col-md-4 col-xs-4" style="margin:10px 0px;"><img src="<%= image_path @toko.banner1.url %>" class="responsiveimg"></div>
+                        <% else %>
+                        <div class="col-md-4 col-xs-4" style="margin:10px 0px;"><img src="<%= image_path 'tokopic.png' %>" class="responsiveimg"></div>
+                        <% end %>
+												<% if @toko.banner2.url %>
+												<div class="col-md-4 col-xs-4" style="margin:10px 0px;"><img src="<%= image_path @toko.banner2.url %>" class="responsiveimg"></div>
+                        <% else %>
+                        <div class="col-md-4 col-xs-4" style="margin:10px 0px;"><img src="<%= image_path 'tokopic.png' %>" class="responsiveimg"></div>
+                        <% end %>
+												<% if @toko.banner3.url %>
+												<div class="col-md-4 col-xs-4" style="margin:10px 0px;"><img src="<%= image_path @toko.banner3.url %>" class="responsiveimg"></div>
+                        <% else %>
+                        <div class="col-md-4 col-xs-4" style="margin:10px 0px;"><img src="<%= image_path 'tokopic.png' %>" class="responsiveimg"></div>
+                        <% end %>
+												<div class="col-md-12"><p class="text-muted">Maksimal 3 Banner 800px x 350px. &nbsp; Ekstensi yang diperbolehkan: .JPG .JPEG .GIF .PNG</p></div>
+											</div>
+										</div>
+									</div>
+                  </div>
+                  <div id="formpembayaran" style="display:none;" class="form-row">
+									<div class="row">
+										<div class="col-md-12">
+											<label for="nmtoko">Pilihan Pembayaran yang ingin Anda berikan kepada pengunjung Toko Online Anda</label>
+										</div>
+									</div>
+									<div class="spacermedium"></div>
+									<div class="row">
+										<div class="col-md-4">
+											<p><label class="mthrcheck"><%= f.check_box :terima_pembayaran1, {:id => "checkallJNE"}, "TRANSFER-BANK", "NO" %><span class="spacingico"><img src="<%= image_path "transfer-1.png" %>" class="responsiveimg"></span></label></p>
+											<fieldset class="checkboxfieldset">
+												<p class="pmmthd">
+													Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+												</p>
+											</fieldset>
+											<div class="spacersmall"></div>
+										</div>
+										<div class="col-md-4">
+											<p><label class="mthrcheck"><%= f.check_box :terima_pembayaran2, {:id => "checkallJNE"}, "KLIKBCA", "NO" %><span class="spacingico"><img src="<%= image_path "transfer-2.png" %>" class="responsiveimg"></span></label></p>
+											<fieldset class="checkboxfieldset">
+												<p class="pmmthd">
+													Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+												</p>
+											</fieldset>
+											<div class="spacersmall"></div>
+										</div>
+										<div class="col-md-4">
+											<p><label class="mthrcheck"><%= f.check_box :terima_pembayaran3, {:id => "checkallJNE"}, "BCA-KLIKPAY", "NO" %><span class="spacingico"><img src="<%= image_path "transfer-3.png" %>" class="responsiveimg"></span></label></p>
+											<fieldset class="checkboxfieldset">
+												<p class="pmmthd">
+													Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+												</p>
+											</fieldset>
+											<div class="spacersmall"></div>
+										</div>
+									</div>
+								</div>
+                  <div id="formpengiriman" style="display:none;" class="form-row">
+										<label for="kec">Pilih Agen kurir dan layanan pengiriman yang ingin anda gunakan</label>
+										<div class="row">
+											<div class="col-md-4">
+												<p><label class="mthrcheck"><input type="checkbox" id="checkallJNE"/><img src="<%= image_path "pg-jne.jpg" %>" class="responsiveimg"></label></p>
+												<fieldset class="checkboxfieldset">
+													<legend>Paket JNE</legend>
+													<p><label><%= f.check_box :agen1, {:class => "cxjne"}, "JNE-REG", "NO" %><span data-toggle="tooltip" title="praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident">Reguler</span></label></p>
+													<p><label><%= f.check_box :agen2, {:class => "cxjne"}, "JNE-OKE", "NO" %><span data-toggle="tooltip" title="praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident">OKE</span></label></p>
+													<p><label><%= f.check_box :agen3, {:class => "cxjne"}, "JNE-YES", "NO" %><span data-toggle="tooltip" title="praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident">YES</span></label></p>
+												</fieldset>
+											</div>
+											<div class="col-md-4">
+												<p><label class="mthrcheck"><input type="checkbox" id="checkallTiki"/><img src="<%= image_path "pg-tiki.jpg" %>" class="responsiveimg"></label></p>
+												<fieldset class="checkboxfieldset">
+													<legend>Paket Tiki</legend>
+													<p><label><%= f.check_box :agen4, {:class => "cxtiki"}, "TIKI-REG", "NO" %><span data-toggle="tooltip" title="praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident">Reguler</span></label></p>
+													<p><label><%= f.check_box :agen5, {:class => "cxtiki"}, "TIKI-ONS", "NO" %><span data-toggle="tooltip" title="praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident">Over Night Service</span></label></p>
+												</fieldset>
+											</div>
+											<div class="col-md-4">
+												<p><label class="mthrcheck"><input type="checkbox" id="checkallPos"/><img src="<%= image_path "pg-pos.jpg" %>" class="responsiveimg"></label></p>
+												<fieldset class="checkboxfieldset">
+													<legend>Paket POS Indonesia</legend>
+													<p><label><%= f.check_box :agen6, {:class => "cxpos"}, "POS-BIASA", "NO" %><span data-toggle="tooltip" title="praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident">Paket Biasa</span></label></p>
+													<p><label><%= f.check_box :agen7, {:class => "cxpos"}, "POS-EXPRESS", "NO" %><span data-toggle="tooltip" title="praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident">Pos Express</span></label></p>
+												</fieldset>
+											</div>
+										</div>
+									</div>
+									<div class="form-row reg">
+										<input type="submit" name="" value="Simpan" class="gosignin" >
+                    <% end %>
+										<a href="#" id="batalbtn">Batal</a>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<label for="tpt typelight">(*) Opsional</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="spacerbig"></div>
+		<%= render 'layouts/footer' %>
+<script>
+  $( document ).on('ready page:load', function () {
+      $("#notice").delay(3000).fadeOut("slow");
+  });
+</script>
+<script>
+$(document).ready(function(){
+    $("#pengiriman").click(function(){
+        $("#formpengiriman").delay(500).fadeIn(1000);
+        $("#edittoko").fadeOut(500);
+        $("#formpembayaran").fadeOut(500);
+        $("#pengiriman").addClass("activeli");
+        $("#infotoko").removeClass("activeli");
+        $("#pembayarantoko").removeClass("activeli");
+    });
+    $("#infotoko").click(function(){
+          $("#edittoko").delay(500).fadeIn(1000);
+          $("#formpengiriman").fadeOut(500);
+          $("#formpembayaran").fadeOut(500);
+          $("#pengiriman").removeClass("activeli");
+          $("#infotoko").addClass("activeli");
+          $("#pembayarantoko").removeClass("activeli");
+      });
+      $("#pembayarantoko").click(function(){
+          $("#formpembayaran").delay(500).fadeIn(1000);
+          $("#formpengiriman").fadeOut(500);
+          $("#edittoko").fadeOut(500);
+          $("#pengiriman").removeClass("activeli");
+          $("#infotoko").removeClass("activeli");
+          $("#pembayarantoko").addClass("activeli");
+      });
+
+});
+</script>
+<script>
+    $('.provinsi option[value=<%=params[:provinsi]%>]').attr('selected','selected');
+    $('.kota option[value=<%=params[:kota]%>]').attr('selected','selected');
+</script>
+<script>
+$(document).on('ready page:load', function () {
+  $('.kecamatan').bind("keyup change", function(){
+
+        var a = $('.provinsi option:selected').text();
+        var b = $('.kota option:selected').text();
+        var c = $('.kecamatan option:selected').text();
+        $('#alamat_provinsi_sebagai').val(a);
+        $('#alamat_kota_sebagai').val(b);
+        $('#alamat_kecamatan_sebagai').val(c);
+    });
+});
+</script>
+<script>
+$(document).on('ready page:load', function () {
+  $('.provinsi, .kota').bind("keyup change", function(){
+        var newurl = "/tokos/<%= params[:id] %>" + '/edit/' + $('.provinsi').val() <% if @cit %>+ "/" + $('.kota').val()<% end %>;
+        Turbolinks.visit(newurl);
+});
+  });
+</script>
+<% else %>
+<script>
+$(document).on('ready page:load', function () {
+        window.location = "/";
+});
+</script>
+<% end %>

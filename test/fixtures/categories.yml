@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kategori: MyString
+  deskripsi: MyString
+  gambar_kategory: MyString
+  parent_id: 1
+
+two:
+  kategori: MyString
+  deskripsi: MyString
+  gambar_kategory: MyString
+  parent_id: 1

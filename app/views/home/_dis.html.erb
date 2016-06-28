@@ -1,0 +1,17 @@
+<select class="provinsi">
+<% @pro.each do |p| %>
+  <option value="<%= p['province_id'] %>"><%= p['province'] %></option>
+<% end %>
+</select>
+<select class="kota">
+<% @cit.each do |p| %>
+  <option value="<%= p['city_id'] %>"><%= p['city_name'] %></option>
+<% end %>
+</select>
+<% if @kec %>
+<select class="kecamatan">
+<% @kec.each do |p| %>
+  <option value="<%= p['subdistrict_id'] %>"><%= p['subdistrict_name'] %></option>
+<% end %>
+</select>
+<% end %>

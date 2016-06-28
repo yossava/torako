@@ -1,0 +1,24 @@
+<div class="col-md-6">
+                <% if user_signed_in? %>
+                <%= form_for(@favorite_produk) do |f| %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <%= f.hidden_field :produk_id, value: @produk.id %>
+                <% if @produk.user_id == current_user.id %>
+                <a disabled="disabled" style="background-color:grey;" class="lhsm-btn detailbtn orangebtn" ><i class="fa fa-star-o"></i> Produk Anda</a>
+                <% else %>
+                 <% if @fav.include? @produk.id %>
+								<a style="background-color:grey;" class="lhsm-btn detailbtn orangebtn" data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/favorite_produks/<%= @delfav.id %>"><i class="fa fa-star-o"></i> Hapus dari Wishlist</a>
+                <% else %>
+                <a onclick="document.getElementById('new_favorite_produk').submit()" class="lhsm-btn detailbtn orangebtn" href="#" data-toggle="modal" data-target="#wishlistpopup"><i class="fa fa-star-o"></i> Tambah ke Wishlist</a>
+                <% end %>
+                <% end %>
+                <% end %>
+							</div>
+							<div class="col-md-6">
+                <% if @produk.user_id == current_user.id %>
+                <a style="background-color:grey;" class="lhsm-btn detailbtn" href="#" data-toggle="modal" ><img src="<%= image_path "iconcart2.png" %>" style="background-color:grey;position:relative;left:-10px;width: 25px;"> Produk Anda</a>
+                <% else %>
+								<a class="lhsm-btn detailbtn" href="#" data-toggle="modal" data-target="#buynowform"><img src="<%= image_path "iconcart2.png" %>" style="position:relative;left:-10px;width: 25px;"> Beli Sekarang</a>
+                <% end %>
+                <% end %>
+							</div>

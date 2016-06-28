@@ -1,0 +1,228 @@
+<div class="wrapper">
+
+  <%= render 'admins/topbar' %>
+  <!-- Left side column. contains the logo and sidebar -->
+  <%= render 'admins/sidebar' %>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Stores Lists
+
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Store</a></li>
+        <li class="active">Store Lists</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Data User</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>ID Toko</th>
+                  <th>Nama Toko</th>
+                  <th>Owner Toko</th>
+                  <th>Jumlah Produk</th>
+                  <th>Jumlah Feedback</th>
+                  <th>Edit</th>
+                  <th>Hapus</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <% @stores.each do |u| %>
+                <tr>
+                  <td><%= u.id %></td>
+                  <td><%= u.nama_toko %></td>
+                  <td><%= User.find(u.user_id).namalengkap %>
+                  </td>
+                  <td><%= u.produks.count %></td>
+                  <td><%= u.feedbacks.count %></td>
+                  <td><a href="/admin/stores/<%= u.id %>">EDIT</a></td>
+                  <td><%= link_to "Hapus", admin_destroy_store_path(u), method: :delete, :data => {:confirm => 'Are you sure?'}  %>
+
+</td>
+                </tr>
+                <% end %>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>ID Toko</th>
+                  <th>Nama Toko</th>
+                  <th>Owner Toko</th>
+                  <th>Jumlah Produk</th>
+                  <th>Jumlah Feedback</th>
+                  <th>Edit</th>
+                  <th>Hapus</th>
+                </tr>
+                </tfoot>
+              </table>
+                  <div class="halaman">
+                  <%= will_paginate @stores %>
+                  </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <% if params[:id] %>
+      <div class="row">
+        <div class="col-xs-12">
+         <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Edit Toko: <%= @toko.nama_toko %></h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+              <%= form_for(@toko) do |f| %>
+               <% @toko.errors.full_messages.each do |message| %>
+              <%= message %>
+              <% end %>
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Nama Toko</label>
+                  <%= f.text_field :nama_toko, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Provinsi</label>
+                  <%= f.text_field :provinsi, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Kota</label>
+                  <%= f.text_field :kota, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Kecamatan</label>
+                  <%= f.text_field :kecamatan, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Ekspedisi</label>
+                  <%= f.text_field :agen1, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Ekspedisi</label>
+                  <%= f.text_field :agen2, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Ekspedisi</label>
+                  <%= f.text_field :agen3, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Ekspedisi</label>
+                  <%= f.text_field :agen4, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Ekspedisi</label>
+                  <%= f.text_field :agen5, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Ekspedisi</label>
+                  <%= f.text_field :agen6, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Ekspedisi</label>
+                  <%= f.text_field :agen7, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Slogan</label>
+                  <%= f.text_field :slogan, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Deskripsi</label>
+                  <%= f.text_field :deskripsi, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Status</label>
+                  <%= f.text_field :status, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Tutup Sampai</label>
+                  <%= f.text_field :tutup_sampai, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Gambar Toko</label>
+                  <%= f.text_field :toko_image, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Banner 1</label>
+                  <%= f.text_field :banner1, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Banner 2</label>
+                  <%= f.text_field :banner2, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Banner 3</label>
+                  <%= f.text_field :banner3, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Dibuat Pada <span class="label label-warning">read only</span></label>
+                  <span class="form-control"> <%= @toko.created_at %></span>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Terakhir Diupdate <span class="label label-warning">read only</span></label>
+                  <span class="form-control"> <%= @toko.updated_at %></span>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">User ID <span class="label label-warning">read only</span></label>
+                  <span class="form-control"> <%= @toko.user_id %> (<%= User.find(@toko.user_id).namalengkap %>)</span>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">KlikBCA</label>
+                  <%= f.text_field :terima_pembayaran1, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Transfer</label>
+                  <%= f.text_field :terima_pembayaran2, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Klikpay</label>
+                  <%= f.text_field :terima_pembayaran3, class: "form-control" %>
+                </div>
+
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+  </footer>
+
+
+</div>
+<% if notice.to_s.include? "Toko" %>
+<script>
+$(function () {
+    $.notiny({ text: "<%= notice %>", position: 'right-top' });
+  });
+</script>
+<% end %>
+

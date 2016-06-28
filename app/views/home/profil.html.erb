@@ -1,0 +1,84 @@
+<!-- Header -->
+    <%= render 'layouts/header' %>
+		<div id="topkeyword">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mobilemenu-opener ma5-toggle-menu"><i class="fa fa-bars"></i></div>
+						<%= render 'layouts/menumobile' %>
+						<span id="labeltopkeyword">Top Keyword</span>
+						<%= render 'layouts/topkey' %>
+						<%= render 'layouts/trolimobile' %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="nav-breadcumb">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="compresedmenu">
+							<div class="headingcompresed">
+								<i class="fa fa-bars"></i> &nbsp; <span>Kategori</span> &nbsp; <i class="fa fa-angle-down"></i>
+							</div>
+							<%= render 'layouts/sidemenu' %>
+						</div>
+						
+            <%= render 'layouts/bread' %>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ./Header -->
+
+		<div class="spacermedium"></div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<button type="button" class="btn" id="btn-SHsidebar"><i class="fa fa-user" style="margin-right:1em;"></i> Member Menu</button>
+				</div>
+			</div>
+			<div class="row">
+				<%= render 'layouts/sidebar' %>
+				<div class="col-md-9 col-sm-9 wrappermakctn">
+					<%= render 'layouts/tabakun' %>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="picprofile">
+								<span class="imgna"><% if current_user.profil_image.blank? %><img class="responsiveimg" src="<%= image_path "user.png" %>"><% else %><%= image_tag current_user.profil_image.avatar.url, class: "responsiveimg" %><% end %></span>
+								<a href="/edit" class="btn editprofile-btn ondesktop"><i class="fa fa-pencil-square"></i> Ubah Profil</a>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<div class="colomacr">
+								<h4 class="title">Data Diri</h4>
+								<p><span class="spacerrightspan">Nama</span> <span class="titikdua">:</span> <%= current_user.namalengkap %></p>
+								<p><span class="spacerrightspan">Tgl Lahir</span> <span class="titikdua">:</span><% if current_user.date_of_birth %> <%= l current_user.date_of_birth %><% end %></p>
+
+								<p><span class="spacerrightspan">Jenis Kelamin</span> <span class="titikdua">:</span>                 <% if current_user.is_female == true %>
+                Wanita
+                <% else %>
+                Pria
+                <% end %></p>
+								<p><span class="spacerrightspan">No Kontak</span> <span class="titikdua">:</span> <%= current_user.nomor_handphone %></p>
+							</div>
+							<div class="colomacr">
+								<h4 class="title">Data Akun</h4>
+								<p><span class="spacerrightspan">Email</span> <span class="titikdua">:</span> <%= current_user.email %></p>
+								<p><span class="spacerrightspan">Password</span> <span class="titikdua">:</span> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i></p>
+							</div>
+						</div>
+					</div>
+					<div class="row thisonmobile">
+						<div class="col-md-12">
+							<a href="/editprofil" class="btn editprofile-btn onmobile"><i class="fa fa-pencil-square"></i> Ubah Profil</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="spacerbig"></div>
+    <%= render "layouts/footer" %>

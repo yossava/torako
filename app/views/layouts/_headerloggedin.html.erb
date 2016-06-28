@@ -1,0 +1,42 @@
+    <div id="baratas">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 bl-kiri">
+						<ul>
+							<li><a href="#">e-voucher</a></li>
+							<li><a href="#">Hot Deals</a></li>
+							<li><a href="#">Voucher Deals</a></li>
+							<li><a href="#" class="typeorange">Promo!</a></li>
+						</ul>
+					</div>
+					<div class="col-md-6 col-sm-6 bl-kanan">
+						<ul>
+							<li><a href="#">Bantuan</a></li>
+							<%= render 'tokos/tokoheader' %>
+							<li class="akunsaya" >
+								<a href="#"  data-toggle="dropdown" role="button"><i class="fa fa-user"></i> &nbsp; Akun Saya &nbsp;<i class="fa fa-angle-down"></i></a>
+								<div class="dropdown-menu dropdown-menu-right styleddropdown-right myakun">
+									<div class="wraplistdrpmenu">
+										<div class="mnv2">
+											<a href="#">
+												<span class="picdrpmyakun"><% if current_user.profil_image.url.nil? %><img class="responsiveimg" src="<%= image_path "user.png" %>"><% else %><%= image_tag current_user.profil_image.avatar.url, class: "responsiveimg" %><% end %></span>
+												<h4 class="nameprofile-drmyakun"><%= current_user.namalengkap %></h4>
+												<span class="ketlinedrmyakun">Profil Saya</span>
+											</a>
+										</div>
+										<div class="mnv2">
+											<a href="#">
+												<h4 class="saldo-drmyakun">Rp 20.000.000</h4>
+												<span class="ketlinedrmyakun saldo">Saldo</span>
+											</a>
+										</div>
+										<div class="mnv2"><a href="/edit" class="styleddrop"><i class="fa fa-wrench"></i> &nbsp; Pengaturan</a></div>
+										<div class="mnv2"><a href="/logout" data-method="delete" class="styleddrop"><i class="fa fa-power-off"></i> &nbsp; Keluar</a></div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>

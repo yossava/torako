@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Seller:</strong>
+  <%= @status.seller_id %>
+</p>
+
+<p>
+  <strong>Buyer:</strong>
+  <%= @status.buyer_id %>
+</p>
+
+<p>
+  <strong>Stat:</strong>
+  <%= @status.stat %>
+</p>
+
+<%= link_to 'Edit', edit_status_path(@status) %> |
+<%= link_to 'Back', statuses_path %>

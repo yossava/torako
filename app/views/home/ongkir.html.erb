@@ -1,0 +1,46 @@
+<div id="isi"></div>
+<%= link_to "Display a new view", display_path, :remote => true %><br/>
+<select class="provinsi">
+<option>Pilih Provinsi</option>
+<% @pro.each do |p| %>
+  <option value="<%= p['province_id'] %>"><%= p['province'] %></option>
+<% end %>
+</select>
+<% if params[:provinsi] %>
+<select class="kota">
+<option>Pilih Kota/Kabupaten</option>
+<% @cit.each do |p| %>
+  <option value="<%= p['city_id'] %>"><%= p['city_name'] %></option>
+<% end %>
+</select>
+<% end %>
+<% if params[:kota] != "undefined" && params[:kota] %>
+<select class="kecamatan">
+<option>Pilih Kecamatan</option>
+<% @kec.each do |p| %>
+  <option value="<%= p['subdistrict_id'] %>"><%= p['subdistrict_name'] %></option>
+<% end %>
+</select>
+<% end %>
+<textarea class="text" disabled="disabled" rows="4" cols="50">
+
+</textarea>
+<script>
+    $('.provinsi option[value=<%=params[:provinsi]%>]').attr('selected','selected');
+    $('.kota option[value=<%=params[:kota]%>]').attr('selected','selected');
+</script>
+<script>
+$(document).on('ready page:load', function () {
+  $('.kecamatan').bind("keyup change", function(){
+        $('.text').prop("disabled", false);
+    });
+});
+</script>
+<script>
+$(document).on('ready page:load', function () {
+  $('.provinsi, .kota').bind("keyup change", function(){
+        var newurl = "/ongkir" + "/" + $('.provinsi').val() <% if @cit %>+ "/" + $('.kota').val()<% end %>;
+        Turbolinks.visit(newurl);
+    });
+});
+</script>

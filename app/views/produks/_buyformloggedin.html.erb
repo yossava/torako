@@ -1,0 +1,155 @@
+<div class="ctnblok-logreg">
+                <div class="hide">
+                <%= form_tag(hitungongkir_path, :method => "get", id: "search-form", class: "form", remote: true) do %>
+                <%= text_field_tag :asal, params[:asal], value: Toko.find(@produk.toko_id).kota %>
+                <%= text_field_tag :tujuan, params[:tujuan] %>
+                <button type="submit" class="cek" name=""> CEK</button>
+                <% end %>
+                </div>
+
+                        <%= form_for(@cart, html: {class: "form-row has-error", id: "form_buyproduk"}) do |f| %>
+                         <%= f.hidden_field :produk_id, value: @produk.id %>
+                         <%= f.hidden_field :seller_id, value: @produk.user_id %>
+                          <%= f.hidden_field :subtotal, class: "subtotal" %>
+                         <%= f.hidden_field :toko_id, value: @produk.toko_id %>
+                         <%= f.hidden_field :invoice, value: "INV/" + Time.now.strftime("%Y%m%d").to_s + "/" + @produk.toko_id.to_s + "/" + @produk.id.to_s + "/" + current_user.id.to_s %>
+													<!--<div class="alert alert-danger">
+<strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+</div>-->
+													<div class="row buynowform nmpro">
+														<div class="col-md-4"><label class="headingslbl">Nama Produk</label></div>
+														<div class="col-md-8"><p id="nmtpb-produk"><%= @produk.nama_produk %></p></div>
+													</div>
+													<div class="row buynowform qty">
+														<div class="col-md-4"><label class="headingslbl">Quantity</label></div>
+														<div class="col-md-8"> <%= f.text_field :jumlah, class: "quantity", value: 1 %>
+                            <input type="hidden" class="quantityform" value="<%= @produk.harga_beli %>" >
+                            <input type="hidden" name="cart[ongkir]" class="ongkirtotal">
+                            <input type="hidden" name="cart[kurir]" class="cartkurir">
+                            </div>
+													</div>
+													<div class="row buynowform ket">
+														<div class="col-md-4"><label class="headingslbl">Keterangan</label></div>
+														<div class="col-md-8">
+                              <%= f.text_area :catatan, rows: "2" %>
+														</div>
+													</div>
+													<div class="spacerform"></div>
+													<div class="row buynowform address">
+														<div class="buynowform-mainaddress">
+															<div class="col-md-12" style="position:relative;">
+																<label class="headingslbl">Alamat Tujuan</label>
+																<a style="float:right;color:lightblue;margin-bottom:5px;" target="blank" href="<%= alamats_path %>" class="">Edit Atau Gunakan Alamat Baru</a>
+																<a href="#" class="createnew-closer"><i class="fa fa-angle-left"></i> Kembali</a>
+															</div>
+															<div id="blokpls-newaddress" class="col-md-12" style="position:relative;">
+																<div class="colomacr">
+																	<div class="ctnblok-logreg row">
+																		<div class="col-md-6 mb-10">
+																			<label for="nmalamat">Alamat Sebagai</label>
+																			<input type="text" name="" id="nmalamat" placeholder="">
+																		</div>
+																		<div class="col-md-6 mb-10">
+																			<label for="penerima">Nama Penerima</label>
+																			<input type="text" name="" id="penerima" placeholder="">
+																		</div>
+																		<div class="col-md-12 mb-10">
+																			<label for="almt">Alamat</label>
+																			<textarea id="almt" rows="4" style="resize:none;"></textarea>
+																		</div>
+																		<div class="col-md-12 mb-10">
+																			<label for="kdpos">Kode Pos</label>
+																			<input type="text" name="" id="kdpos" placeholder="">
+																		</div>
+																		<div class="col-md-4 mb-10">
+																			<label for="prov">Provinsi</label>
+																			<select id="prov">
+																				<option>Pilih Provinsi</option>
+																				<option>10</option>
+																				<option>11</option>
+																				<option>12</option>
+																			</select>
+																		</div>
+																		<div class="col-md-4 mb-10">
+																			<label for="kota">Kotamadya / Kabupaten</label>
+																			<select id="kota">
+																				<option>Pilih Kabupaten</option>
+																				<option>10</option>
+																				<option>11</option>
+																				<option>12</option>
+																			</select>
+																		</div>
+																		<div class="col-md-4 mb-10">
+																			<label for="kec">Kecamatan</label>
+																			<select id="kec">
+																				<option>Pilih Kecamatan</option>
+																				<option>10</option>
+																				<option>11</option>
+																				<option>12</option>
+																			</select>
+																		</div>
+																		<div class="col-md-12 mb-10">
+																			<label for="tlp">Nomor Telepon</label>
+																			<input type="text" name="" id="tlp">
+																		</div>
+																	</div>
+																</div>
+															</div>
+                              <div style="width:95%;margin-left:13px;margin-bottom:20px;">
+                              <%= f.select :alamat_id, current_user.alamats.map {|c| [c.sebagai, c.id, {:'kota' => c.kabupaten}]}, include_blank: "Pilih Alamat" %>
+
+                              </div>
+                              <% current_user.alamats.each do |a| %>
+															<div style="margin-bottom:10px;" class="buynowform addressblock <%= a.kabupaten %>">
+																<div class="info-leftmainaddress">
+																	<label><%= a.sebagai %></label>
+																	<p style="margin:5px 0px;"><i class="fa fa-map-marker"></i> <%= a.sebagai %></p>
+																	<p><i class="fa fa-mobile"></i> <%= a.nomor_telepon %></p>
+																</div>
+																<div class="info-rightmainaddress">
+																	<p>
+																		<%= a.alamat %><br/><%= a.kecamatan_sebagai %><br/><%= a.kota_sebagai %><br/><%= a.provinsi_sebagai %> <%= a.kode_pos %>
+																	</p>
+																</div>
+															</div>
+                              <% end %>
+														</div>
+													</div>
+													<div class="spacerform"></div>
+													<div class="row buynowform kurir">
+														<div class="col-md-6 mb-10">
+															<label class="headingslbl">Kurir Pengiriman, tarif/kg</label>
+															<div id="ongkir"></div>
+
+														</div>
+														<div style="display:none;" class="col-md-4 mb-10">
+															<label class="headingslbl">Paket Pengiriman</label>
+															<select>
+																<option>- Paket Pengiriman -</option>
+																<option>Regular</option>
+																<option>OKE</option>
+																<option>YES</option>
+															</select>
+														</div>
+														<div class="col-md-4 mb-10">
+															<label class="headingslbl judulongkir">Ongkos Kirim (<%=@produk.berat / 1000 %> kg)</label>
+															<h4 class="rpongkir">Rp 0 ,-</h4>
+														</div>
+													</div>
+  <p style="font-size:12px;color:#EA174A;font-weight:bold;" >Perhatian ! Seller menggunakan: <% if Toko.find(@produk.toko_id).agen1 != "NO" %><%= Toko.find(@produk.toko_id).agen1 %>, <% end %><% if Toko.find(@produk.toko_id).agen2 != "NO" %><%= Toko.find(@produk.toko_id).agen2 %>, <% end %><% if Toko.find(@produk.toko_id).agen3 != "NO" %><%= Toko.find(@produk.toko_id).agen3 %>, <% end %><% if Toko.find(@produk.toko_id).agen4 != "NO" %><%= Toko.find(@produk.toko_id).agen4 %>, <% end %><% if Toko.find(@produk.toko_id).agen5 != "NO" %><%= Toko.find(@produk.toko_id).agen5 %>, <% end %><% if Toko.find(@produk.toko_id).agen6 != "NO" %><%= Toko.find(@produk.toko_id).agen6 %>, <% end %><% if Toko.find(@produk.toko_id).agen7 != "NO" %><%= Toko.find(@produk.toko_id).agen7 %><% end %><br/>Pastikan Anda memilih kurir yang didukung Seller</p>
+
+													<div class="spacerform"></div>
+													<div class="row buynowform subtotalrow">
+														<div class="col-md-12 ">
+															<label >Subtotal :</label>
+															<h4 class="total"><%= number_to_currency(@produk.harga_beli, locale: :id) %></h4>
+														</div>
+													</div>
+													<div class="spacerform"></div>
+													<div class="row buynowform getbuynow">
+														<div class="col-md-12">
+															<button type="submit" class="" name="commit"><i class="fa fa-shopping-cart"></i> Beli Produk Ini</button>
+														</div>
+													</div>
+                        <% end %>
+											</div>

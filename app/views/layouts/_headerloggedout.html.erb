@@ -1,0 +1,56 @@
+		<div id="baratas">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 bl-kiri">
+						<ul>
+							<li><a href="#">e-voucher</a></li>
+							<li><a href="#">Hot Deals</a></li>
+							<li><a href="#">Voucher Deals</a></li>
+							<li><a href="#" class="typeorange">Promo!</a></li>
+						</ul>
+					</div>
+					<div class="col-md-6 col-sm-6 bl-kanan">
+						<ul>
+							<li><a href="#">Bantuan</a></li>
+							<li><a href="/daftar">Daftar</a></li>
+							<li>
+								<a href="#"  data-toggle="dropdown" role="button">Masuk &nbsp; <i class="fa fa-angle-down"></i></a>
+								<div class="dropdown-menu masukdropdown">
+									<div class="col-md-12">
+										<div class="ctnblok-logreg">
+                      <%= form_for(:user, :url => session_path(:user)) do |f| %>
+											<div class="form-row has-error">
+												<label for="email">Email</label>
+												<input required="true" type="text" name="user[email]" id="email" placeholder="Masukan Email / Username">
+												<!--<p><i class="fa fa-exclamation-triangle"></i> &nbsp;Isikan Username</p>-->
+											</div>
+											<div class="form-row">
+												<label for="password">Password</label>
+												<input required="true" type="password" name="user[password]" id="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
+											</div>
+											<div class="form-row">
+												<input type="submit" name="commit" value="Log In" class="gosignin" >
+                        <% end %>
+												<div class="forgotpass"><a href="#">Lupa Password?</a></div>
+											</div>
+										</div>
+										<div class="spacermedium"></div>
+										<div class="ctn-otherlogreg">
+											<div class="headingblok-logreg bordered">
+												<h4>Atau Masuk Dengan:</h4>
+											</div>
+											<div class="listotherlogin">
+												<div class="sosmedlogin absolut"><a href="#"><span class="loginoptionbtn facebook"><i class="fa fa-facebook"></i></span></a></div>
+												<div class="sosmedlogin absolut"><a href="#"><span class="loginoptionbtn twitter"><i class="fa fa-twitter"></i></span></a></div>
+												<div class="sosmedlogin absolut"><a href="#"><span class="loginoptionbtn gplus"><i class="fa fa-google-plus"></i></span></a></div>
+												<div class="sosmedlogin absolut"><a href="#"><span class="loginoptionbtn instagram"><i class="fa fa-instagram"></i></span></a></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>

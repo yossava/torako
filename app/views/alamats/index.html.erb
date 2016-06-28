@@ -1,0 +1,88 @@
+<%= render 'layouts/header' %>
+<div id="topkeyword">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mobilemenu-opener ma5-toggle-menu"><i class="fa fa-bars"></i></div>
+						<%= render 'layouts/menumobile' %>
+						<span id="labeltopkeyword">Top Keyword</span>
+						<%= render 'layouts/topkey' %>
+						<%= render 'layouts/trolimobile' %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="nav-breadcumb">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="compresedmenu">
+							<div class="headingcompresed">
+								<i class="fa fa-bars"></i> &nbsp; <span>Kategori</span> &nbsp; <i class="fa fa-angle-down"></i>
+							</div>
+							<%= render 'layouts/sidemenu' %>
+						</div>
+						
+            <%= render 'layouts/bread' %>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ./Header -->
+
+		<div class="spacermedium"></div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<button type="button" class="btn" id="btn-SHsidebar"><i class="fa fa-user" style="margin-right:1em;"></i> Member Menu</button>
+				</div>
+			</div>
+			<div class="row">
+				<%= render 'layouts/sidebar' %>
+				<div class="col-md-9 col-sm-9 wrappermakctn">
+					<%= render 'layouts/tabakun' %>
+					<div class="row">
+						<div class="col-md-12">
+              <p id="notice"><%= notice %></p>
+							<a class="tambahalmt-btn" href="<%= new_alamat_path %>"><i class="fa fa-plus"></i> Tambah Baru</a>
+  							<div class="row">
+                <% @alamats.each do |alamat| %>
+								<div class="col-md-6">
+									<div class="colomacr">
+										<h4><%= alamat.sebagai %></h4>
+										<p>
+											Penerima : <%= alamat.nama_penerima %><br>
+											Telp : <%= alamat.nomor_telepon %>
+										</p>
+										<p>
+											<%= alamat.alamat %>
+										</p>
+										<div class="row">
+											<p class="col-md-4">Kecamatan : <%= alamat.kecamatan_sebagai %></p>
+											<p class="col-md-4">Kota : <%= alamat.kota_sebagai %></p>
+											<p class="col-md-4">Provinsi : <%= alamat.provinsi_sebagai %></p>
+										</div>
+										<a href="<%= edit_alamat_path(alamat) %>" class="editalm"><i class="fa fa-pencil"></i> Ubah</a>
+										<a data-confirm="Apakah anda yakin?" rel="nofollow" data-method="delete" href="alamats/<%= alamat.id %>" class="hpsalmt"><i class="fa fa-trash-o"></i> Hapus</a>
+									</div>
+								</div><% end %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="spacerbig"></div>
+    <%= render "layouts/footer" %>
+
+
+<script>
+  $( document ).on('ready page:load', function () {
+      $("#notice").delay(3000).fadeOut("slow");
+  });
+</script>
+
+

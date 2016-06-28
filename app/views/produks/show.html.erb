@@ -1,0 +1,403 @@
+<%= render 'layouts/header' %>
+		<div id="topkeyword">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mobilemenu-opener ma5-toggle-menu"><i class="fa fa-bars"></i></div>
+						<%= render 'layouts/menumobile' %>
+						<span id="labeltopkeyword">Top Keyword</span>
+						<%= render 'layouts/topkey' %>
+						<%= render 'layouts/trolimobile' %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="nav-breadcumb">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="compresedmenu">
+							<div class="headingcompresed">
+								<i class="fa fa-bars"></i> &nbsp; <span>Kategori</span> &nbsp; <i class="fa fa-angle-down"></i>
+							</div>
+							<%= render 'layouts/sidemenu' %>
+						</div>
+						<%= render 'layouts/bread' %>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ./Header -->
+
+		<div class="spacermedium"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+					<div class="previewproduk-detail">
+						<div class="wrapperimgdetail">
+							<img id="zoom_03" src="<%= @produk.foto_produk1.url %>" data-zoom-image="<%= @produk.foto_produk1.url %>" class="responsiveimg"/>
+              <% if @produk.harga_diskon %>
+							<span class="lagidiskon detail">-<%= @produk.diskon %>%</span>
+              <% end %>
+						</div>
+						<div class="ttpondesktop">
+							<div id="gallery_01" class="previewprodukcarousel">
+                <% if @produk.foto_produk1.url %>
+								<a class="listowldetail" href="#" data-image="<%= @produk.foto_produk1.url %>" data-zoom-image="<%= @produk.foto_produk1.url %>"><img id="img_01" src="<%= @produk.foto_produk1.url %>" /></a>
+                <% end %>
+                <% if @produk.foto_produk2.url %>
+								<a class="listowldetail" href="#" data-image="<%= @produk.foto_produk2.url %>" data-zoom-image="<%= @produk.foto_produk2.url %>"><img id="img_01" src="<%= @produk.foto_produk2.url %>" /></a>
+                <% end %>
+                <% if @produk.foto_produk3.url %>
+								<a class="listowldetail" href="#" data-image="<%= @produk.foto_produk3.url %>" data-zoom-image="<%= @produk.foto_produk3.url %>"><img id="img_01" src="<%= @produk.foto_produk3.url %>" /></a>
+                <% end %>
+                <% if @produk.foto_produk4.url %>
+								<a class="listowldetail" href="#" data-image="<%= @produk.foto_produk4.url %>" data-zoom-image="<%= @produk.foto_produk4.url %>"><img id="img_01" src="<%= @produk.foto_produk4.url %>" /></a>
+                <% end %>
+                <% if @produk.foto_produk5.url %>
+								<a class="listowldetail" href="#" data-image="<%= @produk.foto_produk5.url %>" data-zoom-image="<%= @produk.foto_produk5.url %>"><img id="img_01" src="<%= @produk.foto_produk5.url %>" /></a>
+                <% end %>
+
+							</div>
+						</div>
+					</div>
+					<div class="shareproduk">
+						<h4>Bagikan Produk:</h4>
+						<div class="sharethis">
+							<span class='st_facebook_hcount' displayText='Facebook'></span>
+							<span class='st_twitter_hcount' displayText='Tweet'></span>
+							<span class='st_googleplus_hcount' displayText='Google +'></span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-7">
+					<div class="deskripsiproduk-detail">
+						<div class="headingproduk-detail">
+							<h3><%= @produk.nama_produk %></h3>
+							<p>Availability  : <span class="typered">In Stock (123)</span></p>
+						</div>
+						<div class="ttponmobile">
+							<div id="gallery_01" class="previewprodukcarousel">
+								<% if @produk.foto_produk1.url %>
+								<a class="listowldetail" href="#" data-image="<%= @produk.foto_produk1.url %>" data-zoom-image="<%= @produk.foto_produk1.url %>"><img id="img_01" src="<%= @produk.foto_produk1.url %>" /></a>
+                <% end %>
+								<% if @produk.foto_produk2.url %>
+								<a class="listowldetail" href="#" data-image="<%= @produk.foto_produk2.url %>" data-zoom-image="<%= @produk.foto_produk2.url %>"><img id="img_01" src="<%= @produk.foto_produk2.url %>" /></a>
+                <% end %>
+								<% if @produk.foto_produk3.url %>
+								<a class="listowldetail" href="#" data-image="<%= @produk.foto_produk3.url %>" data-zoom-image="<%= @produk.foto_produk3.url %>"><img id="img_01" src="<%= @produk.foto_produk3.url %>" /></a>
+                <% end %>
+								<% if @produk.foto_produk4.url %>
+								<a class="listowldetail" href="#" data-image="<%= @produk.foto_produk4.url %>" data-zoom-image="<%= @produk.foto_produk4.url %>"><img id="img_01" src="<%= @produk.foto_produk4.url %>" /></a>
+                <% end %>
+								<% if @produk.foto_produk5.url %>
+								<a class="listowldetail" href="#" data-image="<%= @produk.foto_produk5.url %>" data-zoom-image="<%= @produk.foto_produk5.url %>"><img id="img_01" src="<%= @produk.foto_produk5.url %>" /></a>
+                <% end %>
+
+							</div>
+						</div>
+						<p class="isideskripsi-detail">
+							<%= @produk.deskripsi %>
+						</p>
+						<div class="harga-detail">
+							<span class="col-md-6 noppading-left col-xs-12">Harga Normal</span><span class="hargacoret-detail col-md-6 col-xs-12"><%= number_to_currency(@produk.harga, locale: :id) %></span>
+							<span class="col-md-6 noppading-left col-xs-12">Harga Setelah Diskon</span><span class="hargaasli-detail col-md-6 col-xs-12"><%= number_to_currency(@produk.harga_diskon, locale: :id) %></span>
+						</div>
+						<div class="opsiproduk-detail">
+              <% if user_signed_in? %>
+							<%= render 'produks/buybuttonloggedin' %>
+              <% else %>
+              <%= render 'produks/buybuttonloggedout' %>
+              <% end %>
+						</div>
+
+						<!--Modal-->
+						<div class="modal fade" id="wishlistpopup" role="dialog">
+							<div class="modal-dialog modal-sm">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h4 class="modal-title"><i class="fa fa-info-circle"></i> Wishlist</h4>
+									</div>
+									<div class="modal-body">
+										<p>Produk Telah Berhasil ditambahkan ke <a href="#"><strong>Wishlist</strong></a> Anda</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--Modal-->
+
+						<!--Modal-->
+						<div class="modal fade" id="buynowform" role="dialog">
+							<div class="modal-dialog modal-md">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h4 class="modal-title">Form Pembelian</h4>
+									</div>
+									<div class="modal-body">
+										<div class="colomacr">
+                      <% if user_signed_in? %>
+											<%= render 'produks/buyformloggedin' %>
+                      <% else %>
+                      <%= render 'produks/buyformloggedout' %>
+                      <% end %>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--Modal-->
+
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="borderedmargin"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-9">
+					<ul class="nav nav-tabs">
+						<li class="active"><a data-toggle="tab" href="#deskripsi">Deskripsi Produk</a></li>
+						<li><a data-toggle="tab" href="#ulasan">Ulasan(<%= @produk.feedbacks.count %>)</a></li>
+					</ul>
+
+					<div class="tab-content" style="padding-top: 1em;">
+						<div id="deskripsi" class="tab-pane fade in active">
+							<h4>Spesifikasi Lengkap</h4>
+							<p class="ctndes">
+								<%= @produk.deskripsi_lengkap %>
+							</p>
+						</div>
+						<div id="ulasan" class="tab-pane fade">
+							<div class="blok-ulasan">
+								<div class="headingulasan">
+									<img src="<%= image_path "ulasanicon.png" %>" class="ulasanicon"/>
+									<h3>Ulasan Produk</h3>
+								</div>
+								<div class="sectionbutton-ulasan">
+									<div class="pagingulasan">
+										<ul class="pagination styledpaging">
+											<li><a href="#"><span class="arrowpaging"><i class="fa fa-angle-left"></i></span></a></li>
+											<li><a href="#">1</a></li>
+											<li ><a href="#">2</a></li>
+											<li><a href="#">3</a></li>
+											<li class="active"><a href="#">4</a></li>
+											<li ><a href="#"><span class="arrowpaging"><i class="fa fa-angle-right"></i></span></a></li>
+										</ul>
+									</div>
+								</div>
+								<section class="ctnUlasan">
+									<ul>
+                    <% @produk.feedbacks.each do |f| %>
+										<li>
+											<div class="profilthumbUlasan">
+												<div class="thumb">
+													<img src="<%= User.find(f.user_id).profil_image.url %>" class="responsiveimg"/>
+												</div>
+												<div class="desinline">
+													<p><%= User.find(f.user_id).namalengkap %></p>
+													<span class="timedetails"><%= f.created_at %></span>
+													<div class="rattingprodukzzx"><span>Penilaian pembeli:</span> <i class="starblock ratting<%= f.rating %>"></i></div>
+												</div>
+											</div>
+											<div class="rating"></div>
+											<p class="ctnkutip-ulasan"><%= f.feed %></p>
+										</li>
+                    <% end %>
+
+								  </ul>
+							  </section>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="blok-penjual">
+				<div class="headingulasan penjual">
+					<h3>Informasi Penjual</h3>
+				</div>
+				<div class="profilthumbToko">
+					<div class="thumb">
+            <% if Toko.find(@produk.toko_id).toko_image.avatar.url %>
+						<img style="width:54px;" src="<%= Toko.find(@produk.toko_id).toko_image.avatar.url %>" class="responsiveimg"/>
+            <% else %>
+            <img style="width:54px;" src="<%= image_path 'tokopic.png' %>" class="responsiveimg"/>
+            <% end %>
+					</div>
+					<div class="desinline toko">
+						<p class="namaToko"><%= User.find(@produk.user_id).namalengkap %></p>
+						<p class="typeorange"><i class="fa fa-map-marker"></i> <%= Toko.find(@produk.toko_id).kota %></p>
+						<!--<p class="text">0875 654 653 xxx</p>-->
+						<p class="linkwebtoko typeblue"><%= Toko.find(@produk.toko_id).nama_toko %></p>
+						<a href="/tokos/<%= Toko.find(@produk.toko_id).id %>" class="lhsm-btn kunjungitoko">Kunjungi Toko</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	<br>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="heading-terkait">
+				<hr class="hrline">
+				<h4>Produk Terkait</h4>
+				<div class="absolutenavslide">
+					<a class="prevpr other" id="prevother"></a>
+					<a class="nextpr other" id="nextother"></a>
+				</div>
+			</div>
+			<div class="ctnterkait">
+				<div id="otherproduk" class="owl-carousel">
+          <% Produk.where(:category_id => @produk.category_id).each do |produk| %>
+					<div class="produkcarousel">
+						<div class="thumbfoto-produk">
+							<a href="<%= produk_path(produk.id) %>"><img src="<%= produk.foto_produk1.url %>" class="responsiveimg"/></a>
+              <% if produk.harga_diskon %>
+							<span class="lagidiskon">-<%= produk.diskon %>%</span>
+              <% end %>
+						</div>
+						<a href="<%= produk_path(produk.id) %>"><h4 class="titleproduk"><%= produk.nama_produk %></h4></a>
+						<div class="hargaasli"><%= number_to_currency(produk.harga, locale: :id) %></div>
+						<div class="hargacoret"><%= number_to_currency(produk.harga_diskon, locale: :id) %></div>
+						<a href="<%= toko_path(produk.toko_id) %>" class="tambahketroli"><span class="troliblack"></span><span class="ttb"><%= Toko.find(produk.toko_id).nama_toko %></span></a>
+					</div>
+          <% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+<div class="spacerbig"></div>
+<%= render 'layouts/footer' %>
+
+<!-- footer -->
+
+<script>
+	$(document).ready(function() {
+		var owl = $(".previewprodukcarousel");
+		owl.owlCarousel(
+			{
+				autoPlay : false,
+				items :4,
+				pagination : true,
+				lazyLoad : true,
+				goToFirstSpeed : 2000,
+				autoHeight : true,
+				responsive:true
+			}
+		);
+	});
+</script>
+<!--=============================== RevoSlider ==============================-->
+<script type="text/javascript">
+	var tpj=jQuery;
+	//tpj.noConflict();
+	tpj(document).on('ready page:load', function () {
+		if (tpj.fn.cssOriginal!=undefined)
+			tpj.fn.css = tpj.fn.cssOriginal;
+		tpj('.revolutionbanner').revolution(
+			{
+				delay:9000,
+				startwidth:'100%', 						// 1100 = default content width
+				startheight:335,
+				onHoverStop:"off",						// Stop Banner Timet at Hover on Slide on/off
+				hideThumbs:0,
+				navigationType:"bullet",
+				soloArrowLeftHalign:"left",
+				soloArrowLeftValign:"center",
+				soloArrowLeftHOffset:0,
+				soloArrowLeftVOffset:0,
+				soloArrowRightHalign:"right",
+				soloArrowRightValign:"center",
+				soloArrowRightHOffset:0,
+				soloArrowRightVOffset:0,
+				touchenabled:"On",						// Enable Swipe Function : on/off
+				stopAtSlide:-1,							// Stop Timer if Slide "x" has been Reached. If stopAfterLoops set to 0, then it stops already in the first Loop at slide X which defined. -1 means do not stop at any slide. stopAfterLoops has no sinn in this case.
+				stopAfterLoops:-1,						// Stop Timer if All slides has been played "x" times. IT will stop at THe slide which is defined via stopAtSlide:x, if set to -1 slide never stop automatic
+				hideCaptionAtLimit:0,					// It Defines if a caption should be shown under a Screen Resolution ( Basod on The Width of Browser)
+				hideAllCaptionAtLilmit:0,				// Hide all The Captions if Width of Browser is less then this value
+				hideSliderAtLimit:0,					// Hide the whole slider, and stop also functions if Width of Browser is less than this value
+				fullWidth:"off",
+				shadow:0								//0 = no Shadow, 1,2,3 = 3 Different Art of Shadows -  (No Shadow in Fullwidth Version !)
+			});
+	});
+</script>
+
+<script>
+    $("#zoom_03").elevateZoom({gallery:'gallery_01', cursor: 'pointer', galleryActiveClass: 'active', imageCrossfade: true, loadingIcon: 'gayana/gambar/icon/clock-loading.gif'});
+
+	$("#zoom_03").bind("click", function(e) {
+		var ez =   $('#zoom_03').data('elevateZoom');
+		$.fancybox(ez.getGalleryList());
+		return false;
+	});
+</script>
+<% if user_signed_in? %>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#cart_alamat_id").change(function(){
+        $('#ongkir').html("pilih alamat tujuan");
+        $(this).find("option:selected").each(function(){
+            if($(this).attr("value")=="red"){
+                $(".box").not(".red").fadeOut();
+                $(".red").fadeIn();
+            }
+            <% current_user.alamats.each do |a| %>
+            else if($(this).attr("kota")=="<%= a.kabupaten %>"){
+                $('#ongkir').html("sedang mengambil data...");
+                $(".addressblock").not(".<%= a.kabupaten %>").fadeOut();
+                $(".<%= a.kabupaten %>").fadeIn();
+            }<% end %>
+            else{
+                $(".addressblock").fadeOut();
+            }
+        });
+    }).change();
+});
+</script>
+<% end %>
+<script>
+  $('.quantity, .kurir').bind("keyup change", function(){
+    var $r = $(".quantityform");
+    var $d = $(".quantity");
+    var $s = $("#cart_ongkir");
+    var kurir = $('option:selected', this).attr('jenis');
+    if($r.length ==1){
+        var t = parseInt($r.val(), 10);
+        var n = parseInt($d.val(), 10);
+        var s = parseInt($s.val(), 10);
+        var berat = Math.round(n*<%= @produk.berat %>/1000);
+        var tot = t*n+s*berat;
+        var ongkir = s*berat;
+        if (isNaN(tot)) tot = 0;
+        if (isNaN(s)) s = 0;
+        if (isNaN(berat)) berat = 0;
+        if (isNaN(ongkir)) ongkir = 0;
+        $('.total').html("Rp " + tot + ",00");
+        $('.judulongkir').html("Ongkos Kirim (" + berat + "kg)");
+        $('.subtotal').val(tot);
+        $('.ongkirtotal').val(ongkir);
+        $('.cartkurir').val(kurir);
+        $('.rpongkir').html("Rp " + ongkir + ",00");
+
+
+    }
+});
+</script>
+<script>
+  $('#cart_alamat_id').bind("change", function(){
+    var alamat = $('option:selected', this).attr('kota');
+    $('#tujuan').val(alamat);
+    if ($('#tujuan').val() != ''){
+    $('.cek').click();
+    }
+});
+</script>

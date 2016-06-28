@@ -1,0 +1,130 @@
+<%= render 'layouts/header' %>
+		<div id="topkeyword">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mobilemenu-opener ma5-toggle-menu"><i class="fa fa-bars"></i></div>
+						<%= render 'layouts/menumobile' %>
+						<span id="labeltopkeyword">Top Keyword</span>
+						<%= render 'layouts/topkey' %>
+						<%= render 'layouts/trolimobile' %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="nav-breadcumb">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="compresedmenu">
+							<div class="headingcompresed">
+								<i class="fa fa-bars"></i> &nbsp; <span>Kategori</span> &nbsp; <i class="fa fa-angle-down"></i>
+							</div>
+							<%= render 'layouts/sidemenu' %>
+						</div>
+						<%= render 'layouts/bread' %>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ./Header -->
+
+		<div class="spacermedium"></div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="headingotherpage">
+						<h3>Ringkasan Pembelian</h3>
+					</div>
+				</div>
+			</div>
+			<div class="spacermedium"></div>
+			<div class="row">
+				<div class="col-md-12">
+          <% current_user.cart.each do |c| %>
+					<div class="wrapdtkonf nothide ">
+						<div class="heading-wdkf cartlist">
+              <h4>Pembelian dari Toko : <span style="text-transform:capitalize;font-weight:bold;"> <%= Toko.find(c.toko_id).nama_toko %></span></h4>
+							<span class="inv"><%= c.invoice %></span>
+						</div>
+						<ul class="list-unstyled">
+							<li>
+								<div class="row">
+									<div class="col-md-6 lpwp">
+										<span class="imglpwp"><img src="<%= Produk.find(c.produk_id).foto_produk1.url %>" class="responsiveimg"></span>
+										<h4><%= Produk.find(c.produk_id).nama_produk %></h4>
+										<p><%= c.jumlah %> X <%= number_to_currency(Produk.find(c.produk_id).harga_beli, locale: :id) %> </p>
+									</div>
+									<div class="col-md-3">
+										<label>Subtotal</label>
+										<p><%= number_to_currency(c.jumlah * Produk.find(c.produk_id).harga_beli, locale: :id) %></p>
+									</div>
+									<div class="col-md-3">
+										<label>Keterangan</label>
+										<p><%= c.catatan %></p>
+									</div>
+								</div>
+								<hr style="border-color:#ddd;"></hr>
+						</li>
+
+			</ul>
+		<div class="row">
+			<div class="col-md-6">
+				<label>Tujuan Pengiriman</label>
+				<p>Penerima : <%= Alamat.find(c.alamat_id).nama_penerima %></p>
+				<p>Telp : <%= Alamat.find(c.alamat_id).nomor_telepon %></p>
+				<p>
+					<%= Alamat.find(c.alamat_id).alamat %>, <%= Alamat.find(c.alamat_id).provinsi %>, <%= Alamat.find(c.alamat_id).kabupaten %> <%= Alamat.find(c.alamat_id).kode_pos %>
+				</p>
+			</div>
+			<div class="col-md-3">
+				<label>Kurir</label>
+				<p style="text-transform:uppercase;" ><%= c.kurir %></p>
+				<label>Ongkir</label>
+				<p><%= number_to_currency(c.ongkir, locale: :id) %></p>
+				<label>Total Barang</label>
+				<p><%= c.jumlah %> ( <%= c.jumlah * Produk.find(c.produk_id).berat %> Gram)</p>
+			</div>
+			<div class="col-md-3">
+				<label>Metode Pembayaran</label>
+				<p>Bank Transfer</p>
+			</div>
+		</div>
+		<hr style="border-color:#ddd;"></hr>
+	<div class="row">
+		<div class="col-md-12" style="text-align:right;font-size:18px;">
+			<label class="subtagihan">Total per tagihan : <span class="typeorange"><%= number_to_currency(c.subtotal, locale: :id) %></span><a data-confirm="Apakah anda yakin?" rel="nofollow" data-method="delete" href="carts/<%= c.id %>"> | <i class="fa fa-trash-o"></i> Hapus</a></label>
+		</div>
+	</div>
+	</div>
+<% end %>
+<div class="spacermedium"></div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="blok-to-checkout">
+			<div class="col-md-7 col-sm-6 col-xs-6">
+				<a href="/" id="lnjt_blnj"><i class="fa fa-angle-left"></i> &nbsp; Kembali</a>
+			</div>
+			<div class="col-md-3 col-sm-3 cp-borderedright col-xs-6">
+				<strong class="ttp">Total Pembayaran</strong>
+				<h4><%= number_to_currency(@subtotal.sum, locale: :id) %></h4>
+			</div>
+			<div class="col-md-2 col-sm-3 col-xs-12">
+        <% if current_user.cart.present? %>
+        <a href="/checkout" class="ckbtn-krnjng" >Bayar &nbsp; <i class="fa fa-angle-right"></i></a>
+        <% else %>
+        <a style="background-color:grey;" href="#" class="ckbtn-krnjng" >Bayar &nbsp; <i class="fa fa-angle-right"></i></a>
+        <% end %>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="spacerbig"></div>
+<%= render 'layouts/footer' %>

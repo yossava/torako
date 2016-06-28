@@ -1,0 +1,21 @@
+					<div class="row">
+						<div class="col-md-12">
+							<ul class="tablink-akun">
+                <% if current_page?('/profil') || current_page?('/editprofil') %>
+								<li class="activeli"><a href="/profil">Biodata Diri</a></li>
+                <% else %>
+                <li><a href="/profil">Biodata Diri</a></li>
+                <% end %>
+                <% if current_page?('/alamats') || current_page?('/alamats/new') %>
+                <li class="activeli"><a href="/alamats">Daftar Alamat</a></li>
+                <% else %>
+								<li><a href="/alamats">Daftar Alamat</a></li>
+                <% end %>
+                <% if current_page?('/rekenings') || current_page?('/rekenings/new') %>
+                <li class="activeli"><a href="/rekenings">Rekening Bank</a></li>
+                <% else %>
+								<li><a href="/rekenings">Rekening Bank</a></li>
+                <% end %>
+							</ul>
+						</div>
+					</div>

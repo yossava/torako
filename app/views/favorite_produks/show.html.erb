@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @favorite_produk.user_id %>
+</p>
+
+<p>
+  <strong>Produk:</strong>
+  <%= @favorite_produk.produk_id %>
+</p>
+
+<%= link_to 'Edit', edit_favorite_produk_path(@favorite_produk) %> |
+<%= link_to 'Back', favorite_produks_path %>

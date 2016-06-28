@@ -1,0 +1,92 @@
+<%= render 'layouts/header' %>
+		<div id="topkeyword">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mobilemenu-opener ma5-toggle-menu"><i class="fa fa-bars"></i></div>
+						<%= render 'layouts/menumobile' %>
+						<span id="labeltopkeyword">Top Keyword</span>
+						<%= render 'layouts/topkey' %>
+						<%= render 'layouts/trolimobile' %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="nav-breadcumb">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="compresedmenu">
+							<div class="headingcompresed">
+								<i class="fa fa-bars"></i> &nbsp; <span>Kategori</span> &nbsp; <i class="fa fa-angle-down"></i>
+							</div>
+							<%= render 'layouts/sidemenu' %>
+						</div>
+						
+            <%= render 'layouts/bread' %>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ./Header -->
+
+		<div class="spacermedium"></div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<button type="button" class="btn" id="btn-SHsidebar"><i class="fa fa-user" style="margin-right:1em;"></i> Member Menu</button>
+				</div>
+			</div>
+			<div class="row">
+				<%= render 'layouts/sidebar' %>
+				<div class="col-md-9 col-sm-9 wrappermakctn">
+					<div class="row">
+						<div class="col-md-12">
+							<div id="tab_in_myakun">
+								<div data-responsive-tabs>
+									<nav>
+										<ul class="listtabna ">
+											<li ><a href="#wishlist">Wishlist (7)</a></li>
+											<li><a href="#dilihat">Produk yang terakhir dilihat</a></li>
+										</ul>
+									</nav>
+									<div class="content isitab normal">
+										<section id="wishlist">
+                      <% current_user.favorites.each do |fav| %>
+											<div class="produkcarousel myakunproduk">
+												<div class="thumbfoto-produk">
+													<a href="/produks/<%= fav.id %>"><img src="<%= fav.foto_produk1.url %>" class="responsiveimg"/></a>
+													<span class="lagidiskon">-<%= fav.diskon %>%</span>
+												</div>
+												<a href="/produks/<%= fav.id %>"><h4 class="titleproduk"><%= fav.nama_produk %></h4></a>
+												<div class="hargaasli">Rp <%= fav.harga %></div>
+												<div class="hargacoret">Rp <%= fav.harga_diskon %></div>
+												<a href="/tokos/<%= Toko.find(fav.toko_id).id %>" class="tambahketroli"><span class="troliblack"></span><span class="ttb"><%= Toko.find(fav.toko_id).nama_toko %></span></a>
+											</div>
+                      <% end %>
+										</section>
+                    <section id="dilihat">
+											<div class="produkcarousel myakunproduk">
+												<div class="thumbfoto-produk">
+													<a href="#"><img src="gayana/gambar/konten/produk1.jpg" class="responsiveimg"/></a>
+													<span class="lagidiskon">-5%</span>
+												</div>
+												<a href="#"><h4 class="titleproduk">Blanditiis praesentium voluptatum deleniti..</h4></a>
+												<div class="hargaasli">Rp 250.000</div>
+												<div class="hargacoret">Rp 275.000</div>
+												<a href="#" class="tambahketroli"><span class="troliblack"></span><span class="ttb">Tambah ke Troli</span></a>
+											</div>
+										</section>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="spacerbig"></div>
+    <%= render 'layouts/footer' %>

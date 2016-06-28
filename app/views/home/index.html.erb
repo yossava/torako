@@ -1,0 +1,665 @@
+<div class="ma5-page">
+
+			<!-- Header -->
+        <% if user_signed_in? %>
+          <%= render "layouts/headerloggedin" %>
+        <% else %>
+          <%= render "layouts/headerloggedout" %>
+        <% end %>
+      <%= render "layouts/header" %>
+			<div id="topkeyword">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="mobilemenu-opener ma5-toggle-menu"><i class="fa fa-bars"></i></div>
+							<%= render 'layouts/menumobile' %>
+							<span id="labeltopkeyword">Top Keyword</span>
+							<%= render 'layouts/topkey' %>
+							<%= render 'layouts/trolimobile' %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- ./Header -->
+
+			<div class="spacermedium"></div>
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3 wrapsidemenu noppading-right pd2">
+						<div id="sidemenu">
+							<div class="headsidemneu">
+								<h4 class="headsidemneu"><i class="fa fa-bars"></i> &nbsp; Semua Kategori</h4>
+							</div>
+							<ul>
+									<li class="cat cat1">
+                    <span class="iconsidemenu ifashion"></span><a href="/categories/7">Fashion</a>
+										<div class="submenu">
+											<div class="rowsubmenu col-md-12">
+												<a href="#"><h4 class="haedingsub">Pakaian Wanita</h4></a>
+												<ul>
+													<li><a href="#">Atasan</a></li>
+													<li><a href="#">Bawahan</a></li>
+													<li><a href="#">Jeans</a></li>
+												</ul>
+												<div class="spacersmmenu"></div>
+											</div>
+											<div class="rowsubmenu  col-md-12">
+												<a href="#"><h4 class="haedingsub">Pakaian Pria</h4></a>
+												<ul>
+													<li><a href="#">Atasan</a></li>
+													<li><a href="#">Bawahan</a></li>
+													<li><a href="#">Kemeja</a></li>
+												</ul>
+												<div class="spacersmmenu"></div>
+											</div>
+											<div class="rowsubmenu  col-md-12">
+												<a href="#"><h4 class="haedingsub">Aksesoris</h4></a>
+												<ul>
+													<li><a href="#">Jam Tangan</a></li>
+													<li><a href="#">Topi</a></li>
+													<li><a href="#">Gelang / Kalung</a></li>
+												</ul>
+												<div class="spacersmmenu"></div>
+											</div>
+										</div>
+									</li>
+									<li class="cat cat2">
+                    <span class="iconsidemenu igadget"></span><a href="/categories/8">Gadget / Komputer</a>
+									</li>
+									<li class="cat cat3">
+										<span class="iconsidemenu ibeauty"></span><a href="/categories/9">Kecantikan / Kesehatan</a>
+									</li>
+									<li class="cat cat4">
+										<span class="iconsidemenu ibayianak"></span><a href="/categories/10">Bayi / Anak</a>
+									</li>
+									<li class="cat cat5">
+										<span class="iconsidemenu ielektro"></span><a href="/categories/11">Elekronik</a>
+									</li>
+									<li class="cat cat6">
+										<span class="iconsidemenu isport"></span><a href="/categories/12">Olahraga / Hobi / Otomotif</a>
+									</li>
+									<li class="cat cat7">
+										<span class="iconsidemenu ihome"></span><a href="/categories/13">Rumah / Kebun / Dapur</a>
+									</li>
+									<li class="cat cat8">
+										<span class="iconsidemenu ikupon"></span><a href="/categories/14">E-coupon</a>
+									</li>
+									<li class="cat cat9">
+										<span class="iconsidemenu isegar"></span><a href="/categories/15">Bahan Segar</a>
+									</li>
+									<li class="cat cat10">
+										<span class="iconsidemenu imakanan"></span><a href="/categories/16">Makanan</a>
+									</li>
+									<li class="cat cat11">
+										<span class="iconsidemenu iminuman"></span><a href="/categories/17">Minuman</a>
+									</li>
+									<li class="cat cat12">
+										<span class="iconsidemenu iperpri"></span><a href="/categories/18">Perawatan Pribadi</a>
+									</li>
+								</ul>
+						</div>
+					</div>
+					<div class="col-md-9">
+					<div class="row">
+					<div class="col-md-8 col-sm-12 wrapbnutama noppading">
+						<div id="bannerutama">
+							<div class="revolutionbanner" style="background-color:#fff;">
+								<ul>
+									<li data-transition="fade" data-slotamount="5" data-masterspeed="300">
+										<img src="<%= image_path "1.jpg" %>"  data-fullwidthcentering="on" alt="background" />
+									</li>
+									<li data-transition="fade" data-slotamount="5" data-masterspeed="500" data-delay="9400">
+										<img src="<%= image_path "2.jpg" %>"  data-fullwidthcentering="on" alt="background" />
+									</li>
+									<li data-transition="fade" data-slotamount="5" data-masterspeed="500" data-delay="9400">
+										<img src="<%= image_path "3.jpg" %>"  data-fullwidthcentering="on" alt="background" />
+									</li>
+								</ul>
+								<div class="tp-bannertimer tp-bottom"></div>
+							</div>
+							<div class="alasbullet"></div>
+						</div>
+					</div>
+					<div class="col-md-4 wrapbnkanan noppading-left">
+						<div id="bannerkanan">
+							<div id="slidebannerkanan" class="owl-carousel">
+								<div class="listcrausel item">
+									<!--listcarousel-->
+									<a href="#">
+										<img src="<%= image_path "bannerkanan.jpg" %>"  class="responsiveimg"/>
+									</a>
+								</div>
+								<div class="listcrausel item">
+									<!--listcarousel-->
+									<a href="#">
+										<img src="http://placehold.it/320X460" class="responsiveimg"/>
+									</a>
+								</div>
+								<div class="listcrausel item">
+									<!--listcarousel-->
+									<a href="#">
+										<img src="http://placehold.it/320X460" class="responsiveimg"/>
+									</a>
+								</div>
+							</div>
+							<div class="crausel-arrow">
+								<a class="prevbnk"><span class="prevbtn"><i class='fa fa-angle-left'></i></span></a>
+								<a class="nextbnk"><span class="nextbtn"><i class='fa fa-angle-right'></i></span></a>
+							</div>
+						</div>
+					</div>
+						</div>
+
+						<div class="row">
+							<div class="spacertop"></div>
+								<div class="wrappervd">
+							<div id="slidevoucherdeal" class="owl-carousel"-->
+                <% @couponproduct.each do |produkcoupon| %>
+								<div class="listcrauselvoucher item">
+									<!--listcarousel-->
+									<a data-no-turbolink="true"  href="/produks/<%= produkcoupon.id %>" class="wrapimgvd">
+										<img src="<%= produkcoupon.foto_produk1.url %>" class="responsiveimg"/>
+										<span class="labelvd">E-coupon</span>
+									</a>
+									<p class="vdtitle"><%= produkcoupon.nama_produk %></p>
+									<p class="fkvdh"><%= number_to_currency(produkcoupon.harga, locale: :id) %></p>
+									<span><%= number_to_currency(produkcoupon.harga_diskon, locale: :id) %></span>
+								</div>
+                 <% end %>
+							</div>
+							<a class="prevvc"><span class="prevbtn"><img src="<%= image_path "medium-arrowleft.png" %>"></span></a>
+							<a class="nextvc"><span class="nextbtn"><img src="<%= image_path "medium-arrowright.png" %>"></span></a>
+						</div>
+						</div>
+				</div>
+				</div>
+			</div>
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div id="tab_slider_produk">
+							<div data-responsive-tabs>
+								<nav class="headingtab">
+									<h4>Top Produk</h4>
+									<ul class="listtabna">
+										<li><a href="#fashion">Fashion</a></li>
+										<li><a data-no-turbolink="true" href="#gadgetkomputer">Gadget / Komputer</a></li>
+										<li><a href="#beauty">Beauty</a></li>
+										<li><a href="#elektronik" class="brelek">Elektronik</a></li>
+										<li><a href="#sporthobi">Sport / Hobi</a></li>
+										<li><a href="#homegarden">Home / Garden</a></li>
+										<li><a href="#service">Service</a></li>
+										<li><a href="#makanan">Makanan</a></li>
+									</ul>
+								</nav>
+								<div class="content isitab">
+									<section id="fashion">
+										<div id="fashionslider" class="owl-carousel">
+                      <% @pro.each do |p| %>
+											<div class="produkcarousel">
+												<div class="thumbfoto-produk">
+													<a data-no-turbolink="true"  href="/produks/<%= p.id %>"><img src="<%= p.foto_produk1.url %>" class="responsiveimg"/></a>
+													<% if p.harga_diskon %>
+                          <span class="lagidiskon">-<%= p.diskon %>%</span>
+                          <% end %>
+												</div>
+												<a data-no-turbolink="true"  href="/produks/<%= p.id %>"><h4 class="titleproduk"><%= p.nama_produk %></h4></a>
+												<% if p.harga_diskon %>
+                        <div class="hargaasli"><%= number_to_currency(p.harga_diskon, locale: :id) %></div>
+                        <% end %>
+												<div class="hargacoret"><%= number_to_currency(p.harga, locale: :id) %></div>
+												<a href="/tokos/<%= Toko.find(p.toko_id).id %>" class="tambahketroli"><span class="troliblack"></span><span class="ttb"><%= Toko.find(p.toko_id).nama_toko %></span></a>
+											</div>
+                      <% end %>
+										</div>
+										<a class="prevpr" id="prevfashion"></a>
+										<a class="nextpr" id="nextfashion"></a>
+									</section>
+									<section id="gadgetkomputer">
+										<div id="gadgetkomputerslider" class="owl-carousel">
+											<% @pro2.each do |p| %>
+											<div class="produkcarousel">
+												<div class="thumbfoto-produk">
+													<a data-no-turbolink="true"  href="/produks/<%= p.id %>"><img src="<%= p.foto_produk1.url %>" class="responsiveimg"/></a>
+													<% if p.harga_diskon %>
+                          <span class="lagidiskon">-<%= p.diskon %>%</span>
+                          <% end %>
+												</div>
+												<a data-no-turbolink="true"  href="/produks/<%= p.id %>"><h4 class="titleproduk"><%= p.nama_produk %></h4></a>
+												<% if p.harga_diskon %>
+                        <div class="hargaasli"><%= number_to_currency(p.harga_diskon, locale: :id) %></div>
+                        <% end %>
+												<div class="hargacoret"><%= number_to_currency(p.harga, locale: :id) %></div>
+												<a href="/tokos/<%= Toko.find(p.toko_id).id %>" class="tambahketroli"><span class="troliblack"></span><span class="ttb"><%= Toko.find(p.toko_id).nama_toko %></span></a>
+											</div>
+                      <% end %>
+										</div>
+										<a class="prevpr" id="prevgadgetkomputer"></a>
+										<a class="nextpr" id="nextgadgetkomputer"></a>
+									</section>
+									<section id="beauty">
+										<div id="beautyslider" class="owl-carousel">
+											<% @pro2.each do |p| %>
+											<div class="produkcarousel">
+												<div class="thumbfoto-produk">
+													<a data-no-turbolink="true"  href="/produks/<%= p.id %>"><img src="<%= p.foto_produk1.url %>" class="responsiveimg"/></a>
+													<% if p.harga_diskon %>
+                          <span class="lagidiskon">-<%= p.diskon %>%</span>
+                          <% end %>
+												</div>
+												<a data-no-turbolink="true"  href="/produks/<%= p.id %>"><h4 class="titleproduk"><%= p.nama_produk %></h4></a>
+												<% if p.harga_diskon %>
+                        <div class="hargaasli"><%= number_to_currency(p.harga_diskon, locale: :id) %></div>
+                        <% end %>
+												<div class="hargacoret"><%= number_to_currency(p.harga, locale: :id) %></div>
+												<a href="/tokos/<%= Toko.find(p.toko_id).id %>" class="tambahketroli"><span class="troliblack"></span><span class="ttb"><%= Toko.find(p.toko_id).nama_toko %></span></a>
+											</div>
+                      <% end %>
+										</div>
+										<a class="prevpr" id="prevbeauty"></a>
+										<a class="nextpr" id="nextbeauty"></a>
+									</section>
+									<section id="elektronik">
+										<div id="elektronikslider" class="owl-carousel">
+											<% @pro2.each do |p| %>
+											<div class="produkcarousel">
+												<div class="thumbfoto-produk">
+													<a data-no-turbolink="true"  href="/produks/<%= p.id %>"><img src="<%= p.foto_produk1.url %>" class="responsiveimg"/></a>
+													<% if p.harga_diskon %>
+                          <span class="lagidiskon">-<%= p.diskon %>%</span>
+                          <% end %>
+												</div>
+												<a data-no-turbolink="true"  href="/produks/<%= p.id %>"><h4 class="titleproduk"><%= p.nama_produk %></h4></a>
+												<% if p.harga_diskon %>
+                        <div class="hargaasli"><%= number_to_currency(p.harga_diskon, locale: :id) %></div>
+                        <% end %>
+												<div class="hargacoret"><%= number_to_currency(p.harga, locale: :id) %></div>
+												<a href="/tokos/<%= Toko.find(p.toko_id).id %>" class="tambahketroli"><span class="troliblack"></span><span class="ttb"><%= Toko.find(p.toko_id).nama_toko %></span></a>
+											</div>
+                      <% end %>
+										</div>
+										<a class="prevpr" id="prevelektronik"></a>
+										<a class="nextpr" id="nextelektronik"></a>
+									</section>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="spacermedium"></div>
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 noppading-right">
+						<div class="wraplistproduk4">
+							<div class="heading-blokbordered">
+								<h4>Spesial Promo</h4>
+								<a href="#"><span>Lihat Semua</span></a>
+							</div>
+              <% @pro3.each do |p| %>
+							<div class="listproduk4">
+								<div class="listproduk-landscape">
+									<div class="thumbfoto-produk">
+										<a data-no-turbolink="true"  href="/produks/<%= p.id %>"><img src="<%= p.foto_produk1.url %>" class="responsiveimg"/></a>
+
+                     <% if p.harga_diskon %>
+                    <span class="lagidiskon">-<%= p.diskon %>%</span>
+                    <% end %>
+									</div>
+									<div class="labelprodukkanan">
+										<a data-no-turbolink="true"  href="/produks/<%= p.id %>"><h4 class="titleproduk"><%= p.nama_produk %></h4></a>
+										<% if p.harga_diskon %>
+                    <div class="hargaasli"><%= number_to_currency(p.harga_diskon, locale: :id) %></div>
+                    <% end %>
+										<div class="hargacoret"><%= number_to_currency(p.harga, locale: :id) %></div>
+									</div>
+								</div>
+							</div>
+              <% end %>
+						</div>
+					</div>
+					<div class="col-md-4 noppading-left">
+						<a href="#"><img src="<%= image_path "bn-iklanside1.jpg" %>" class="responsiveimg iklanimage"></a>
+					</div>
+				</div>
+				<div class="spacermedium"></div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="fluid_iklan">
+							<a href="#"><img src="http://placehold.it/980x100" class="responsiveimg"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tab_normal_produk">
+							<div data-responsive-tabs>
+								<nav class="headingtab">
+									<h4>Terbaru</h4>
+									<ul class="listtabna">
+										<li class="active"><a href="#baru_fashion">Fashion</a></li>
+										<li><a href="#baru_gadgetkomputer">Gadget / Komputer</a></li>
+										<li><a href="#baru_beauty">Beauty</a></li>
+										<li><a href="#baru_elektronik">Elektronik</a></li>
+										<li><a href="#baru_sporthobi">Sport / Hobi</a></li>
+										<li><a href="#baru_homegarden">Home / Garden</a></li>
+										<li><a href="#baru_service">Baby</a></li>
+										<li><a href="#baru_makanan">Makanan</a></li>
+									</ul>
+								</nav>
+								<div class="content isitab normal">
+									<section id="baru_fashion">
+                      <% @fashionproduct.each do |produkfashion| %>
+										<div class="produkcarousel normalproduk">
+											<div class="thumbfoto-produk">
+												<a data-no-turbolink="true" href="/produks/<%= produkfashion.id %>"><img src="<%= produkfashion.foto_produk1.url %>" class="responsiveimg"/></a>
+                        <% if produkfashion.harga_diskon %>
+												<span class="lagidiskon">-<%= produkfashion.diskon %>%</span>
+                        <% end %>
+											</div>
+											<a data-no-turbolink="true" href="/produks/<%= produkfashion.id %>"><h4 class="titleproduk"><%= produkfashion.nama_produk %></h4></a>
+                      <% if produkfashion.harga_diskon %>
+											<div class="hargaasli"><%= number_to_currency(produkfashion.harga_diskon, locale: :id) %></div>
+                      <div class="hargacoret"><%= number_to_currency(produkfashion.harga, locale: :id) %></div>
+                      <% else %>
+                      <div class="hargaasli"><%= number_to_currency(produkfashion.harga, locale: :id) %></div>
+                      <div class="hargacoret">&nbsp;</div>
+                      <% end %>
+											<a href="/tokos/<%= Toko.find(produkfashion.toko_id).id %>" class="tambahketroli"><span class="troliblack"></span><span class="ttb"><%= Toko.find(produkfashion.toko_id).nama_toko %></span></a>
+										</div>
+                    <% end %>
+                    <a class="lhsm-btn blokmbl" href="/categories/7">Lihat Semua Produk</a>
+									</section>
+									<section id="baru_gadgetkomputer">
+                    <% @gadgetproduct.each do |produkfashion| %>
+										<div class="produkcarousel normalproduk">
+											<div class="thumbfoto-produk">
+												<a data-no-turbolink="true" href="/produks/<%= produkfashion.id %>"><img src="<%= produkfashion.foto_produk1.url %>" class="responsiveimg"/></a>
+                        <% if produkfashion.harga_diskon %>
+												<span class="lagidiskon">-<%= produkfashion.diskon %>%</span>
+                        <% end %>
+											</div>
+											<a data-no-turbolink="true" href="/produks/<%= produkfashion.id %>"><h4 class="titleproduk"><%= produkfashion.nama_produk %></h4></a>
+                      <% if produkfashion.harga_diskon %>
+											<div class="hargaasli"><%= number_to_currency(produkfashion.harga_diskon, locale: :id) %></div>
+                      <% end %>
+											<div class="hargacoret"><%= number_to_currency(produkfashion.harga, locale: :id) %></div>
+											<a href="/tokos/<%= Toko.find(produkfashion.toko_id).id %>" class="tambahketroli"><span class="troliblack"></span><span class="ttb"><%= Toko.find(produkfashion.toko_id).nama_toko %></span></a>
+										</div>
+                    <% end %>
+                    <a class="lhsm-btn blokmbl" href="/categories/8">Lihat Semua Produk</a>
+									</section>
+                  <section id="baru_beauty">
+                    <% @beautyproduct.each do |produkfashion| %>
+										<div class="produkcarousel normalproduk">
+											<div class="thumbfoto-produk">
+												<a data-no-turbolink="true" href="/produks/<%= produkfashion.id %>"><img src="<%= produkfashion.foto_produk1.url %>" class="responsiveimg"/></a>
+                        <% if produkfashion.harga_diskon %>
+												<span class="lagidiskon">-<%= produkfashion.diskon %>%</span>
+                        <% end %>
+											</div>
+											<a data-no-turbolink="true" href="/produks/<%= produkfashion.id %>"><h4 class="titleproduk"><%= produkfashion.nama_produk %></h4></a>
+                      <% if produkfashion.harga_diskon %>
+											<div class="hargaasli"><%= number_to_currency(produkfashion.harga_diskon, locale: :id) %></div>
+                      <% end %>
+											<div class="hargacoret"><%= number_to_currency(produkfashion.harga, locale: :id) %></div>
+											<a href="/tokos/<%= Toko.find(produkfashion.toko_id).id %>" class="tambahketroli"><span class="troliblack"></span><span class="ttb"><%= Toko.find(produkfashion.toko_id).nama_toko %></span></a>
+										</div>
+                    <% end %>
+                    <a class="lhsm-btn blokmbl" href="/categories/9">Lihat Semua Produk</a>
+									</section>
+									<section id="baru_elektronik">
+                    <% @electroproduct.each do |produkfashion| %>
+										<div class="produkcarousel normalproduk">
+											<div class="thumbfoto-produk">
+												<a data-no-turbolink="true" href="/produks/<%= produkfashion.id %>"><img src="<%= produkfashion.foto_produk1.url %>" class="responsiveimg"/></a>
+                        <% if produkfashion.harga_diskon %>
+												<span class="lagidiskon">-<%= produkfashion.diskon %>%</span>
+                        <% end %>
+											</div>
+											<a data-no-turbolink="true" href="/produks/<%= produkfashion.id %>"><h4 class="titleproduk"><%= produkfashion.nama_produk %></h4></a>
+                      <% if produkfashion.harga_diskon %>
+											<div class="hargaasli"><%= number_to_currency(produkfashion.harga_diskon, locale: :id) %></div>
+                      <% end %>
+											<div class="hargacoret"><%= number_to_currency(produkfashion.harga, locale: :id) %></div>
+											<a href="/tokos/<%= Toko.find(produkfashion.toko_id).id %>" class="tambahketroli"><span class="troliblack"></span><span class="ttb"><%= Toko.find(produkfashion.toko_id).nama_toko %></span></a>
+										</div>
+                    <% end %>
+                    <a class="lhsm-btn blokmbl" href="/categories/11">Lihat Semua Produk</a>
+									</section>
+									<section id="baru_sporthobi">
+                    <% @sportproduct.each do |produkfashion| %>
+										<div class="produkcarousel normalproduk">
+											<div class="thumbfoto-produk">
+												<a data-no-turbolink="true" href="/produks/<%= produkfashion.id %>"><img src="<%= produkfashion.foto_produk1.url %>" class="responsiveimg"/></a>
+                        <% if produkfashion.harga_diskon %>
+												<span class="lagidiskon">-<%= produkfashion.diskon %>%</span>
+                        <% end %>
+											</div>
+											<a data-no-turbolink="true" href="/produks/<%= produkfashion.id %>"><h4 class="titleproduk"><%= produkfashion.nama_produk %></h4></a>
+                      <% if produkfashion.harga_diskon %>
+											<div class="hargaasli"><%= number_to_currency(produkfashion.harga_diskon, locale: :id) %></div>
+                      <% end %>
+											<div class="hargacoret"><%= number_to_currency(produkfashion.harga, locale: :id) %></div>
+											<a href="/tokos/<%= Toko.find(produkfashion.toko_id).id %>" class="tambahketroli"><span class="troliblack"></span><span class="ttb"><%= Toko.find(produkfashion.toko_id).nama_toko %></span></a>
+										</div>
+                    <% end %>
+                    <a class="lhsm-btn blokmbl" href="/categories/12">Lihat Semua Produk</a>
+									</section>
+									<section id="baru_homegarden">
+                    <% @homeproduct.each do |produkfashion| %>
+										<div class="produkcarousel normalproduk">
+											<div class="thumbfoto-produk">
+												<a data-no-turbolink="true" href="/produks/<%= produkfashion.id %>"><img src="<%= produkfashion.foto_produk1.url %>" class="responsiveimg"/></a>
+                        <% if produkfashion.harga_diskon %>
+												<span class="lagidiskon">-<%= produkfashion.diskon %>%</span>
+                        <% end %>
+											</div>
+											<a data-no-turbolink="true" href="/produks/<%= produkfashion.id %>"><h4 class="titleproduk"><%= produkfashion.nama_produk %></h4></a>
+                      <% if produkfashion.harga_diskon %>
+											<div class="hargaasli"><%= number_to_currency(produkfashion.harga_diskon, locale: :id) %></div>
+                      <% end %>
+											<div class="hargacoret"><%= number_to_currency(produkfashion.harga, locale: :id) %></div>
+											<a href="/tokos/<%= Toko.find(produkfashion.toko_id).id %>" class="tambahketroli"><span class="troliblack"></span><span class="ttb"><%= Toko.find(produkfashion.toko_id).nama_toko %></span></a>
+										</div>
+                    <% end %>
+                    <a class="lhsm-btn blokmbl" href="/categories/13">Lihat Semua Produk</a>
+									</section>
+									<section id="baru_service">
+                    <% @babyproduct.each do |produkfashion| %>
+										<div class="produkcarousel normalproduk">
+											<div class="thumbfoto-produk">
+												<a data-no-turbolink="true" href="/produks/<%= produkfashion.id %>"><img src="<%= produkfashion.foto_produk1.url %>" class="responsiveimg"/></a>
+                        <% if produkfashion.harga_diskon %>
+												<span class="lagidiskon">-<%= produkfashion.diskon %>%</span>
+                        <% end %>
+											</div>
+											<a data-no-turbolink="true" href="/produks/<%= produkfashion.id %>"><h4 class="titleproduk"><%= produkfashion.nama_produk %></h4></a>
+                      <% if produkfashion.harga_diskon %>
+											<div class="hargaasli"><%= number_to_currency(produkfashion.harga_diskon, locale: :id) %></div>
+                      <% end %>
+											<div class="hargacoret"><%= number_to_currency(produkfashion.harga, locale: :id) %></div>
+											<a href="/tokos/<%= Toko.find(produkfashion.toko_id).id %>" class="tambahketroli"><span class="troliblack"></span><span class="ttb"><%= Toko.find(produkfashion.toko_id).nama_toko %></span></a>
+										</div>
+                    <% end %>
+                    <a class="lhsm-btn blokmbl" href="/categories/10">Lihat Semua Produk</a>
+									</section>
+									<section id="baru_makanan">
+                    <% @foodproduct.each do |produkfashion| %>
+										<div class="produkcarousel normalproduk">
+											<div class="thumbfoto-produk">
+												<a data-no-turbolink="true" href="/produks/<%= produkfashion.id %>"><img src="<%= produkfashion.foto_produk1.url %>" class="responsiveimg"/></a>
+                        <% if produkfashion.harga_diskon %>
+												<span class="lagidiskon">-<%= produkfashion.diskon %>%</span>
+                        <% end %>
+											</div>
+											<a data-no-turbolink="true" href="/produks/<%= produkfashion.id %>"><h4 class="titleproduk"><%= produkfashion.nama_produk %></h4></a>
+                      <% if produkfashion.harga_diskon %>
+											<div class="hargaasli"><%= number_to_currency(produkfashion.harga_diskon, locale: :id) %></div>
+                      <% end %>
+											<div class="hargacoret"><%= number_to_currency(produkfashion.harga, locale: :id) %></div>
+											<a href="/tokos/<%= Toko.find(produkfashion.toko_id).id %>" class="tambahketroli"><span class="troliblack"></span><span class="ttb"><%= Toko.find(produkfashion.toko_id).nama_toko %></span></a>
+										</div>
+                    <% end %>
+                    <a class="lhsm-btn blokmbl" href="/categories/16">Lihat Semua Produk</a>
+									</section>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="heading-blokbordered redbordered">
+							<h4>Recomended Produk</h4>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8 noppading-right">
+						<div class="wraplistproduk4 nobordered">
+							<% @pro4.each do |p| %>
+							<div class="listproduk4">
+								<div class="listproduk-landscape">
+									<div class="thumbfoto-produk">
+										<a data-no-turbolink="true"  href="/produks/<%= p.id %>"><img src="<%= p.foto_produk1.url %>" class="responsiveimg"/></a>
+										<% if p.harga_diskon %>
+                    <span class="lagidiskon">-<%= p.diskon %>%</span>
+                    <% end %>
+									</div>
+									<div class="labelprodukkanan">
+										<a data-no-turbolink="true"  href="/produks/<%= p.id %>"><h4 class="titleproduk"><%= p.nama_produk %></h4></a>
+										<% if p.harga_diskon %>
+                    <div class="hargaasli"><%= number_to_currency(p.harga_diskon, locale: :id) %></div>
+                    <% end %>
+										<div class="hargacoret"><%= number_to_currency(p.harga, locale: :id) %></div>
+									</div>
+								</div>
+							</div>
+              <% end %>
+						</div>
+					</div>
+					<div class="col-md-4 noppading-left">
+						<div class="iklansamping"><a href="#"><img src="<%= image_path "bn-iklanside2.jpg" %>" class="responsiveimg iklanimage"></a></div>
+						<div class="iklansamping"><a href="#"><img src="<%= image_path "bn-iklanside3.jpg" %>" class="responsiveimg iklanimage"></a></div>
+					</div>
+				</div>
+			</div>
+			<div class="spacerbig"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="heading-blokbordered nomargin">
+							<h4>Popular Brand</h4>
+							<a class="prevbrand" id="prevbrand"><i class="fa fa-angle-left"></i></a>
+							<a class="nextbrand" id="nextbrand"><i class="fa fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div id="brandcarousel" class="owl-carousel">
+							<div class="itembrand">
+								<a href="#"><img src="<%= image_path "brand1.jpg" %>" class="responsiveimg"></a>
+							</div>
+							<div class="itembrand">
+								<a href="#"><img src="<%= image_path "brand2.jpg" %>" class="responsiveimg"></a>
+							</div>
+							<div class="itembrand">
+								<a href="#"><img src="<%= image_path "brand3.jpg" %>" class="responsiveimg"></a>
+							</div>
+							<div class="itembrand">
+								<a href="#"><img src="<%= image_path "brand4.jpg" %>" class="responsiveimg"></a>
+							</div>
+							<div class="itembrand">
+								<a href="#"><img src="<%= image_path "brand5.jpg" %>" class="responsiveimg"></a>
+							</div>
+							<div class="itembrand">
+								<a href="#"><img src="<%= image_path "brand6.jpg" %>" class="responsiveimg"></a>
+							</div>
+							<div class="itembrand">
+								<a href="#"><img src="<%= image_path "brand1.jpg" %>" class="responsiveimg"></a>
+							</div>
+							<div class="itembrand">
+								<a href="#"><img src="<%= image_path "brand2.jpg" %>" class="responsiveimg"></a>
+							</div>
+							<div class="itembrand">
+								<a href="#"><img src="<%= image_path "brand3.jpg" %>" class="responsiveimg"></a>
+							</div>
+							<div class="itembrand">
+								<a href="#"><img src="<%= image_path "brand4.jpg" %>" class="responsiveimg"></a>
+							</div>
+							<div class="itembrand">
+								<a href="#"><img src="<%= image_path "brand5.jpg" %>" class="responsiveimg"></a>
+							</div>
+							<div class="itembrand">
+								<a href="#"><img src="<%= image_path "brand6.jpg" %>" class="responsiveimg"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+      <%= render "layouts/footer" %>
+</div>
+
+
+
+
+<!-- Script -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<!-- <%= javascript_include_tag "bootstrap.min" %> -->
+<%= javascript_include_tag "jquery-ui.min" %>
+<%= javascript_include_tag "pengaturan" %>
+<%= javascript_include_tag "responsivetabs.min" %>
+<%= javascript_include_tag "ma5-mobile-menu" %>
+<%= javascript_include_tag "jquery.touchSwipe.min.js" %>
+<%= javascript_include_tag "jquery.themepunch.plugins.min.js" %>
+<%= javascript_include_tag "jquery.themepunch.revolution.js" %>
+<%= javascript_include_tag "owl.carousel.js" %>
+<!-- ./Script -->
+
+			<!--=============================== RevoSlider ==============================-->
+			<script type="text/javascript">
+				var tpj=jQuery;
+				//tpj.noConflict();
+				tpj(document).on('ready page:load', function () {
+					if (tpj.fn.cssOriginal!=undefined)
+					tpj.fn.css = tpj.fn.cssOriginal;
+					tpj('.revolutionbanner').revolution(
+					{
+						delay:9000,
+						startwidth:576, 						// 1100 = default content width
+						startheight:390,
+						onHoverStop:"off",						// Stop Banner Timet at Hover on Slide on/off
+						hideThumbs:0,
+						navigationType:"bullet",
+						soloArrowLeftHalign:"left",
+						soloArrowLeftValign:"center",
+						soloArrowLeftHOffset:0,
+						soloArrowLeftVOffset:0,
+						soloArrowRightHalign:"right",
+						soloArrowRightValign:"center",
+						soloArrowRightHOffset:0,
+						soloArrowRightVOffset:0,
+						touchenabled:"On",						// Enable Swipe Function : on/off
+						stopAtSlide:-1,							// Stop Timer if Slide "x" has been Reached. If stopAfterLoops set to 0, then it stops already in the first Loop at slide X which defined. -1 means do not stop at any slide. stopAfterLoops has no sinn in this case.
+						stopAfterLoops:-1,						// Stop Timer if All slides has been played "x" times. IT will stop at THe slide which is defined via stopAtSlide:x, if set to -1 slide never stop automatic
+						hideCaptionAtLimit:0,					// It Defines if a caption should be shown under a Screen Resolution ( Basod on The Width of Browser)
+						hideAllCaptionAtLilmit:0,				// Hide all The Captions if Width of Browser is less then this value
+						hideSliderAtLimit:0,					// Hide the whole slider, and stop also functions if Width of Browser is less than this value
+						fullWidth:"off",
+						shadow:0								//0 = no Shadow, 1,2,3 = 3 Different Art of Shadows -  (No Shadow in Fullwidth Version !)
+					});
+				});
+			</script>

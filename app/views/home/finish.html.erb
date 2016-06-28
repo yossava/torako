@@ -1,0 +1,59 @@
+<%= render 'layouts/header' %>		
+<div id="topkeyword">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mobilemenu-opener ma5-toggle-menu"><i class="fa fa-bars"></i></div>
+						<%= render 'layouts/menumobile' %>
+						<span id="labeltopkeyword">Top Keyword</span>
+						<%= render 'layouts/topkey' %>
+						<%= render 'layouts/trolimobile' %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="nav-breadcumb">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="compresedmenu">
+							<div class="headingcompresed">
+								<i class="fa fa-bars"></i> &nbsp; <span>Kategori</span> &nbsp; <i class="fa fa-angle-down"></i>
+							</div>
+							<%= render 'layouts/sidemenu' %>
+						</div>
+						<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="#">Thanks Page</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ./Header -->
+
+		<div class="spacermedium"></div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="wrapperthankspage">
+						<div class="alert alert-success styledalert">
+							<h3 class="title">Anda telah berhasil membuat Toko di Loveitmart.com !</h3>
+						</div>
+						<p>
+							numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam
+						</p>
+						<p>
+							Sekarang Anda dapat melihat dan mengcustomize <a href="/tokos/<%= @toko.id %>/edit" class="typered">halaman toko Anda</a>, atau langsung  <a href="<%= new_produk_path %>" class="typered">menginput produk</a> pertama Anda.
+							Selamat Berjualan !
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="spacerbig"></div>
+    <%= render 'layouts/footer' %>

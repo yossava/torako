@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pemilik:</strong>
+  <%= @rekening.pemilik %>
+</p>
+
+<p>
+  <strong>Cabang:</strong>
+  <%= @rekening.cabang %>
+</p>
+
+<p>
+  <strong>Nomor rekening:</strong>
+  <%= @rekening.nomor_rekening %>
+</p>
+
+<p>
+  <strong>Nama bank:</strong>
+  <%= @rekening.nama_bank %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @rekening.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_rekening_path(@rekening) %> |
+<%= link_to 'Back', rekenings_path %>

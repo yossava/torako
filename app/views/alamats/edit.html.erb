@@ -1,0 +1,158 @@
+<%= render 'layouts/header' %>
+<div id="topkeyword">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mobilemenu-opener ma5-toggle-menu"><i class="fa fa-bars"></i></div>
+						<%= render 'layouts/menumobile' %>
+						<span id="labeltopkeyword">Top Keyword</span>
+						<%= render 'layouts/topkey' %>
+						<%= render 'layouts/trolimobile' %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="nav-breadcumb">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="compresedmenu">
+							<div class="headingcompresed">
+								<i class="fa fa-bars"></i> &nbsp; <span>Kategori</span> &nbsp; <i class="fa fa-angle-down"></i>
+							</div>
+							<%= render 'layouts/sidemenu' %>
+						</div>
+						<%= render 'layouts/bread' %>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ./Header -->
+
+		<div class="spacermedium"></div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<button type="button" class="btn" id="btn-SHsidebar"><i class="fa fa-user" style="margin-right:1em;"></i> Member Menu</button>
+				</div>
+			</div>
+			<div class="row">
+				<%= render 'layouts/sidebar' %>
+				<div class="col-md-9 col-sm-9 wrappermakctn">
+					<%= render 'layouts/tabakun' %>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="headingmac">
+								<h4>Ubah Alamat</h4>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="colomacr">
+								<div class="ctnblok-logreg">
+                  <%= form_for(@alamat) do |f| %>
+                  <%= f.hidden_field :provinsi_sebagai %>
+                  <%= f.hidden_field :kota_sebagai %>
+                  <%= f.hidden_field :kecamatan_sebagai %>
+                  <div style="display:none;" class="form-row">
+                    <%= f.label :Alamat_Sebagai %><br>
+                    <%= f.text_field :sebagai, required: "true" %>
+                  </div>
+                  <div style="display:none;" class="form-row">
+                    <%= f.label :Nama_penerima %><br>
+                    <%= f.text_field :nama_penerima, required: "true" %>
+                  </div>
+                  <div style="display:none;" class="form-row">
+                    <%= f.label :Alamat %><br>
+                    <%= f.text_area :alamat, required: "true" %>
+                  </div>
+                  <div style="display:none;" class="form-row">
+                    <%= f.label :Kode_Pos %><br>
+                    <%= f.text_field :kode_pos, required: "true" %>
+                  </div>
+                  <div class="form-row">
+										<label for="prov">Provinsi</label>
+										<select class="provinsi" required="true" name="alamat[provinsi]" id="prov">
+                        <option selected="selected" value="<%= @alamat.provinsi %>"><%= @prox %></option>
+                        <% @pro.each do |p| %>
+                        <option value="<%= p['province_id'] %>"><%= p['province'] %></option>
+                        <% end %>
+                      </select>
+									</div>
+                  <% if @alamat.kabupaten %>
+									<div class="form-row">
+										<label for="kota">Kota / Kabupaten</label>
+                    <select class="kota" required="true" name="alamat[kabupaten]" id="kota">
+                      <% if params[:provinsi] %>
+                      <% @cit.each do |p| %>
+                      <option value="<%= p['city_id'] %>"><%= p['city_name'] %></option>
+                      <% end %>
+                      <% else %>
+                      <option selected="selected" value="<%= @alamat.kabupaten %>"><%= @citx %></option>
+                      <% end %>
+                    </select>
+									</div>
+                  <% end %>
+                  <% if @alamat.kecamatan %>
+									<div class="form-row">
+										<label for="kec">Kecamatan</label>
+                      <select class="kecamatan" required="true" name="alamat[kecamatan]" id="kec">
+                        <% if params[:kota] != "undefined" && params[:kota] %>
+                        <% @kec.each do |p| %>
+                        <option value="<%= p['subdistrict_id'] %>"><%= p['subdistrict_name'] %></option>
+                        <% end %>
+                        <% else %>
+                        <option selected="selected" value="<%= @alamat.kecamatan %>"><%= @kecx %></option>
+                        <% end %>
+                      </select>
+									</div>
+                  <% end %>
+                  <div style="display:none;" class="form-row">
+                    <%= f.label :Nomor_Telepon %><br>
+                    <%= f.text_field :nomor_telepon, required: "true" %>
+                  </div>
+									<br>
+									<div style="display:none;" class="form-row reg">
+										<input type="submit" name="commit" value="Simpan" class="gosignin" >
+                    <% end %>
+										<a href="#" id="batalbtn">Batal</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="spacerbig"></div>
+    <%= render "layouts/footer" %>
+<script>
+    $('.provinsi option[value=<%=params[:provinsi]%>]').attr('selected','selected');
+    $('.kota option[value=<%=params[:kota]%>]').attr('selected','selected');
+</script>
+<script>
+$(document).on('ready page:load', function () {
+  $('.form-row').fadeIn(2000);
+  $('.kecamatan').bind("keyup change", function(){
+
+        var a = $('.provinsi option:selected').text();
+        var b = $('.kota option:selected').text();
+        var c = $('.kecamatan option:selected').text();
+        $('#alamat_provinsi_sebagai').val(a);
+        $('#alamat_kota_sebagai').val(b);
+        $('#alamat_kecamatan_sebagai').val(c);
+    });
+});
+</script>
+<script>
+$(document).on('ready page:load', function () {
+  $('.provinsi, .kota').bind("keyup change", function(){
+        var newurl = "/alamats/edit/<%= params[:id] %>" + "/" + $('.provinsi').val() <% if @cit %>+ "/" + $('.kota').val()<% end %>;
+        Turbolinks.visit(newurl);
+    });
+});
+</script>

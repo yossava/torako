@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Toko:</strong>
+  <%= @cart.toko_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @cart.user_id %>
+</p>
+
+<p>
+  <strong>Produk:</strong>
+  <%= @cart.produk_id %>
+</p>
+
+<p>
+  <strong>Invoice:</strong>
+  <%= @cart.invoice %>
+</p>
+
+<p>
+  <strong>Catatan:</strong>
+  <%= @cart.catatan %>
+</p>
+
+<p>
+  <strong>Jumlah:</strong>
+  <%= @cart.jumlah %>
+</p>
+
+<p>
+  <strong>Subtotal:</strong>
+  <%= @cart.subtotal %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @cart.total %>
+</p>
+
+<p>
+  <strong>Metode pembayaran:</strong>
+  <%= @cart.metode_pembayaran %>
+</p>
+
+<p>
+  <strong>Alamat:</strong>
+  <%= @cart.alamat_id %>
+</p>
+
+<p>
+  <strong>Kurir:</strong>
+  <%= @cart.kurir %>
+</p>
+
+<p>
+  <strong>Berat:</strong>
+  <%= @cart.berat %>
+</p>
+
+<%= link_to 'Edit', edit_cart_path(@cart) %> |
+<%= link_to 'Back', carts_path %>

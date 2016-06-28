@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nama_toko: MyString
+  provinsi: MyString
+  kota: MyString
+  kecamatan: MyString
+  agen1: MyString
+  agen2: MyString
+  agen3: MyString
+  agen4: MyString
+  agen5: MyString
+  agen6: MyString
+  agen7: MyString
+  slogan: MyString
+  deskripsi: MyText
+  alamat: MyText
+  status: MyString
+  tutup_sampai: 2016-06-03 06:27:10
+  gambar: MyString
+  banner1: MyString
+  banner2: MyString
+  banner2: MyString
+
+two:
+  nama_toko: MyString
+  provinsi: MyString
+  kota: MyString
+  kecamatan: MyString
+  agen1: MyString
+  agen2: MyString
+  agen3: MyString
+  agen4: MyString
+  agen5: MyString
+  agen6: MyString
+  agen7: MyString
+  slogan: MyString
+  deskripsi: MyText
+  alamat: MyText
+  status: MyString
+  tutup_sampai: 2016-06-03 06:27:10
+  gambar: MyString
+  banner1: MyString
+  banner2: MyString
+  banner2: MyString

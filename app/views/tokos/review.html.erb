@@ -1,0 +1,113 @@
+<%= render 'layouts/header' %>
+		<div id="topkeyword">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mobilemenu-opener ma5-toggle-menu"><i class="fa fa-bars"></i></div>
+						<%= render 'layouts/menumobile' %>
+						<span id="labeltopkeyword">Top Keyword</span>
+						<%= render 'layouts/topkey' %>
+						<%= render 'layouts/trolimobile' %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="nav-breadcumb">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="compresedmenu">
+							<div class="headingcompresed">
+								<i class="fa fa-bars"></i> &nbsp; <span>Kategori</span> &nbsp; <i class="fa fa-angle-down"></i>
+							</div>
+							<%= render 'layouts/sidemenu' %>
+						</div>
+						<div class="breadcumb">
+							<span><a href="#">Home</a></span>
+							<span>></span>
+							<span><a href="#">Toko</a></span>
+							<span>></span>
+							<span><a href="#">Review</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ./Header -->
+
+		<div class="spacermedium"></div>
+
+		<div class="container">
+			<div class="header_lp-toko">
+				<div class="wrap-left-htoko">
+					<div class="foto_toko"><img src="<%= @toko.toko_image.url %>" class="responsiveimg"></div>
+					<h1 class="title_toko"><%= @toko.nama_toko %> &nbsp; <span <% if @toko.status == "Tutup" %> style="background-color:red;"<% end %> class="label_sttoko"> Toko <%= @toko.status %></span></h1>
+          <% if @toko.status == "Tutup" %>
+          <br>Tutup Sampai: <%= @toko.tutup_sampai %>
+          <hr>
+          <% end %>
+					<label class="sttltoko"><%= @toko.slogan %></label>
+					<p class="shortse_toko">
+						<span class="quote_toko"><i class="fa fa-quote-left"></i></span> <%= @toko.deskripsi %>
+					</p>
+          <% if current_user.id == @toko.user_id %>
+					<a href="<%= edit_toko_path %>" class="linktokoedit"><i class="fa fa-cog"></i> Setting</a>
+          <% end %>
+				</div>
+			</div>
+			<div class="core_menu_toko">
+				<ul class="list-unstyled cmt-list">
+					<li ><a href="/tokos/<%= @toko.id %>">Produk</a></li>
+					<li class="active"><a href="#">Review</a></li>
+					<li><a href="#">Informasi Toko</a></li>
+					<li><a href="#">Catatan</a></li>
+				</ul>
+
+			</div>
+			<div class="row mainkntn_toko">
+				<div class="col-md-12">
+					<section class="ctnUlasan intoko">
+
+						<ul>
+              <% @toko.feedbacks.each do |t| %>
+							<li>
+								<div class="ft-produk-onsulasan">
+									<a href="#"><img src="<%= t.produk.foto_produk1.url %>" class="responsiveimg"></a>
+									<a href="#"><h4><%= t.produk.nama_produk %></h4></a>
+								</div>
+								<div class="right-ft-produk-ulasan">
+									<div class="profilthumbUlasan">
+										<div class="thumb">
+											<img src="<%= t.user.profil_image.url %>" class="responsiveimg">
+										</div>
+										<div class="desinline">
+											<p><%= t.user.namalengkap %></p>
+											<span class="timedetails"><%= t.created_at %></span>
+											<div class="rattingprodukzzx"><span>Penilaian pembeli:</span> <i class="starblock ratting<%= t.rating %>"></i></div>
+										</div>
+									</div>
+									<div class="rating"></div>
+									<p class="ctnkutip-ulasan"><%= t.feed %></p>
+								</div>
+							</li>
+              <% end %>
+						</ul>
+					</section>
+					</div>
+
+			</div>
+			<div class="pagingarea">
+				<ul class="pagination pagination-sm">
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+				</ul>
+				<p class="typelight">Menampilkan 1-15 dari 75 Produk</p>
+			</div>
+		</div>
+
+		<div class="spacerbig"></div>
+<%= render 'layouts/footer' %>

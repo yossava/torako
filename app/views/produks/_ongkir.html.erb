@@ -1,0 +1,14 @@
+<% if @count > 0 %>
+<select style="text-transform: uppercase;" class="kurir" required="required" id="cart_ongkir">
+<option selected="selected" value="">Pilih Ekspedisi</option>
+<% @all.each do |a| %>
+<% a['costs'].each do |b| %>
+<% b['cost'].each do |c| %>
+  <option jenis="<%= a['code'] %>-<%= b['service'] %>" value="<%= c['value'] %>"><%= a['code'] %>-<%= b['service'] %>-<%= c['value'] %></option>
+<% end %>
+<% end %>
+<% end %>
+</select>
+<% else %>
+Ekspedisi tidak tersedia
+<% end %>

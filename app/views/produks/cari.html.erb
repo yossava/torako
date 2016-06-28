@@ -1,0 +1,146 @@
+<%= render 'layouts/header' %>
+							<div id="topkeyword">
+								<div class="container">
+									<div class="row">
+										<div class="col-md-12">
+						<div class="mobilemenu-opener ma5-toggle-menu"><i class="fa fa-bars"></i></div>
+						<%= render 'layouts/menumobile' %>
+						<span id="labeltopkeyword">Top Keyword</span>
+						<%= render 'layouts/topkey' %>
+						<%= render 'layouts/trolimobile' %>
+					</div>
+									</div>
+								</div>
+							</div>
+
+							<div id="nav-breadcumb">
+								<div class="container">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="compresedmenu">
+												<div class="headingcompresed">
+													<i class="fa fa-bars"></i> &nbsp; <span>Kategori</span> &nbsp; <i class="fa fa-angle-down"></i>
+												</div>
+												<%= render 'layouts/sidemenu' %>
+											</div>
+											<div class="breadcumb">
+												<span><a href="/">Home</a></span>
+												<span>></span>
+												<span><a href="#">Hasil Pencarian</a></span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- ./Header -->
+
+							<div class="spacermedium"></div>
+
+							<div class="container">
+								<div class="row">
+									<div class="col-md-12">
+										<p class="tt-heading-cr">
+											Menampilkan Hasil Pencarian Dari Keyword <strong>"<%= params[:search] %>"</strong> <em class="typegrey">(<%= @produks.count %> items)</em>
+										</p>
+                    <% if @sort %>
+            <p class="hasilsort">Harga minimal: <strong><%= number_to_currency(@min,locale: :id) %></strong> | Harga maksimal:  <strong><%= number_to_currency(@maxvalue, locale: :id) %></strong> | Urutan: <strong><%= @sort %></strong></p>
+            <% end %>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="ggcari kt-sortview">
+											<form class="form-inline" role="form">
+                        <div class="row">
+                          <div class="col-md-6 col-sm-8">
+                            <div class="form-group filterFM form-row">
+                              <label>Urutkan</label>
+                              <select id="urut">
+                                <option>Urutan</option>
+                                <option selected="selected" value="<%= @sortselect %>"><%= @sort %></option>
+                                <option value="1">Terbaru</option>
+                                <option value="2">Terpopuler</option>
+                                <option value="3">Promo</option>
+                                <option value="4">Rating</option>
+                              </select>
+                            </div>
+                            <div class="form-group filterFM form-row">
+                              <label>Harga</label>
+                              <select id="harga">
+                                <option selected="selected" value="max=<%= @max %>&min=<%= @min %>">Rentang Harga</option>
+                                <option value="max=1000000000&min=0">Semua harga</option>
+                                <option value="max=100000&min=0">0 - 100rb</option>
+                                <option value="max=500000&min=100000">100rb - 500rb</option>
+                                <option value="max=1000000&min=500000">500rb-1jt</option>
+                                <option value="max=2500000&min=1000000">1jt-2,5jt</option>
+                                <option value="max=5000000&min=2500000">2,5jt-5jt</option>
+                                <option value="max=1000000000&min=5000000"> 5jt</option>
+                                <option>Tertinggi</option>
+                                <option>Terendah</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-md-3 col-sm-4 filteritm pull-right">
+                            <div class="form-group filterFM form-row">
+                              <label>Item per halaman</label>
+                              <select id="item">
+                                <option selected="selected" value="<%= @itemvalue %>"><%= @itemvalue %></option>
+                                <option value="5">5</option>
+                                <option value="15">15</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="75">75</option>
+                                <option value="125">125</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+										</div>
+										<div class="kt-list-produk">
+                        <% @cat.each do |p|%>
+												<div class="produklist">
+													<div class="thumbfoto-produk">
+														<a href="/produks/<%= p.id %>"><img src="<%= p.foto_produk1.url %>" class="responsiveimg"/></a>
+														<% if p.harga_diskon %>
+                            <span class="lagidiskon">-<%= p.diskon %>%</span>
+                            <% end %>
+													</div>
+													<a href="/produks/<%= p.id %>"><h4 class="titleproduk"><%= p.nama_produk %></h4></a>
+                          <% if p.harga_diskon %>
+													<div class="hargaasli"><%= number_to_currency(p.harga_diskon, locale: :id) %></div>
+                          <% end %>
+													<div class="hargacoret"><%= number_to_currency(p.harga, locale: :id) %></div>
+													<a href="/tokos/<%= Toko.find(p.toko_id).id %>" class="tambahketroli"><span class="troliblack"></span><span class="ttb"><%= Toko.find(p.toko_id).nama_toko %></span></a>
+												</div>
+                        <% end %>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="halaman">
+                    <%= will_paginate @cat %>
+                    </div>
+									</div>
+									<div class="col-md-12">
+										<p class="typelight">Menampilkan 1-<%= params[:item] %> dari <%= @produks.count %> Produk</p>
+									</div>
+								</div>
+							</div>
+
+						<div class="spacerbig"></div>
+<%= render 'layouts/footer' %>
+
+<script>
+$(document).on('ready page:load', function () {
+  $('#harga, #urut, #item').bind("keyup change", function(){
+        var newurl = "/cari?search=" + "<%= params[:search] %>" + "&" + $('#harga').val() + "&sort=" + $('#urut').val() + "&item=" + $('#item').val();
+         $('a.bar').attr('href',  newurl);
+        Turbolinks.visit(newurl);
+
+
+
+    });
+});
+</script>

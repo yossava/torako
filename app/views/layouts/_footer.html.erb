@@ -1,0 +1,65 @@
+			<!-- footer -->
+			<footer id="cokir">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="footer-tentang">
+								<a id="logofooter_linked" href="#"><img src="<%= image_path "loveitmart.png" %>" class="responsiveimg" alt="love it mart"></a>
+								<p class="f-des-logo">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+								</p>
+							</div>
+						</div>
+					</div>
+					<%=raw Homeitem.find(2).description %>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="borderedspacer"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class=" f-pembayaran">
+							<ul>
+								<li><img src="<%= Homeitem.find(1).img1.url %>"></li>
+								<li><img src="<%= Homeitem.find(1).img2.url %>"></li>
+								<li><img src="<%= Homeitem.find(1).img3.url %>"></li>
+								<li><img src="<%= Homeitem.find(1).img4.url %>"></li>
+								<li><img src="<%= Homeitem.find(1).img5.url %>"></li>
+								<li><img src="<%= Homeitem.find(1).img6.url %>"></li>
+							</ul>
+						</div>
+						<div class="f-cs">
+							Customer Service : <span class="typered">[021] 987 765XX</span>
+						</div>
+						<div class="f-email">
+							Email Support : <span class="typered">support@loveitmart.com</span>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<div id="bottombar">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-sm-6">
+							<span class="copyright">&copy; 2015 Loveitmart. All right reserved.</span>
+						</div>
+						<div class="col-md-6 col-sm-6">
+							<span class="vhfooter">Supported by Villagehoster</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- ./footer -->
+<% if current_page?('/') %>
+<% else %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<%= javascript_include_tag "jquery-ui.min" %>
+<%= javascript_include_tag "pengaturan" %>
+<%= javascript_include_tag "responsivetabs.min" %>
+<%= javascript_include_tag "ma5-mobile-menu" %>
+<%= javascript_include_tag "jquery.touchSwipe.min" %>
+<%= javascript_include_tag "jquery.themepunch.plugins.min" %>
+<%= javascript_include_tag "jquery.themepunch.revolution" %>
+<%= javascript_include_tag "owl.carousel" %>
+<%= javascript_include_tag "jquery.elevatezoom" %>
+<% end %>

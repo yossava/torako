@@ -1,0 +1,49 @@
+		<header id="pala">
+			<div class="container">
+				<div class="row">
+					<div id="mainpala">
+						<div class="col-sm-3 col-md-3 col-lg-3">
+							<a id="logo" href="/"><%= image_tag image_path "loveitmart.png", class: "responsiveimg", alt: "love it mart" %></a>
+						</div>
+						<div class="col-sm-6 col-md-6 col-lg-6">
+							<div class="pencarian">
+                <%= form_tag(cari_path, :method => "get", id: "search-form", class: "form") do %>
+                <div class="form-group search-input">
+                <%= text_field_tag :search, params[:search], placeholder: "Pakaian, Gadget atau apapun..", id: "caridisini" %>
+                </div>
+                <button type="submit" class="btn-search gosearch"><i class="fa fa-search"></i></button>
+                <% end %>
+							</div>
+						</div>
+						<div class="col-sm-3 col-md-3 col-lg-3">
+							<div class="troliatas">
+								<div class="itemtrolli dropdown">
+									<span id="ttmitem">
+										<a data-toggle="dropdown" role="button">Troli - (<% if user_signed_in? %><%= @troli.count %><% else%>0<% end %>)</a>
+										<ul class="dropdown-menu styleddropdown submenu">
+                      <% if user_signed_in? %>
+                      <% @troli.each do |c| %>
+											<li>
+												<a href="#" class="wrapctncart">
+													<div class="thumbcart">
+														<img src="<%= Produk.find(c.produk_id).foto_produk1.url %>" class="responsiveimg">
+													</div>
+													<div class="ctncart">
+														<h4><%= Produk.find(c.produk_id).nama_produk %></h4>
+														<span class="typeorange"><%= number_to_currency(Produk.find(c.produk_id).harga, locale: :id) %></span>
+													</div>
+												</a>
+											</li>
+                      <% end %>
+                      <% end %>
+											<li><a href="/bayar" class="lhsm-btn cart">Checkout</a></li>
+										</ul>
+									</span>
+									<a href="#"><span id="icontroli"></span></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>

@@ -1,0 +1,190 @@
+#user_date_of_birth_1i {
+  width: 25%;
+  height: 35px;
+  border: solid 2px lightgray;
+  border-radius: 2px;
+}
+#user_date_of_birth_2i {
+  margin-left: 20px;
+  width: 35%;
+  height: 35px;
+  border: solid 2px lightgray;
+  border-radius: 2px;
+}
+#user_date_of_birth_3i {
+  float: right;
+  width: 30%;
+  height: 35px;
+  border: solid 2px lightgray;
+  border-radius: 2px;
+}
+#alamat_alamat {
+  height: 150px;
+}
+#alamat_provinsi,#alamat_kabupaten,#alamat_kecamatan,#rekening_nama_bank,.passwordrek {
+  width: 100%;
+  height: 35px;
+  border: solid 2px lightgray;
+  border-radius: 2px;
+}
+#user_email {
+  width: 100%;
+  height: 32px;
+  border: solid 2px lightgray;
+  border-radius: 2px;
+}
+
+.title,.nameprofile-drmyakun, label, p.namaToko, p.linkwebtoko.typeblue, .ttb, h1.title_toko{
+  text-transform: capitalize;
+}
+#error_explanation {
+  width: 100% !important;
+  text-decoration:none !important;
+  list-style-type: none !important;
+}
+#error_explanation li{
+    list-style-type: none !important;
+}
+p#notice{
+  width: 100%;
+  text-align:center;
+  background: #b3ffb3;
+}
+.hide {
+  display:none;
+}
+#upper {
+  text-transform: uppercase;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    text-transform: none;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    text-transform: none;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    text-transform: none;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    text-transform: none;
+}
+a.lhsm-btn.detailbtn:hover, a.lhsm-btn.kunjungitoko:hover, .linktokoedit:hover, a.gosignin.blokmbl:hover, a.blokmbl:hover, a#prevfashion:hover, a#nextfashion:hover  {
+  transition: background-color 0.5s ease;
+  background-color: #EA174A;
+
+}
+.punyadiskon {
+  color: orange;
+  cursor: pointer;
+  font-weight: bold;
+}
+.punyadiskon:hover {
+  color: red;
+}
+.halaman a {
+  color: grey;
+  text-decoration: none;
+  padding: 5px 8px 5px 8px;
+  background-color: white ;
+  border-top: solid 1px lightgray;
+  border-left: solid 1px lightgray;
+  border-bottom: solid 1px lightgray;
+  margin-right: -3px;
+}
+.halaman em {
+  color: white;
+  text-decoration: none;
+  padding: 5px 8px 5px 8px;
+  background-color: rgb(235, 14, 67) ;
+  border-top: solid 1px lightgray;
+  border-left: solid 1px lightgray;
+  border-bottom: solid 1px lightgray;
+  margin-right: -3px;
+}
+.halaman .disabled {
+  border-radius: 2px;
+  border-top: solid 1px lightgray;
+  border-left: solid 1px lightgray;
+  border-bottom: solid 1px lightgray;
+  padding: 5px 8px 5px 8px;
+  color: grey;
+  margin-right: -3px;
+
+}
+.halaman .next_page {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top: solid 1px lightgray;
+  border-right: solid 1px lightgray;
+  border-bottom: solid 1px lightgray;
+
+}
+.halaman .previous_page {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top: solid 1px lightgray;
+  border-left: solid 1px lightgray;
+  border-bottom: solid 1px lightgray;
+
+}
+h4.titleproduk {
+  height: 34px;
+}
+.hargacoret {
+  height: 22px;
+}
+
+.hasilsort {
+  margin-top: 10px;
+  color: orange;
+  margin-bottom: 15px;
+}
+.cat:hover {
+  cursor: pointer;
+  cursor: hand;
+  text-decoration:none;
+}
+
+.produklist {
+  width: 188px !important;
+  margin-left: 2px;
+  margin-right: 1px;
+}
+
+.starRating:not(old){
+  display        : inline-block;
+  width          : 7.5em;
+  height         : 1.5em;
+  overflow       : hidden;
+  vertical-align : bottom;
+}
+
+.starRating:not(old) > input{
+  margin-right : -100%;
+  opacity      : 0;
+}
+
+.starRating:not(old) > label{
+  display         : block;
+  float           : right;
+  position        : relative;
+  background      : url('star-off.svg');
+  background-size : contain;
+}
+
+.starRating:not(old) > label:before{
+  content         : '';
+  display         : block;
+  width           : 1.5em;
+  height          : 1.5em;
+  background      : url('star-on.svg');
+  background-size : contain;
+  opacity         : 0;
+  transition      : opacity 0.2s linear;
+}
+
+.starRating:not(old) > label:hover:before,
+.starRating:not(old) > label:hover ~ label:before,
+.starRating:not(:hover) > :checked ~ label:before{
+  opacity : 1;
+}

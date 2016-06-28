@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Homeitems</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Img1</th>
+      <th>Img2</th>
+      <th>Img3</th>
+      <th>Img4</th>
+      <th>Img5</th>
+      <th>Img6</th>
+      <th>Img7</th>
+      <th>Img8</th>
+      <th>Img9</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @homeitems.each do |homeitem| %>
+      <tr>
+        <td><%= homeitem.title %></td>
+        <td><%= homeitem.description %></td>
+        <td><%= homeitem.img1 %></td>
+        <td><%= homeitem.img2 %></td>
+        <td><%= homeitem.img3 %></td>
+        <td><%= homeitem.img4 %></td>
+        <td><%= homeitem.img5 %></td>
+        <td><%= homeitem.img6 %></td>
+        <td><%= homeitem.img7 %></td>
+        <td><%= homeitem.img8 %></td>
+        <td><%= homeitem.img9 %></td>
+        <td><%= link_to 'Show', homeitem %></td>
+        <td><%= link_to 'Edit', edit_homeitem_path(homeitem) %></td>
+        <td><%= link_to 'Destroy', homeitem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Homeitem', new_homeitem_path %>

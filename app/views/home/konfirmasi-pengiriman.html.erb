@@ -1,0 +1,330 @@
+<%= render 'layouts/header' %>
+		<div id="topkeyword">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mobilemenu-opener ma5-toggle-menu"><i class="fa fa-bars"></i></div>
+						<%= render 'layouts/menumobile' %>
+						<span id="labeltopkeyword">Top Keyword</span>
+						<%= render 'layouts/topkey' %>
+						<%= render 'layouts/trolimobile' %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="nav-breadcumb">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="compresedmenu">
+							<div class="headingcompresed">
+								<i class="fa fa-bars"></i> &nbsp; <span>Kategori</span> &nbsp; <i class="fa fa-angle-down"></i>
+							</div>
+							<%= render 'layouts/sidemenu' %>
+						</div>
+
+            <%= render 'layouts/bread' %>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ./Header -->
+
+		<div class="spacermedium"></div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<button type="button" class="btn" id="btn-SHsidebar"><i class="fa fa-user" style="margin-right:1em;"></i> Member Menu</button>
+				</div>
+			</div>
+			<div class="row">
+				<%= render 'layouts/sidebar' %>
+				<div class="col-md-9 col-sm-9 wrappermakctn">
+					<div class="row">
+						<div class="col-md-12">
+							<%= render 'layouts/sellertab' %>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<form>
+								<div class="row">
+									<div class="col-md-4 listfmxx">
+										<div class="form-row">
+											<input type="text" name="" id="nmtoko" placeholder="Invoice / Nama Pembeli">
+										</div>
+									</div>
+									<div class="col-md-3 listfmxx">
+										<div class="form-row styledfmrow">
+											<select>
+												<option>Batal Otomatis</option>
+												<option>Hari Ini</option>
+												<option>Besok</option>
+												<option>2 Hari Lagi</option>
+												<option>3 Hari Lagi</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-3 listfmxx">
+										<div class="form-row styledfmrow">
+											<input type="submit" name="" value="Filter" class="gosignin" >
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 wraplist-neworder">
+							<ul>
+                <% if @stroli7 %>
+                <% @stroli7.each do |s| %>
+								<li>
+									<div class="row">
+										<div class="col-md-3">
+											<span class="thumbft_pembeli"><img src="<%= User.find(s.user_id).profil_image.url %>" class="responsiveimg"></span>
+											<p class="lfttlmg">Pembelian oleh :</p>
+											<strong><%= User.find(s.user_id).namalengkap %></strong>
+										</div>
+										<div class="col-md-9 rightneworder-ctn">
+											<p class="title"><strong><%= number_to_currency(s.subtotal, locale: :id) %></strong> &nbsp; <a href="#" class="">  <%= s.invoice %></a></p>
+											<p class="tgln"><span>Tanggal Transaksi: <%= s.created_at %></span> &nbsp;-&nbsp; Batal Otomatis <span class="label label-danger">3 hari lagi</span></p>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="wrapdtkonf">
+														<div class="heading-wdkf">
+															<h4>Pembelian oleh : <strong><%= User.find(s.user_id).namalengkap %></strong></h4>
+															<span class="inv"><%= s.invoice %></span>
+														</div>
+														<div class="row">
+															<div class="col-md-6 lpwp">
+																<span class="imglpwp"><img src="<%= Produk.find(s.produk_id).foto_produk1.url %>" class="responsiveimg"></span>
+																<h4><%= Produk.find(s.produk_id).nama_produk %></h4>
+																<p><%= s.jumlah %> X <%= Produk.find(s.produk_id).harga %></p>
+															</div>
+															<div class="col-md-3">
+																<label>Subtotal</label>
+																<p><%= Produk.find(s.produk_id).harga * s.jumlah %></p>
+															</div>
+															<div class="col-md-3">
+																<label>Ongkir</label>
+																<p><%= s.ongkir %></p>
+															</div>
+														</div>
+														<hr style="border-color:#ddd;"></hr>
+														<div class="row">
+															<div class="col-md-6">
+																<label>Tujuan Pengiriman</label>
+																<p>Penerima : <%= Alamat.find(s.alamat_id).nama_penerima %></p>
+																<p>Telp : <%= Alamat.find(s.alamat_id).nomor_telepon %></p>
+																<p>
+																	<%= Alamat.find(s.alamat_id).alamat %>, <%= Alamat.find(s.alamat_id).kecamatan_sebagai %>, <%= Alamat.find(s.alamat_id).kota_sebagai %>, <%= Alamat.find(s.alamat_id).provinsi_sebagai %>, <%= Alamat.find(s.alamat_id).kode_pos %>
+																</p>
+															</div>
+															<div class="col-md-6">
+																<label>Kurir</label>
+																<p><%= s.kurir %></p>
+																<label>Keterangan</label>
+																<p><%= s.catatan %></p>
+															</div>
+														</div>
+														<hr style="border-color:#ddd;"></hr>
+														<div class="row">
+															<div class="col-md-12" style="text-align:right;font-size:18px;">
+																<label class="typeorange">Total : <%= s.subtotal %></label>
+															</div>
+														</div>
+													</div>
+													<a href="#" class="showdtkonf"><i class="fa fa-plus"></i>&nbsp; Tampilkan Detail</a>
+													<a href="#" class="hidedtkonf hide"><i class="fa fa-minus"></i>&nbsp; Sembunyikan Detail</a>
+												</div>
+											</div>
+											<div class="spacermedium"></div>
+											<div>
+												<a href="#" id="terimaPbtn" data-toggle="modal" data-target="#pengirimanMD<%= s.id %>"><i class="fa fa-check"></i> Konfirmasi Pengiriman</a>
+											</div>
+										</div>
+									</div>
+								</li>
+                <% end %>
+                <% else %>
+                <li>
+                <p>Tidak ada konfirmasi pengiriman</p>
+                 </li>
+                <% end %>
+							</ul>
+						</div>
+						<div class="col-md-12">
+							<p class="typelight">Menampilkan 1-3 dari 3 transaksi</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--Modal Form Konfirmasi Pengiriman-->
+      <% if @stroli7 %>
+      <% @stroli7.each do |s| %>
+			<div class="modal fade" id="pengirimanMD<%= s.id %>" role="dialog">
+				<div class="modal-dialog modal-md">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Form Konfirmasi Pengiriman</h4>
+						</div>
+						<div class="modal-body">
+							<div class="colomacr">
+								<div class="ctnblok-logreg">
+									<div class="form-row has-error">
+										<div class="row">
+											<div class="col-md-4"><label for="nmpembeli">Nama Pembeli</label></div>
+											<div class="col-md-8"><p><strong class="nmpembeli"> <%= User.find(s.user_id).namalengkap %> </strong></p></div>
+											<!--<p><i class="fa fa-exclamation-triangle"></i> &nbsp;Isikan Username</p>-->
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="row">
+											<div class="col-md-4"><label for="nminvoice">Nomor Invoice</label></div>
+											<div class="col-md-8"><p><strong class="nminvoice"> <%= s.invoice %> </strong></p></div>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="row">
+											<div class="col-md-4"><label for="pilihankurir">Pilihan Kurir</label></div>
+											<div class="col-md-8"><p><strong class="pilihankurir"> <%= s.kurir %> </strong></p></div>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="row">
+											<div class="col-md-4"><label for="pmblian">Jumlah Pembelian</label></div>
+											<div class="col-md-8"><p><strong class="pmblian"> <%= s.jumlah %> Item </strong></p></div>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="row">
+											<div class="col-md-4"><label for="pmblian">Nilai Transaksi</label></div>
+											<div class="col-md-8"><p><strong class="pmblian"> <%= number_to_currency(s.subtotal, locale: :id) %> </strong></p></div>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="row">
+											<div class="col-md-4"><label for="pngrman">Tujuan Pengiriman</label></div>
+											<div class="col-md-8">
+												<p style="text-transform:capitalize;" ><strong><%= Alamat.find(s.alamat_id).nama_penerima %> &nbsp; (<%= Alamat.find(s.alamat_id).nomor_telepon%>)</strong></p>
+												<p class="pngrman">
+													<%= Alamat.find(s.alamat_id).alamat %>, <%= Alamat.find(s.alamat_id).kecamatan_sebagai %>,<%= Alamat.find(s.alamat_id).kota_sebagai %><br/><%= Alamat.find(s.alamat_id).provinsi_sebagai %> <%= Alamat.find(s.alamat_id).kode_pos %>
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="form-row">
+										<label for="tgpng">Tanggal Pengiriman</label>
+										<div class="row" id="tgpng">
+											<div class="col-md-4">
+												<select>
+													<option>Tanggal</option>
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+                          <option>10</option>
+                          <option>11</option>
+                          <option>12</option>
+                          <option>13</option>
+                          <option>14</option>
+                          <option>15</option>
+                          <option>16</option>
+                          <option>17</option>
+                          <option>18</option>
+                          <option>19</option>
+                          <option>20</option>
+                          <option>21</option>
+                          <option>22</option>
+                          <option>23</option>
+                          <option>24</option>
+                          <option>25</option>
+                          <option>26</option>
+                          <option>27</option>
+                          <option>28</option>
+                          <option>29</option>
+                          <option>30</option>
+                          <option>31</option>
+												</select>
+												<div class="spacermedium"></div>
+											</div>
+											<div class="col-md-5">
+												<select>
+													<option>Bulan</option>
+													<option>Januarir</option>
+													<option>Februari</option>
+													<option>Maret</option>
+                          <option>April</option>
+                          <option>Mei</option>
+                          <option>Juni</option>
+                          <option>Juli</option>
+                          <option>Agustus</option>
+                          <option>Sepetember</option>
+                          <option>Oktober</option>
+                          <option>November</option>
+                          <option>Desember</option>
+												</select>
+												<div class="spacermedium"></div>
+											</div>
+											<div class="col-md-3">
+												<select>
+													<option>Tahun</option>
+													<option>2016</option>
+                          <option>2017</option>
+                          <option>2018</option>
+                          <option>2019</option>
+                          <option>2020</option>
+                          <option>2021</option>
+                          <option>2022</option>
+                          <option>2023</option>
+                          <option>2024</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="row">
+											<div class="col-md-4"><label for="nminvoice">Nomor Resi</label></div>
+											<div class="col-md-8">
+												<input class="resi" type="text" name="" value="" placeholder="Masukan Nomor Resi">
+											</div>
+										</div>
+									</div>
+									<div class="form-row reg">
+                    <a href="/konfirmasi-pengiriman/<%= s.id %>" class="gosignin blokmbl">Konfirmasi</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+						</div>
+					</div>
+				</div>
+			</div>
+      <% end %>
+      <% end %>
+
+		</div>
+
+		<div class="spacerbig"></div>
+<%= render 'layouts/footer' %>
+<script>
+$(document).ready(function() {
+     var _href = $("a.gosignin").attr("href");
+    $('.resi').keyup(function() {
+      var newurl = "/" + $('.resi').val();
+      $('a.gosignin').attr('href', _href + newurl);
+    });
+});
+</script>

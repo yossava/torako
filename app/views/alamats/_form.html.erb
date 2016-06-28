@@ -1,0 +1,49 @@
+<%= form_for(@alamat) do |f| %>
+  <% if @alamat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@alamat.errors.count, "error") %> prohibited this alamat from being saved:</h2>
+
+      <ul>
+      <% @alamat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sebagai %><br>
+    <%= f.text_field :sebagai %>
+  </div>
+  <div class="field">
+    <%= f.label :nama_penerima %><br>
+    <%= f.text_field :nama_penerima %>
+  </div>
+  <div class="field">
+    <%= f.label :alamat %><br>
+    <%= f.text_area :alamat %>
+  </div>
+  <div class="field">
+    <%= f.label :kode_pos %><br>
+    <%= f.text_field :kode_pos %>
+  </div>
+  <div class="field">
+    <%= f.label :provinsi %><br>
+    <%= f.text_field :provinsi %>
+  </div>
+  <div class="field">
+    <%= f.label :kabupaten %><br>
+    <%= f.text_field :kabupaten %>
+  </div>
+  <div class="field">
+    <%= f.label :kecamatan %><br>
+    <%= f.text_field :kecamatan %>
+  </div>
+  <div class="field">
+    <%= f.label :nomor_telepon %><br>
+    <%= f.text_field :nomor_telepon %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

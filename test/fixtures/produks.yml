@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nama_produk: MyString
+  kategori: MyString
+  sub_kategori: MyString
+  harga: 9.99
+  harga_diskon: 9.99
+  berat: 9.99
+  foto_produk1: MyString
+  foto_produk2: MyString
+  foto_produk3: MyString
+  foto_produk4: MyString
+  foto_produk5: MyString
+  foto_produk6: MyString
+  deskripsi: MyText
+  harga_grosir1min: 9.99
+  harga_grosir1max: 9.99
+  harga_grosir1max: MyString
+
+two:
+  nama_produk: MyString
+  kategori: MyString
+  sub_kategori: MyString
+  harga: 9.99
+  harga_diskon: 9.99
+  berat: 9.99
+  foto_produk1: MyString
+  foto_produk2: MyString
+  foto_produk3: MyString
+  foto_produk4: MyString
+  foto_produk5: MyString
+  foto_produk6: MyString
+  deskripsi: MyText
+  harga_grosir1min: 9.99
+  harga_grosir1max: 9.99
+  harga_grosir1max: MyString

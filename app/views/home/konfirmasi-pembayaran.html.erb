@@ -1,0 +1,141 @@
+<%= render 'layouts/header' %>
+		<div id="topkeyword">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mobilemenu-opener ma5-toggle-menu"><i class="fa fa-bars"></i></div>
+						<%= render 'layouts/menumobile' %>
+						<span id="labeltopkeyword">Top Keyword</span>
+						<%= render 'layouts/topkey' %>
+						<%= render 'layouts/trolimobile' %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="nav-breadcumb">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="compresedmenu">
+							<div class="headingcompresed">
+								<i class="fa fa-bars"></i> &nbsp; <span>Kategori</span> &nbsp; <i class="fa fa-angle-down"></i>
+							</div>
+							<%= render 'layouts/sidemenu' %>
+						</div>
+						
+            <%= render 'layouts/bread' %>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ./Header -->
+
+		<div class="spacermedium"></div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<button type="button" class="btn" id="btn-SHsidebar"><i class="fa fa-user" style="margin-right:1em;"></i> Member Menu</button>
+				</div>
+			</div>
+			<div class="row">
+				<%= render 'layouts/sidebar' %>
+				<div class="col-md-9 col-sm-9 wrappermakctn">
+					<div class="row">
+						<div class="col-md-12">
+							<%= render 'layouts/buyertab' %>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="headingmac">
+								<h4>Pembayaran yang belum dikonfirmasi:</h4>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="colomacr">
+                <% if @troli2.blank? %>
+                <p>Anda tidak memiliki pembayaran yang perlu dikonfirmasi</p>
+                <% end %>
+                <% @troli2.each do |t| %>
+								<div class="list-konpem-outer">
+									<p class="invoice">Invoice : <strong><%= t.invoice %></strong></p>
+									<p class="dtime-transaksi">Tanggal Transaksi : <%= t.created_at %></p>
+									<p>Pembelian dari Toko : <strong><%= Toko.find(t.toko_id).nama_toko %></strong></p>
+									<p class="ttl-tagihan">Total Tagihan : <strong><%= t.subtotal %></strong></p>
+									<div class="spacermedium"></div>
+									<div class="wrapdtkonf">
+										<div class="heading-wdkf">
+											<h4>Pembelian dari Toko : <strong>Toko1</strong></h4>
+											<span class="inv"><%= Toko.find(t.toko_id).nama_toko %></span>
+										</div>
+										<div class="row">
+											<div class="col-md-6 lpwp">
+												<span class="imglpwp"><img src="<%= Produk.find(t.produk_id).foto_produk1.url %>" class="responsiveimg"></span>
+												<h4><%= Produk.find(t.produk_id).nama_produk %></h4>
+												<p><%= t.jumlah %> X <%= Produk.find(t.produk_id).harga %></p>
+											</div>
+											<div class="col-md-3">
+												<label>Subtotal</label>
+												<p><%= Produk.find(t.produk_id).harga * t.jumlah %></p>
+											</div>
+											<div class="col-md-3">
+												<label>Ongkir</label>
+												<p><%= t.ongkir %></p>
+											</div>
+										</div>
+										<hr style="border-color:#ddd;"></hr>
+										<div class="row">
+											<div class="col-md-6">
+												<label>Tujuan Pengiriman</label>
+												<p>Penerima : <%= Alamat.find(t.alamat_id).sebagai %></p>
+												<p>Telp : <%= Alamat.find(t.alamat_id).nomor_telepon %></p>
+												<p>
+													<%= Alamat.find(t.alamat_id).alamat %>, <%= Alamat.find(t.alamat_id).kecamatan %>, <%= Alamat.find(t.alamat_id).provinsi %> <%= Alamat.find(t.alamat_id).kode_pos %>
+												</p>
+											</div>
+											<div class="col-md-6">
+												<label>Kurir</label>
+												<p><%= t.kurir %></p>
+												<label>Keterangan</label>
+												<p><%= t.catatan %></p>
+											</div>
+										</div>
+										<hr style="border-color:#ddd;"></hr>
+										<div class="row">
+											<div class="col-md-12" style="text-align:right;font-size:18px;">
+												<label class="typeorange">Total : <%= t.subtotal %></label>
+											</div>
+										</div>
+									</div>
+									<div class="spacermedium"></div>
+									<a href="/konfirmasi-transfer/<%= t.id %>" class="btn-konfirmasipb">Konfirmasi Pembayaran</a>
+									<a href="#" class="showdtkonf"><i class="fa fa-plus"></i>&nbsp; Tampilkan Detail</a>
+									<a href="#" class="hidedtkonf hide"><i class="fa fa-minus"></i>&nbsp; Sembunyikan Detail</a>
+								</div>
+								<% end %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="spacerbig"></div>
+    <%= render 'layouts/footer' %>
+
+<script>
+  	$('.btn-konfirmasipb').click(function(){
+		var $this = $(this);
+		$this.toggleClass('See');
+		if($this.hasClass('Sees')){
+			$this.text('See');
+		} else {
+			$this.text('Mohon Tunggu..');
+		}
+	});
+</script>
+

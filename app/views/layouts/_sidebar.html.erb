@@ -1,0 +1,46 @@
+        <div class="col-md-3 col-sm-3 sidebar-desktop" id="SHsidebar">
+					<aside class="sidebars myakun">
+						<div class="myakunsidebar-control">
+							<div class="rowMas-control">
+								<div class="childrow">
+									<div class="myFotoThumb">
+										<% if current_user.profil_image.url.nil? %><img class="responsiveimg" src="<%= image_path "user.png" %>"><% else %><%= image_tag current_user.profil_image.avatar.url, class: "responsiveimg" %><% end %>
+									</div>
+									<h4 class="title"><%= current_user.namalengkap %></h4>
+									<p class="subtitle">Profil Saya</p>
+								</div>
+								<div class="childrow">
+									<h4 class="title typered">Rp 20.000.000</h4>
+									<p class="subtitle">Saldo Saya</p>
+								</div>
+								<div class="absolute-editbtn">
+									<a href="/edit"><i class="fa fa-pencil-square-o"></i></a>
+								</div>
+							</div>
+							<%= render 'tokos/tokosidebar' %>
+							<div class="rowMas-control">
+								<div class="Mas-profilsaya">
+									<h4>Profil Saya</h4>
+									<a href="/konfirmasi-pembayaran" data-toggle="tooltip" title="Daftar dan status pembelian Anda"><i class="fa fa-caret-right"></i> &nbsp; Pembelian</a>
+									<a href="/wishlist" data-toggle="tooltip" title="Daftar produk wishlist Anda"><i class="fa fa-caret-right"></i> &nbsp; Wishlist</a>
+									<a href="/edit" data-toggle="tooltip" title="Pengaturan profil Anda"><i class="fa fa-caret-right"></i> &nbsp; Pengaturan</a>
+								</div>
+							</div>
+							<div class="rowMas-control">
+								<div class="Mas-profilsaya">
+									<h4>Toko Saya</h4>
+									<a href="/pesanan-baru" data-toggle="tooltip" title="Daftar pesanan baru toko Anda"><i class="fa fa-caret-right"></i> &nbsp; Penjualan</a>
+									<a href="<%= new_produk_path %>" data-toggle="tooltip" title="Buat produk baru"><i class="fa fa-caret-right"></i> &nbsp; Tambah Produk</a>
+									<a href="<%= produks_path %>" data-toggle="tooltip" title="Daftar produk toko Anda"><i class="fa fa-caret-right"></i> &nbsp; Daftar Produk</a>
+                  <% if Toko.exists?(user_id: current_user.id) %>
+									<a href="/tokos/<%= @toko.id %>/edit" data-toggle="tooltip" title="Pengaturan toko Anda"><i class="fa fa-caret-right"></i> &nbsp; Pengaturan Toko</a>
+                  <% end %>
+								</div>
+							</div>
+							<div class="rowMas-control">
+								<a class="redbtn" href="#">Panduan</a>
+							</div>
+						</div>
+					</aside>
+					<div class="spacerbig"></div>
+				</div>

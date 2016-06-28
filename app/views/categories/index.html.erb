@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Kategori</th>
+      <th>Deskripsi</th>
+      <th>Gambar kategory</th>
+      <th>Parent</th>
+      <th>id</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.kategori %></td>
+        <td><%= category.deskripsi %></td>
+        <td><%= category.gambar_kategori %></td>
+        <td><%= category.parent_id %></td>
+        <td><%= category.id %></td>
+        <td><%= link_to 'Show', category %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Category', new_category_path %><br>
+

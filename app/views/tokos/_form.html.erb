@@ -1,0 +1,101 @@
+<%= form_for(@toko) do |f| %>
+  <% if @toko.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@toko.errors.count, "error") %> prohibited this toko from being saved:</h2>
+
+      <ul>
+      <% @toko.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nama_toko %><br>
+    <%= f.text_field :nama_toko %>
+  </div>
+  <div class="field">
+    <%= f.label :provinsi %><br>
+    <%= f.text_field :provinsi %>
+  </div>
+  <div class="field">
+    <%= f.label :kota %><br>
+    <%= f.text_field :kota %>
+  </div>
+  <div class="field">
+    <%= f.label :kecamatan %><br>
+    <%= f.text_field :kecamatan %>
+  </div>
+  <div class="field">
+    <%= f.label :agen1 %><br>
+    <%= f.text_field :agen1 %>
+  </div>
+  <div class="field">
+    <%= f.label :agen2 %><br>
+    <%= f.text_field :agen2 %>
+  </div>
+  <div class="field">
+    <%= f.label :agen3 %><br>
+    <%= f.text_field :agen3 %>
+  </div>
+  <div class="field">
+    <%= f.label :agen4 %><br>
+    <%= f.text_field :agen4 %>
+  </div>
+  <div class="field">
+    <%= f.label :agen5 %><br>
+    <%= f.text_field :agen5 %>
+  </div>
+  <div class="field">
+    <%= f.label :agen6 %><br>
+    <%= f.text_field :agen6 %>
+  </div>
+  <div class="field">
+    <%= f.label :agen7 %><br>
+    <%= f.text_field :agen7 %>
+  </div>
+  <div class="field">
+    <%= f.label :slogan %><br>
+    <%= f.text_field :slogan %>
+  </div>
+  <div class="field">
+    <%= f.label :deskripsi %><br>
+    <%= f.text_area :deskripsi %>
+  </div>
+  <div class="field">
+    <%= f.label :alamat %><br>
+    <%= f.text_area :alamat %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :kode_pos %><br>
+    <%= f.text_field :kode_pos %>
+  </div>
+  <div class="field">
+    <%= f.label :tutup_sampai %><br>
+    <%= f.datetime_select :tutup_sampai %>
+  </div>
+  <div class="field">
+    <%= f.label :gambar %><br>
+    <%= f.file_field :toko_image %>
+  </div>
+   <div class="field">
+    <%= f.label :Banner1 %><br>
+    <%= f.file_field :banner1 %>
+  </div>
+   <div class="field">
+    <%= f.label :Banner2 %><br>
+    <%= f.file_field :banner2 %>
+  </div>
+   <div class="field">
+    <%= f.label :Banner3 %><br>
+    <%= f.file_field :banner3 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

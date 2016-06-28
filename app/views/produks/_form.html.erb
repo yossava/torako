@@ -1,0 +1,87 @@
+<%= form_for(@produk) do |f| %>
+  <% if @produk.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@produk.errors.count, "error") %> prohibited this produk from being saved:</h2>
+
+      <ul>
+      <% @produk.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nama_produk %><br>
+    <%= f.text_field :nama_produk %>
+  </div>
+  <div class="field">
+    <%= f.label :kategori %><br>
+    <%= f.text_field :kategori %>
+  </div>
+  <div class="field">
+    <%= f.label :sub_kategori %><br>
+    <%= f.text_field :sub_kategori %>
+  </div>
+  <div class="field">
+    <%= f.label :harga %><br>
+    <%= f.text_field :harga %>
+  </div>
+  <div class="field">
+    <%= f.label :harga_diskon %><br>
+    <%= f.text_field :harga_diskon %>
+  </div>
+  <div class="field">
+    <%= f.label :berat %><br>
+    <%= f.text_field :berat %>
+  </div>
+  <div class="field">
+    <%= f.label :foto_produk1 %><br>
+    <%= f.file_field :foto_produk1 %>
+  </div>
+  <div class="field">
+    <%= f.label :foto_produk2 %><br>
+    <%= f.file_field :foto_produk2 %>
+  </div>
+  <div class="field">
+    <%= f.label :foto_produk3 %><br>
+    <%= f.file_field :foto_produk3 %>
+  </div>
+  <div class="field">
+    <%= f.label :foto_produk4 %><br>
+    <%= f.file_field :foto_produk4 %>
+  </div>
+  <div class="field">
+    <%= f.label :foto_produk5 %><br>
+    <%= f.file_field :foto_produk5 %>
+  </div>
+  <div class="field">
+    <%= f.label :foto_produk6 %><br>
+    <%= f.file_field :foto_produk6 %>
+  </div>
+  <div class="field">
+    <%= f.label :deskripsi %><br>
+    <%= f.text_area :deskripsi %>
+  </div>
+  <div class="field">
+    <%= f.label :harga_grosir1min %><br>
+    <%= f.text_field :harga_grosir1min %>
+  </div>
+  <div class="field">
+    <%= f.label :harga_grosir2max %><br>
+    <%= f.text_field :harga_grosir2max %>
+  </div>
+  <div class="field">
+    <%= f.label :harga_grosir3max %><br>
+    <%= f.text_field :harga_grosir3max %>
+  </div>
+  <div class="field">
+  <%= select_tag "category_id", options_for_select(@categories),{:prompt => "--Kategori--"} %>
+  </div>
+  <div class="field">
+  <%= select_tag "subcategory_id", options_for_select(@subcategories),{:prompt => "--SubKategori--"} %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

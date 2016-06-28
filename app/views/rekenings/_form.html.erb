@@ -1,0 +1,37 @@
+<%= form_for(@rekening) do |f| %>
+  <% if @rekening.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rekening.errors.count, "error") %> prohibited this rekening from being saved:</h2>
+
+      <ul>
+      <% @rekening.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :pemilik %><br>
+    <%= f.text_field :pemilik %>
+  </div>
+  <div class="field">
+    <%= f.label :cabang %><br>
+    <%= f.text_field :cabang %>
+  </div>
+  <div class="field">
+    <%= f.label :nomor_rekening %><br>
+    <%= f.text_field :nomor_rekening %>
+  </div>
+  <div class="field">
+    <%= f.label :nama_bank %><br>
+    <%= f.text_field :nama_bank %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

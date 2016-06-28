@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Tokos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nama toko</th>
+      <th>Provinsi</th>
+      <th>Kota</th>
+      <th>Kecamatan</th>
+      <th>Agen1</th>
+      <th>Agen2</th>
+      <th>Agen3</th>
+      <th>Agen4</th>
+      <th>Agen5</th>
+      <th>Agen6</th>
+      <th>Agen7</th>
+      <th>Slogan</th>
+      <th>Deskripsi</th>
+      <th>Alamat</th>
+      <th>Status</th>
+      <th>Tutup sampai</th>
+      <th>Gambar</th>
+      <th>Banner1</th>
+      <th>Banner2</th>
+      <th>Banner2</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tokos.each do |toko| %>
+      <tr>
+        <td><%= toko.nama_toko %></td>
+        <td><%= toko.provinsi %></td>
+        <td><%= toko.kota %></td>
+        <td><%= toko.kecamatan %></td>
+        <td><%= toko.agen1 %></td>
+        <td><%= toko.agen2 %></td>
+        <td><%= toko.agen3 %></td>
+        <td><%= toko.agen4 %></td>
+        <td><%= toko.agen5 %></td>
+        <td><%= toko.agen6 %></td>
+        <td><%= toko.agen7 %></td>
+        <td><%= toko.slogan %></td>
+        <td><%= toko.deskripsi %></td>
+        <td><%= toko.alamat %></td>
+        <td><%= toko.status %></td>
+        <td><%= toko.tutup_sampai %></td>
+        <td><%= toko.toko_image %></td>
+        <td><%= toko.banner1 %></td>
+        <td><%= toko.banner2 %></td>
+        <td><%= toko.banner2 %></td>
+        <td><%= link_to 'Show', toko %></td>
+        <td><%= link_to 'Edit', edit_toko_path(toko) %></td>
+        <td><%= link_to 'Destroy', toko, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= render '/tokos/namaimage' %>
+<%= link_to 'New Toko', new_toko_path %>

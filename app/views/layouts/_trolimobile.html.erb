@@ -1,0 +1,29 @@
+<div class="troliatas mobile">
+							<div class="itemtrolli">
+								<span id="ttmitem">
+									<a data-toggle="dropdown" role="button">Troli - (<% if user_signed_in? %><%= @troli.count %><% else %>0<% end %>)</a>
+									<ul class="dropdown-menu styleddropdown">
+                    <% if user_signed_in? %>
+                    <% @troli.each do |c| %>
+										<li>
+											<a href="#" class="wrapctncart">
+												<div class="thumbcart">
+													<img src="<%= Produk.find(c.produk_id).foto_produk1.url %>" class="responsiveimg">
+												</div>
+												<div class="ctncart">
+													<h4><%= Produk.find(c.produk_id).nama_produk %></h4>
+													<span class="typeorange"><%= number_to_currency(Produk.find(c.produk_id).harga, locale: :id) %></span>
+												</div>
+											</a>
+										</li>
+                    <% end %>
+										<li><a href="/bayar" class="lhsm-btn cart">Checkout</a></li>
+                    <% else %>
+                    <li>Troli Kosong</li>
+                    <li><a href="#" class="lhsm-btn cart">Checkout</a></li>
+                    <% end %>
+									</ul>
+								</span>
+								<a href="#"><span id="icontroli"></span></a>
+							</div>
+						</div>

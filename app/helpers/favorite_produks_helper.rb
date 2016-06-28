@@ -1,0 +1,2 @@
+module FavoriteProduksHelper
+end

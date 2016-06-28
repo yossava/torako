@@ -1,0 +1,211 @@
+<% if params[:action] == "show" && params[:controller] == "produks" %>
+<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="/categories/<%= @produk.category_id %>"><%= @produk.category.kategori %></a></span>
+							<span>></span>
+							<span><a href="/subcategories/<%= @produk.subcategory_id %>"><%= @produk.subcategory.subkategori %></a></span>
+							<span>></span>
+							<span><a href="#"><%= @produk.nama_produk %></a></span>
+						</div>
+<% elsif params[:action] == "show" && params[:controller] == "categories" %>
+<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="<%= categories_path %>">Kategori</a></span>
+							<span>></span>
+							<span><a href="<%= category_path %>"><%= @category.kategori %></a></span>
+						</div>
+<% elsif params[:action] == "edit" && params[:controller] == "alamats" %>
+<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="/profil">Akun Saya</a></span>
+							<span>></span>
+							<span><a href="/edit">Pengaturan</a></span>
+							<span>></span>
+							<span><a href="/alamats">Alamat</a></span>
+							<span>></span>
+							<span><a href="#">Ubah Alamat</a></span>
+						</div>
+<% elsif params[:action] == "index" && params[:controller] == "alamats" %>
+<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="/profil">Akun Saya</a></span>
+							<span>></span>
+							<span><a href="/edit">Pengaturan</a></span>
+							<span>></span>
+							<span><a href="#">Daftar Alamat</a></span>
+						</div>
+<% elsif params[:action] == "new" && params[:controller] == "alamats" %>
+<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="/profil">Akun Saya</a></span>
+							<span>></span>
+							<span><a href="/edit">Pengaturan</a></span>
+							<span>></span>
+							<span><a href="/alamats">Alamat</a></span>
+							<span>></span>
+							<span><a href="#">Ubah Alamat</a></span>
+						</div>
+<% elsif params[:action] == "bayar" && params[:controller] == "home" %>
+<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="#">Keranjang</a></span>
+							<span>></span>
+							<span><a href="#">Checkout</a></span>
+						</div>
+<% elsif params[:action] == "daftar-penjualan" && params[:controller] == "home" %>
+<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="/profil">Akun Saya</a></span>
+							<span>></span>
+							<span><a href="/pesanan-baru">Penjualan</a></span>
+							<span>></span>
+							<span><a href="#">Daftar Transaksi Penjualan</a></span>
+						</div>
+<% elsif params[:action] == "daftar-transaksi" && params[:controller] == "home" %>
+<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="/profil">Akun Saya</a></span>
+							<span>></span>
+							<span><a href="/konfirmasi-pembayaran">Pembelian</a></span>
+							<span>></span>
+							<span><a href="#">Daftar Transaksi</a></span>
+						</div>
+<% elsif params[:action] == "konfirmasi-pembayaran" && params[:controller] == "home" %>
+<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="/profil">Akun Saya</a></span>
+							<span>></span>
+							<span><a href="/konfirmasi-pembayaran">Pembelian</a></span>
+							<span>></span>
+							<span><a href="#">Konfirmasi Pembayaran</a></span>
+						</div>
+<% elsif params[:action] == "konfirmasi-penerimaan" && params[:controller] == "home" %>
+<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="/profil">Akun Saya</a></span>
+							<span>></span>
+							<span><a href="/konfirmasi-pembayaran">Pembelian</a></span>
+							<span>></span>
+							<span><a href="#">Konfirmasi Penerimaan</a></span>
+						</div>
+<% elsif params[:action] == "konfirmasi-pengiriman" && params[:controller] == "home" %>
+<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="/profil">Akun Saya</a></span>
+							<span>></span>
+							<span><a href="/konfirmasi-pembayaran">Pembelian</a></span>
+							<span>></span>
+							<span><a href="#">Konfirmasi Pengiriman</a></span>
+						</div>
+<% elsif params[:action] == "pesanan-baru" && params[:controller] == "home" %>
+<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="/profil">Akun Saya</a></span>
+							<span>></span>
+							<span><a href="/pesanan-baru">Penjualan</a></span>
+							<span>></span>
+							<span><a href="#">Pesanan Baru</a></span>
+						</div>
+<% elsif params[:action] == "profil" && params[:controller] == "home" %>
+<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="/profil">Akun Saya</a></span>
+							<span>></span>
+							<span><a href="/edit">Pengaturan</a></span>
+							<span>></span>
+							<span><a href="#">Profil</a></span>
+						</div>
+<% elsif params[:action] == "status-pemesanan" && params[:controller] == "home" %>
+<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="/profil">Akun Saya</a></span>
+							<span>></span>
+							<span><a href="/konfirmasi-pembayaran">Pembelian</a></span>
+							<span>></span>
+							<span><a href="#">Status Pemesanan</a></span>
+						</div>
+<% elsif params[:action] == "wishlist" && params[:controller] == "home" %>
+<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="/profil">Akun Saya</a></span>
+							<span>></span>
+							<span><a href="#">Wishlist</a></span>
+						</div>
+<% elsif params[:action] == "index" && params[:controller] == "produks" %>
+<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="/profil">Akun Saya</a></span>
+							<span>></span>
+							<span><a href="#">Daftar Produk</a></span>
+						</div>
+<% elsif params[:action] == "edit" && params[:controller] == "rekenings" %>
+<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="/profil">Akun Saya</a></span>
+							<span>></span>
+							<span><a href="/edit">Pengaturan</a></span>
+							<span>></span>
+							<span><a href="/rekenings">Rekening Bank</a></span>
+							<span>></span>
+							<span><a href="#">Ubah Rekening Bank</a></span>
+						</div>
+<% elsif params[:action] == "index" && params[:controller] == "rekenings" %>
+<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="/profil">Akun Saya</a></span>
+							<span>></span>
+							<span><a href="/edit">Pengaturan</a></span>
+							<span>></span>
+							<span><a href="#">Rekening Bank</a></span>
+						</div>
+<% elsif params[:action] == "new" && params[:controller] == "rekenings" %>
+<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="/profil">Akun Saya</a></span>
+							<span>></span>
+							<span><a href="/edit">Pengaturan</a></span>
+							<span>></span>
+							<span><a href="/rekenings">Rekening Bank</a></span>
+							<span>></span>
+							<span><a href="#">Tambah Rekening Bank</a></span>
+						</div>
+<% elsif params[:action] == "edit" && params[:controller] == "tokos" %>
+<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="/profil">Akun Saya</a></span>
+							<span>></span>
+							<span><a href="/">Pengaturan Toko</a></span>
+							<span>></span>
+							<span><a href="#">Informasi Toko</a></span>
+						</div>
+<% elsif params[:action] == "show" && params[:controller] == "subcategories" %>
+<div class="breadcumb">
+							<span><a href="/">Home</a></span>
+							<span>></span>
+							<span><a href="/categories">Kategori</a></span>
+							<span>></span>
+							<span><a href="/categories/<%= Category.find(@subcategory.category_id).id %>"><%= Category.find(@subcategory.category_id).kategori %></a></span>
+							<span>></span>
+							<span><a href="#"><%= @subcategory.subkategori %></a></span>
+						</div>
+<% end %>

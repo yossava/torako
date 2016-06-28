@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sebagai:</strong>
+  <%= @alamat.sebagai %>
+</p>
+
+<p>
+  <strong>Nama penerima:</strong>
+  <%= @alamat.nama_penerima %>
+</p>
+
+<p>
+  <strong>Alamat:</strong>
+  <%= @alamat.alamat %>
+</p>
+
+<p>
+  <strong>Kode pos:</strong>
+  <%= @alamat.kode_pos %>
+</p>
+
+<p>
+  <strong>Provinsi:</strong>
+  <%= @alamat.provinsi %>
+</p>
+
+<p>
+  <strong>Kabupaten:</strong>
+  <%= @alamat.kabupaten %>
+</p>
+
+<p>
+  <strong>Kecamatan:</strong>
+  <%= @alamat.kecamatan %>
+</p>
+
+<p>
+  <strong>Nomor telepon:</strong>
+  <%= @alamat.nomor_telepon %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @alamat.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_alamat_path(@alamat) %> |
+<%= link_to 'Back', alamats_path %>

@@ -1,0 +1,72 @@
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="<%= current_user.profil_image.url %>" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p><%= current_user.namalengkap %></p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+      <!-- search form -->
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu">
+        <li class="header">MAIN NAVIGATION</li>
+        <li class="treeview <% if params[:action] == "dashboard" %> active <% end %>">
+          <a href="/admin">
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="treeview <% if params[:action] == "users" %> active <% end %>">
+          <a href="/admin/users">
+            <i class="fa fa-dashboard"></i> <span>Users</span>
+          </a>
+        </li>
+        <li class="treeview <% if params[:action] == "stores" %> active <% end %>">
+          <a href="/admin/stores">
+            <i class="fa fa-dashboard"></i> <span>Stores</span>
+          </a>
+        </li>
+        <li class="treeview <% if params[:action] == "products" %> active <% end %>">
+          <a href="/admin/products">
+            <i class="fa fa-dashboard"></i> <span>Products</span>
+          </a>
+        </li>
+         <li class="treeview <% if params[:action] == "categories" %> active <% end %>">
+          <a href="/admin/categories">
+            <i class="fa fa-dashboard"></i> <span>Categories</span>
+          </a>
+        </li>
+         <li class="treeview <% if params[:action] == "subcategories" %> active <% end %>">
+          <a href="/admin/subcategories">
+            <i class="fa fa-dashboard"></i> <span>Subcategories</span>
+          </a>
+        </li>
+         <li class="treeview <% if params[:action] == "statics" %> active <% end %>">
+          <a href="/admin/statics">
+            <i class="fa fa-dashboard"></i> <span>Static Pages</span>
+          </a>
+        </li>
+        <li class="treeview <% if params[:action] == "homepage" %> active <% end %>">
+          <a href="/admin/homepage">
+            <i class="fa fa-dashboard"></i> <span>Home Page</span>
+          </a>
+        </li>
+
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>

@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  toko_id: 1
+  user_id: 1
+  produk_id: 1
+  invoice: MyString
+  catatan: MyText
+  jumlah: 1
+  subtotal: 1
+  total: 1
+  metode_pembayaran: MyString
+  alamat_id: 1
+  kurir: MyString
+  berat: 1
+
+two:
+  toko_id: 1
+  user_id: 1
+  produk_id: 1
+  invoice: MyString
+  catatan: MyText
+  jumlah: 1
+  subtotal: 1
+  total: 1
+  metode_pembayaran: MyString
+  alamat_id: 1
+  kurir: MyString
+  berat: 1

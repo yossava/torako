@@ -1,0 +1,141 @@
+<div class="ctnblok-logreg">
+
+													<!--<div class="alert alert-danger">
+<strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+</div>-->
+													<div class="row buynowform nmpro">
+														<div class="col-md-4"><label class="headingslbl">Nama Produk</label></div>
+														<div class="col-md-8"><p id="nmtpb-produk"><%= @produk.nama_produk %></p></div>
+													</div>
+													<div class="row buynowform qty">
+														<div class="col-md-4"><label class="headingslbl">Quantity</label></div>
+														<div class="col-md-8">
+                            <input type="hidden" class="quantityform" value="<%= @produk.harga_beli %>" >
+                            </div>
+													</div>
+													<div class="row buynowform ket">
+														<div class="col-md-4"><label class="headingslbl">Keterangan</label></div>
+														<div class="col-md-8">
+														</div>
+													</div>
+													<div class="spacerform"></div>
+													<div class="row buynowform address">
+														<div class="buynowform-mainaddress">
+															<div class="col-md-12" style="position:relative;">
+																<label class="headingslbl">Alamat Tujuan</label>
+																<a style="float:right;color:lightblue;margin-bottom:5px;" target="blank" href="#" class="">Edit Atau Gunakan Alamat Baru</a>
+																<a href="#" class="createnew-closer"><i class="fa fa-angle-left"></i> Kembali</a>
+															</div>
+															<div id="blokpls-newaddress" class="col-md-12" style="position:relative;">
+																<div class="colomacr">
+																	<div class="ctnblok-logreg row">
+																		<div class="col-md-6 mb-10">
+																			<label for="nmalamat">Alamat Sebagai</label>
+																			<input type="text" name="" id="nmalamat" placeholder="">
+																		</div>
+																		<div class="col-md-6 mb-10">
+																			<label for="penerima">Nama Penerima</label>
+																			<input type="text" name="" id="penerima" placeholder="">
+																		</div>
+																		<div class="col-md-12 mb-10">
+																			<label for="almt">Alamat</label>
+																			<textarea id="almt" rows="4" style="resize:none;"></textarea>
+																		</div>
+																		<div class="col-md-12 mb-10">
+																			<label for="kdpos">Kode Pos</label>
+																			<input type="text" name="" id="kdpos" placeholder="">
+																		</div>
+																		<div class="col-md-4 mb-10">
+																			<label for="prov">Provinsi</label>
+																			<select id="prov">
+																				<option>Pilih Provinsi</option>
+																				<option>10</option>
+																				<option>11</option>
+																				<option>12</option>
+																			</select>
+																		</div>
+																		<div class="col-md-4 mb-10">
+																			<label for="kota">Kotamadya / Kabupaten</label>
+																			<select id="kota">
+																				<option>Pilih Kabupaten</option>
+																				<option>10</option>
+																				<option>11</option>
+																				<option>12</option>
+																			</select>
+																		</div>
+																		<div class="col-md-4 mb-10">
+																			<label for="kec">Kecamatan</label>
+																			<select id="kec">
+																				<option>Pilih Kecamatan</option>
+																				<option>10</option>
+																				<option>11</option>
+																				<option>12</option>
+																			</select>
+																		</div>
+																		<div class="col-md-12 mb-10">
+																			<label for="tlp">Nomor Telepon</label>
+																			<input type="text" name="" id="tlp">
+																		</div>
+																	</div>
+																</div>
+															</div>
+                              <div style="width:95%;margin-left:13px;margin-bottom:20px;">
+                              </div>
+															<div style="margin-bottom:10px;" class="buynowform addressblock ">
+																<div class="info-leftmainaddress">
+																	<label></label>
+																	<p style="margin:5px 0px;"><i class="fa fa-map-marker"></i> </p>
+																	<p><i class="fa fa-mobile"></i> </p>
+																</div>
+																<div class="info-rightmainaddress">
+																	<p>
+
+																	</p>
+																</div>
+															</div>
+
+														</div>
+													</div>
+													<div class="spacerform"></div>
+													<div class="row buynowform kurir">
+														<div class="col-md-6 mb-10">
+															<label class="headingslbl">Kurir Pengiriman</label>
+															<select class="kurir" name="cart[kurir]">
+																<option value="0">- Pilih agen Pengiriman -</option>
+																<option value="<%= Toko.find(@produk.toko_id).agen1 %>"><%= Toko.find(@produk.toko_id).agen1 %></option>
+																<option value="<%= Toko.find(@produk.toko_id).agen2 %>"><%= Toko.find(@produk.toko_id).agen2 %></option>
+																<option value="<%= Toko.find(@produk.toko_id).agen3 %>"><%= Toko.find(@produk.toko_id).agen3 %></option>
+                                <option value="<%= Toko.find(@produk.toko_id).agen4 %>"><%= Toko.find(@produk.toko_id).agen4 %></option>
+																<option value="<%= Toko.find(@produk.toko_id).agen5 %>"><%= Toko.find(@produk.toko_id).agen5 %></option>
+																<option value="<%= Toko.find(@produk.toko_id).agen6 %>"><%= Toko.find(@produk.toko_id).agen6 %></option>
+                                <option value="<%= Toko.find(@produk.toko_id).agen7 %>"><%= Toko.find(@produk.toko_id).agen7 %></option>
+															</select>
+														</div>
+														<div style="display:none;" class="col-md-4 mb-10">
+															<label class="headingslbl">Paket Pengiriman</label>
+															<select>
+																<option>- Paket Pengiriman -</option>
+																<option>Regular</option>
+																<option>OKE</option>
+																<option>YES</option>
+															</select>
+														</div>
+														<div class="col-md-4 mb-10">
+															<label class="headingslbl">Ongkos Kirim</label>
+															<h4 class="rpongkir">Rp 12.000 ,-</h4>
+														</div>
+													</div>
+													<div class="spacerform"></div>
+													<div class="row buynowform subtotalrow">
+														<div class="col-md-12 ">
+															<label >Subtotal :</label>
+															<h4 class="total"><%= number_to_currency(@produk.harga_beli, locale: :id) %></h4>
+														</div>
+													</div>
+													<div class="spacerform"></div>
+													<div class="row buynowform getbuynow">
+														<div class="col-md-12">
+															<button type="submit" class="" name="commit"><i class="fa fa-shopping-cart"></i> Beli Produk Ini</button>
+														</div>
+													</div>
+											</div>

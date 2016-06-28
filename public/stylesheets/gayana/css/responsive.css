@@ -1,0 +1,461 @@
+.responsiveimg{
+	max-width:100%;
+}
+@media (min-width:1200px){
+	#fashionslider .owl-item, #gadgetkomputerslider .owl-item, #beautyslider .owl-item{
+		width:187px !important;
+	}
+	.owl-item{
+		display:block;
+	}
+	.produkcarousel{
+		width: 180px;
+		text-align: center;
+		border: 1px solid rgb(204, 204, 204);
+		height: auto;
+		position:relative;
+	}
+}
+@media (max-width:991px){
+	#sidemenu ul li .submenu{
+		display:none;
+	}	
+	.lhsm-btn.detailbtn {
+		padding: 12px;
+		width: 160px;
+		float: left;
+		margin: 20px 0px;
+	}
+	.desinline.toko {
+		display: block;
+		float: left;
+		width: 85%;
+	}
+	.lhsm-btn.kunjungitoko {
+		width: 115px;
+		float: left;
+	}
+	.hargaasli-detail{font-size: 22px;}
+	.hargacoret-detail {
+		font-size: 18px;
+		margin-bottom: 10px;
+	}
+	.wrapperimgdetail{
+		display:none;
+	}
+	.breadcumb {
+		margin-left: 0;
+	}
+	.noppading, .noppading-left, .noppading-right, .noppading-right.pd2{
+		padding-left:15px;
+		padding-right:15px;
+		padding-top:0;
+		padding-bottom:0;
+	}
+	#sidemenu{
+		display:none;
+	}
+	#topkeyword #labeltopkeyword{font-weight:400;}
+	#list-topkeyword li{font-weight:300;}
+	#bannerkanan {
+		display: none;
+	}	
+	.compresedmenu{display:none;}
+	.mobilemenu-opener{display:block;font-size: 26px;}
+	.iklanimage{display:none;}
+	.produkcarousel.normalproduk {
+		width: 24%;
+	}
+	.ttponmobile{
+		display:block;
+	}
+	.ttpondesktop{display:none;}
+	.produkcarousel.normalproduk:nth-child(5n){
+		margin-right: 8px;
+	}
+	.produkcarousel.normalproduk:nth-child(4n){
+		margin-right: 0px;
+	}
+	.newsletter {
+		position: relative;
+		width: 100%;
+	}	
+	.f-pembayaran ul li {
+		margin-bottom: 3px;
+	}
+	.f-email {
+		display: block;
+		margin: 3px;
+		text-align: right;
+		float: left;
+		width: auto;
+	}
+	.f-cs {
+		float: left;
+		display: block;
+		margin: 3px;
+		text-align: center;
+		width: auto;
+	}
+}
+@media (min-width:768px) and (max-width:991px){
+	.bl-kanan ul li {
+		padding: 6px 10px;
+	}
+	.produklist {
+		width: 165px;
+	}
+	.listproduk_toko{
+		clear: both;
+		margin-top: 3.5em;
+	}
+	.produklist {
+		width: 23.333333%;
+	}
+/*	.produklist:nth-child(5n){
+		margin-right: 15px;
+	}
+	.produklist:nth-child(4n){
+		margin-right: 0px;
+	}*/
+	.form-row.styledfmrow {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+	#logo {
+		width: 160px;
+		margin: 28px 0px;
+	}
+	#tab_slider_produk .listtabna li a, .tab_normal_produk .listtabna li a {
+		padding: 10px 10% !important;
+		font-size: 13px !important;
+	}
+	.tablink-akun li {
+		border-radius: 3px 3px 0px 0px;
+		padding: 8px 15px;
+		border-width: 1px 1px medium;
+		border-style: solid solid none;
+		border-color: #DDD #DDD -moz-use-text-color;
+		-moz-border-top-colors: none;
+		-moz-border-right-colors: none;
+		-moz-border-bottom-colors: none;
+		-moz-border-left-colors: none;
+		border-image: none;
+		margin-right: 10px;
+		background: #F0F0F0 none repeat scroll 0% 0%;
+		color: #777;
+		position: relative;
+		float: none;
+		display: block;
+		margin-bottom: 2px;
+	}
+	.tablink-akun li a {
+		display: block;
+	}
+	.wrappervd.mobile{	
+		display:block;
+	}
+	.wrappervd{
+		display:none;
+		
+	}
+	.hgitmtx.typeorange{font-size: 17px;}
+	.produkcarousel.myakunproduk {
+		width: 156px;
+	}
+	.newsletter .formnewsletter {
+		width: 75%;
+	}
+}
+@media (max-width:767px){
+	#bannerkanan {
+		height: auto;
+	}
+	#btn-SHsidebar{
+		display: block;
+		width: 100%;
+		padding: 12px;
+		font-size: 16px;
+		text-transform: uppercase;
+		font-weight: bold;
+		background: rgb(235, 14, 67) none repeat scroll 0% 0%;
+		color: rgb(255, 255, 255);
+		margin-bottom: 20px;
+	}
+	#SHsidebar{display:none;}
+	.blokmbl{display:block;}
+	#batalbtn.blokmbl{
+		clear: both;
+		margin-top: 1em;
+		margin-left: 0;
+		text-align: center;
+		display: inline-block;
+	}
+	.list-konpem-outer .showdtkonf.blokmbl, .list-konpem-outer .hidedtkonf.blokmbl{display:block;}
+	.produkcarousel.myakunproduk {
+		float: none;
+		height: auto;
+		margin: auto;
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	.tablink-akun li a {
+		display: block;
+	}
+	.pagingulasan {
+		position: relative;
+	}
+	.pagination.styledpaging {
+		margin: 15px 0px 0px;
+	}
+	.produkcarousel.normalproduk {
+		width: 100%;
+	}
+	.blok-ulasan{
+		margin-bottom:2em;
+	}
+	.vhfooter {
+		display: inline;
+	}
+	.bl-kiri{
+		display:none;
+	}
+	.lhsm-btn.detailbtn {
+		width: 100%;
+	}
+	.bl-kanan ul li {
+		display: inline-block;
+		border-left: 1px solid #CCC;
+		padding: 6px 9px;
+		margin: 0px;
+		font-size: 13px;
+	}
+	.bl-kanan{border-top: 1px solid #ccc;padding-left: 0;
+	padding-right: 0;}
+	#logo {
+		display: block;
+		width: 65%;
+		margin: 24px auto;
+		position: relative;
+	}
+	.mobilemenu-opener{font-size: 28px;}
+	#topkeyword #labeltopkeyword{display:none;}
+	#topkeyword #list-topkeyword{display:none;}
+	.troliatas{display:none;}
+	.troliatas.mobile{display:block;margin: 5px 0px;}
+	.troliatas .itemtrolli{background:#fff;}
+	.nextvc {
+		right: 0;
+	}
+	.prevvc {
+		left: 0px;
+	}
+	.listcrauselvoucher {
+		display: block;
+		width: 77%;
+		margin: auto;
+	}
+	.listproduk4 {
+		float: none;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0px 15px;
+		margin-bottom: 50px;
+	}
+	.lhsm-btn{
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	.itembrand {
+		text-align: center;
+	}
+	.hargaasli-detail{font-size: 22px;}
+	.hargacoret-detail {
+		font-size: 18px;
+		margin-bottom: 10px;
+	}
+	.breadcumb span {
+		padding: 6px 0px;
+	}
+	.prevpr{
+		right: 50px;
+	}
+	.nextpr {
+		right: 16px;
+	}	
+	.sosmedlogin {
+		width: 46%;
+		margin-bottom: 10px;
+	}
+	.optionbtnED {
+		padding: 10px 1em 5px;
+		float: none !important;
+	}
+	.tablink-akun{
+		background: rgb(240, 240, 240) none repeat scroll 0% 0%;
+	}
+	.tablink-akun li{
+		float: none;
+		text-align: center;
+		margin-right: 0px;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 15px 4px;
+	}
+	.wrappermakctn{
+		width: 100%;
+	}
+	.list-konpem-outer .btn-konfirmasipb {
+		position: relative;
+		right: 0px;
+		padding: 8px 10px;
+		box-sizing: border-box;
+		background: #EB0E43 none repeat scroll 0% 0%;
+		border-radius: 3px;
+		color: #FFF;
+		font-weight: 400;
+		clear: both;
+		top: 0;
+		margin-bottom: 1em;
+		display: inline-block;
+	}
+	.heading-wdkf .inv {
+		display: inline-block;
+		position: relative;
+		top: 0px;
+		right: 0;
+		margin-bottom: 8px;
+	}
+	.statusorder {
+		display: block;
+		margin-bottom: 3px;
+	}
+	.wrappervd.mobile{	
+		display:block;
+	}
+	.wrappervd{
+		display:none;
+		
+	}
+	.f-pembayaran {
+		display: block;
+		float: left;
+		width: 100%;
+		padding: 0px 0px 0px 15px;
+	}
+	.thisonmobile{
+		display:block;
+	}
+	.ondesktop{
+		display:none;
+	}
+	.tambahalmt-btn {
+		margin-top: 1em;
+	}
+	.form-row.styledfmrow {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+	.spacermobile{
+		margin-bottom:1em;
+	}
+	.rightneworder-ctn .hidedtkonf{
+		display: block;
+		margin-top: 1em;
+		margin-bottom: 1em;
+	}
+	#terimaPbtn, #tolakPbtn{
+		display: block;
+		text-align: center;
+		margin-bottom: 2em;
+		padding: 10px;
+	}
+	#tolakPbtn{
+		margin-top: -1em;
+	}
+	.borderedleft{border-left:none;}
+	.newsletter .formnewsletter {
+		width: 100%;
+	}
+	.fiturfooter ul li {
+		border-bottom: 1px solid #ddd;
+		padding: 4px 0px;
+	}
+	#ktxbanner{
+		display: none !important;
+	}
+	.filterFM label {
+		margin: 0px 10px 10px;
+		font-weight: 400;
+		display: block;
+	}
+	.form-group.filterFM.form-row select {
+		width: 92%;
+		margin: 0 10px;
+		display: block;
+	}
+	.filteritm.pull-right{float:none !important;}
+	.filterFM {
+		padding: 0 10px;
+	}
+	.filterFM:first-child{
+		margin-top: 10px;
+	}
+	.produklist{
+		width: 50%;
+		margin-right: 0;
+		min-height: 270px;
+	}
+	.produklist:nth-child(2n){
+		border-left:none;
+	}
+	.produklist .titleproduk {
+		height: 36px;
+		overflow: hidden;
+	}
+	.produklist .tambahketroli{display: none;}		
+	.ccrfmhd.pull-right{float:none !important;}
+	.ccrfm{
+		padding: 0;
+	}	
+	.cp-borderedright {
+		border-right: none;
+	}
+	.cp-borderedright  h4{
+		font-size:20px;
+	}
+	.linktokoedit {
+		position: relative;
+	}
+	.core_menu_toko .cmt-list li {
+		float: none;
+		text-align: center;
+		border-bottom: 1px solid #ddd;
+	}
+	.cmt-list li a {
+		padding: 12px 29px;
+		display: block;
+		border-right: medium none;
+		font-weight: 600;
+	}
+	.core_menu_toko .cmt-list li.active {
+		float: none;
+	}
+	.label_sttoko {
+		font-size: 10px;
+		top: 0px;
+	}
+	.listproduk_toko{
+		clear: both;
+		margin-top: 3.5em;
+	}
+	.produkcarousel.myakunproduk.toko {
+		width: 130px;
+		margin-left: 10px;
+		margin-bottom: 10px;
+		float:left;
+	}
+	.produkcarousel.myakunproduk.toko .troliblack{display:none;}
+	.produkcarousel.myakunproduk.toko  .tambahketroli .ttb{margin-left:0;}
+
+}

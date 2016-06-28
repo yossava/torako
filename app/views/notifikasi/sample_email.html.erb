@@ -4,7 +4,7 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi <%= @user.namalengkap %></h1>
+    <h1>Hi <%= User.find(@mycart.user_id).namalengkap %></h1>
     <p>
       Pesanan Anda, untuk invoice <%= @mycart.invoice %><br />
       Status: <%= @status %>

@@ -5,6 +5,6 @@ class Notifikasi < ApplicationMailer
     @user = current_user
     @mycart = mycart
     @status = status
-    mail(to: @user.email, subject: "Status Pemesanan #{@mycart.invoice} - #{@status} ")
+    mail(to: User.find(@mycart.user_id).email, subject: "Status Pemesanan #{@mycart.invoice} - #{@status} ")
   end
 end

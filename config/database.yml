@@ -3,8 +3,7 @@ development:
   database: lovitmart_development
   pool: 5
   timeout: 5000
-  username: bill
-  password: bill
+
 test:
   adapter: postgresql
   database: loveitmart_test

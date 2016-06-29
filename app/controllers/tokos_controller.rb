@@ -118,6 +118,6 @@ class TokosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def toko_params
-      params.require(:toko).permit(:nama_toko, :provinsi, :kota, :kecamatan, :agen1, :agen2, :agen3, :agen4, :agen5, :agen6, :agen7, :slogan, :deskripsi, :alamat, :status, :tutup_sampai, :toko_image, :banner1, :banner2, :banner3, :user_id, :kode_pos, :catatan, :terima_pembayaran1, :terima_pembayaran2,:terima_pembayaran3)
+      params.require(:toko).permit(:nama_toko, :provinsi, :kota, :kecamatan, :agen1, :agen2, :agen3, :agen4, :agen5, :agen6, :agen7, :slogan, :deskripsi, :alamat, :status, :tutup_sampai, :toko_image, :banner1, :banner2, :banner3, :user_id, :kode_pos, :catatan, :terima_pembayaran1, :terima_pembayaran2,:terima_pembayaran3, :kota_sebagai)
     end
 end

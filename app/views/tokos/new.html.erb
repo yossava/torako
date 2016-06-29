@@ -190,6 +190,7 @@
 									<div style="display:none;" class="form-row col-md-12 tampil">
 										<label for="nmtoko">Nama Toko</label>
 										<input type="text" name="toko[nama_toko]" id="nmtoko">
+                    <input type="hidden" name="toko[kota_sebagai]" id="toko_kota_sebagai">
 										<p class="text-muted">maksimal 24 karakter</p>
 									</div>
 									<div style="clear:both;"></div>
@@ -361,9 +362,9 @@ $(document).on('ready page:load', function () {
         var a = $('.provinsi option:selected').text();
         var b = $('.kota option:selected').text();
         var c = $('.kecamatan option:selected').text();
-        $('#alamat_provinsi_sebagai').val(a);
-        $('#alamat_kota_sebagai').val(b);
-        $('#alamat_kecamatan_sebagai').val(c);
+        $('#toko_provinsi_sebagai').val(a);
+        $('#toko_kota_sebagai').val(b);
+        $('#toko_kecamatan_sebagai').val(c);
     });
 });
 </script>

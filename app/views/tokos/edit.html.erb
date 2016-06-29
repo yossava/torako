@@ -132,6 +132,7 @@
                     <%= f.text_field :nama_toko %>
                     <p class="text-muted">Maksimal 24 karakter</p>
                   </div>
+                   <input type="hidden" name="toko[kota_sebagai]" id="toko_kota_sebagai">
                   <div class="form-row">
                     <%= f.label :slogan %><br>
                     <%= f.text_field :slogan %>
@@ -381,9 +382,9 @@ $(document).on('ready page:load', function () {
         var a = $('.provinsi option:selected').text();
         var b = $('.kota option:selected').text();
         var c = $('.kecamatan option:selected').text();
-        $('#alamat_provinsi_sebagai').val(a);
-        $('#alamat_kota_sebagai').val(b);
-        $('#alamat_kecamatan_sebagai').val(c);
+        $('#toko_provinsi_sebagai').val(a);
+        $('#toko_kota_sebagai').val(b);
+        $('#toko_kecamatan_sebagai').val(c);
     });
 });
 </script>

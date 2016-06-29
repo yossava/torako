@@ -233,7 +233,7 @@
 					</div>
 					<div class="desinline toko">
 						<p class="namaToko"><%= User.find(@produk.user_id).namalengkap %></p>
-						<p class="typeorange"><i class="fa fa-map-marker"></i> <%= Toko.find(@produk.toko_id).kota %></p>
+						<p class="typeorange"><i class="fa fa-map-marker"></i> <%= Toko.find(@produk.toko_id).kota_sebagai %></p>
 						<!--<p class="text">0875 654 653 xxx</p>-->
 						<p class="linkwebtoko typeblue"><%= Toko.find(@produk.toko_id).nama_toko %></p>
 						<a href="/tokos/<%= Toko.find(@produk.toko_id).id %>" class="lhsm-btn kunjungitoko">Kunjungi Toko</a>

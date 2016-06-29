@@ -1,13 +1,13 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
     config.action_mailer.perform_deliveries = true
-    config.action_mailer.default_url_options = { :host => "https://loveitmart.herokuapp.com" }
+    config.action_mailer.default_url_options = { :host => "https://torako.herokuapp.com" }
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
       :enable_starttls_auto => true,
       :address => "smtp.gmail.com",
       :port => 587,
-      :domain => "loveitmart.herokuapp.com",
+      :domain => "torako.herokuapp.com",
       :authentication => :login,
       :user_name => "tokenlr2@gmail.com",
       :password => "ty0ssaV@t"

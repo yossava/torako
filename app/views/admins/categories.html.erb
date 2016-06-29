@@ -120,9 +120,8 @@
                 <div class="form-group">
                   <label for="exampleInputEmail1">Slide 3</label>
                   <%= f.file_field :slide3, class: "form-control" %>
-                  <%= image_tag @category.slide3.url %>
                   <% if @category.slide3.url %>
-                  <%= image_tag @category.slide1.url %>
+                  <%= image_tag @category.slide3.url %>
                   <label>
                     <%= f.check_box :remove_slide3 %>
                     Hapus Slide 3

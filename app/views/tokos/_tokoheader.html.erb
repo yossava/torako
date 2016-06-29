@@ -10,7 +10,7 @@
 									<div class="wraplistdrpmenu">
 										<div class="mnv2">
 											<a href="#">
-                        <% if @toko && !current_page?('/tokos/new') %>
+                        <% if @toko && !current_page?('/tokos/new') && @toko.user_id == current_user.id %>
                         <% if @toko.toko_image.url.nil? %>
                         <span class="picdrpmyakun"><img src="<%= image_path 'tokopic.png' %>" class="responsiveimg"/></span>
                         <% else %>

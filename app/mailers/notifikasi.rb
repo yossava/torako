@@ -1,5 +1,5 @@
 class Notifikasi < ApplicationMailer
-  default from: "from@marketplace-188545.nitrousapp.com"
+  default from: "tokenlr2@gmail.com"
 
   def sample_email(current_user, mycart, status)
     @user = current_user

@@ -5,68 +5,10 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="mobilemenu-opener ma5-toggle-menu"><i class="fa fa-bars"></i></div>
-						<nav class="ma5-menu-mobile">
-							<ul class="ma5-ul ma5-active-ul">
-								<li class="ma5-li-1"><a class="ma5-toggle-menu"><span class="ma5-btn-leave closemobomenu"><i class="fa fa-times"></i></span></a></li>
-								<li class="ma5-li-2"> <a class="ma5-path-to-active" href="#node2">Semua Kategori</a><span class="ma5-btn-enter"><i class="fa fa-angle-right"></i></span>
-									<ul class="ma5-ul-2">
-										<li class="ma5-li-2-1">
-											<div class="ma5-leave-bar"><span class="ma5-btn-leave closemobomenu"><i class="fa fa-angle-left"></i></span></div>
-											<a href="#node2-1">Submenu1</a>
-										</li>
-										<li class="ma5-li-2-2"><a href="#node2-2">Submenu2</a></li>
-										<li class="ma5-li-2-3"> <a class="ma5-path-to-active" href="#node2-3">Submenu3</a><span class="ma5-btn-enter"><i class="fa fa-angle-right"></i></span>
-											<!-- active panel -->
-											<ul class="ma5-ul-2-3">
-												<li class="ma5-li-2-3-1">
-													<div class="ma5-leave-bar"><span class="ma5-btn-leave closemobomenu"><i class="fa fa-angle-left"></i></span></div>
-													<a href="#node2-3-1">Isi Submenu3-1</a>
-												</li>
-												<li class="ma5-li-2-3-3"><a href="#node2-3-3">Isi Submenu3-2</a></li>
-												<li class="ma5-li-2-3-4"><a href="#node2-3-4">Isi Submenu3-3</a></li>
-											</ul>
-										</li>
-										<li class="ma5-li-2-4"><a href="#node2-4">Submenu4</a></li>
-									</ul>
-								</li>
-								<li class="ma5-li-3"><a href="#node3">e-voucher</a></li>
-								<li class="ma5-li-4"><a href="#node4">Hot Deals</a></li>
-								<li class="ma5-li-6"><a href="#node6">Voucher Deals</a></li>
-								<li class="ma5-li-6"><a href="#node6">Promo!</a></li>
-							</ul>
-						</nav>
+						<%= render 'layouts/menumobile' %>
 						<span id="labeltopkeyword">Top Keyword</span>
-						<ul id="list-topkeyword">
-							<li><a href="#">Xiaomi Redmi</a></li>
-							<li><a href="#">Samsung</a></li>
-							<li><a href="#">Pakaian muslim</a></li>
-							<li><a href="#">Xiaomi redmi</a></li>
-							<li><a href="#">Acer Aspire</a></li>
-							<li><a href="#">Sneakers</a></li>
-							<li><a href="#">Hoodie</a></li>
-						</ul>
-						<div class="troliatas mobile">
-							<div class="itemtrolli">
-								<span id="ttmitem">
-									<a data-toggle="dropdown" role="button">Troli - (0)</a>
-									<ul class="dropdown-menu styleddropdown">
-										<li>
-											<a href="#" class="wrapctncart">
-												<div class="thumbcart">
-													<img src="https://placehold.it/120x120" class="responsiveimg">
-												</div>
-												<div class="ctncart">
-													<h4>Sample Product</h4>
-													<span class="typeorange">Rp 120.000</span>
-												</div>
-											</a>
-										</li>
-										<li><a href="#" class="lhsm-btn cart">Checkout</a></li>
-									</ul>
-								</span>
-								<a href="#"><span id="icontroli"></span></a>
-							</div>
-						</div>
+						<%= render 'layouts/topkey' %>
+						<%= render 'layouts/trolimobile' %>
 					</div>
 				</div>
 			</div>
@@ -76,11 +18,14 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="mobilemenu-opener ma5-toggle-menu"><i class="fa fa-bars"></i></div>
-						<%= render 'layouts/menumobile' %>
-						<span id="labeltopkeyword">Top Keyword</span>
-						<%= render 'layouts/topkey' %>
-						<%= render 'layouts/trolimobile' %>
+						<div class="compresedmenu">
+							<div class="headingcompresed">
+								<i class="fa fa-bars"></i> &nbsp; <span>Kategori</span> &nbsp; <i class="fa fa-angle-down"></i>
+							</div>
+							<%= render 'layouts/sidemenu' %>
+						</div>
+
+            <%= render 'layouts/bread' %>
 					</div>
 				</div>
 			</div>

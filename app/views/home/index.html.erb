@@ -357,6 +357,7 @@
 								<div class="content isitab normal">
 									<section id="baru_fashion">
                       <% @fashionproduct.each do |produkfashion| %>
+                    <% if produkfashion %>
 										<div class="produkcarousel normalproduk">
 											<div class="thumbfoto-produk">
 												<a data-no-turbolink="true" href="/produks/<%= produkfashion.id %>"><img src="<%= produkfashion.foto_produk1.url %>" class="responsiveimg"/></a>
@@ -374,6 +375,7 @@
                       <% end %>
 											<a href="/tokos/<%= Toko.find(produkfashion.toko_id).id %>" class="tambahketroli"><span class="troliblack"></span><span class="ttb"><%= Toko.find(produkfashion.toko_id).nama_toko %></span></a>
 										</div>
+                    <% end %>
                     <% end %>
                     <a class="lhsm-btn blokmbl" href="/categories/7">Lihat Semua Produk</a>
 									</section>

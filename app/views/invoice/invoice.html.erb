@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi <%= User.find(@mycart.first.user_id).namalengkap %></h1>
+    <p>
+      Berikut adalah data pemesanan Anda:
+      <% @mycart.each do |c| %>
+      <br>Invoice: <%= c.invoice %>
+      <br>Pproduk: <%= Produk.find(c.produk_id).nama_produk %>
+      <br>Jumlah: <%= c.jumlah %>
+      <br>Kurir: <%= c.kurir %>
+      <br>Ongkir: <%= c.ongkir %>
+      <br>Subtotal: <%= c.subtotal %>
+      <% end %>
+    </p>
+    <p> Total Pembayaran: <%= number_to_currency(@sub.sum, locale: :id) %> </p>
+    <p> Rekening Transfer: 8494-9945-9938-993 an TORAKO </p>
+    <p> setelah melakukan transfer, konfirmasi di akun Anda </p>
+  </body>
+</html>

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
+  get "/formkonfirmasi" => "home#formkonfirmasi"
   get "/hitungongkir" => "produks#hitungongkir"
   get "/display" => "home#display"
   get "/tentang" => "home#tentang"

@@ -38,7 +38,7 @@ class HomeController < ApplicationController
     @currentcart = Cart.where(:user_id => current_user.id, :state => 1)
     @status = Status.new
     @subtotal = []
-    current_user.cart.each do |c|
+    @currentcart.each do |c|
     @subtotal << c.subtotal
     end
   end

@@ -1,5 +1,5 @@
 class Notifikasi < ApplicationMailer
-  default from: "tokenlr2@gmail.com"
+  default from: "support@netvcc.co.id"
 
   def sample_email(current_user, mycart, status)
     @user = current_user

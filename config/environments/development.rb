@@ -10,13 +10,13 @@ Rails.application.configure do
     config.action_mailer.default_url_options = { :host => "http://marketplace-188545.nitrousapp.com" }
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
-      :enable_starttls_auto => true,
-      :address => "smtp.gmail.com",
+      :enable_starttls_auto => false,
+      :address => "mail.netvcc.co.id",
       :port => 587,
       :domain => "nitrous.io",
       :authentication => :login,
-      :user_name => "tokenlr2@gmail.com",
-      :password => "ty0ssaV@t"
+      :user_name => "support@netvcc.co.id",
+      :password => "sy0ssaV@s"
     }
 
 

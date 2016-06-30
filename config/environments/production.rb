@@ -4,13 +4,13 @@ Rails.application.configure do
     config.action_mailer.default_url_options = { :host => "https://torako.herokuapp.com" }
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
-      :enable_starttls_auto => true,
-      :address => "smtp.gmail.com",
+      :enable_starttls_auto => false,
+      :address => "mail.netvcc.co.id",
       :port => 587,
       :domain => "torako.herokuapp.com",
       :authentication => :login,
-      :user_name => "tokenlr2@gmail.com",
-      :password => "ty0ssaV@t"
+      :user_name => "support@netvcc.co.id",
+      :password => "sy0ssaV@s"
     }
   # Code is not reloaded between requests.
   config.cache_classes = true

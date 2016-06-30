@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "tokenlr2@gmail.com"
+  default from: "support@netvcc.co.id"
   layout 'mailer'
 end

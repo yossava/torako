@@ -16,7 +16,7 @@ Rails.application.configure do
       :domain => "nitrous.io",
       :authentication => :login,
       :user_name => "support@netvcc.co.id",
-      :password => "sy0ssaV@s"
+      :password => "yRm9FH\y7.De};]Z"
     }
 
 

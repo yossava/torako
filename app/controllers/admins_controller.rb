@@ -5,6 +5,31 @@ class AdminsController < ApplicationController
     redirect_to "/masuk" unless current_user && current_user.admin?
   end
 
+  def konfirmasi
+    @konfirmasi = Konfirmasi.all
+  end
+  def terimakonfirmasi
+    Cart.find(params[:id]).update(:state => 9)
+    @kon = Konfirmasi.find(params[:konfirmasi_id])
+    @kon.destroy
+    if @kon.destroy
+        redirect_to :back, notice: "Konfirmasi telah diterima!"
+    end
+    mycart = Cart.find(params[:id])
+    status = "Pembayaran telah diterima Admin"
+    Notifikasi.sample_email(current_user, mycart, status).deliver_later
+  end
+  def tolakkonfirmasi
+    @kon = Konfirmasi.find(params[:konfirmasi_id])
+    @kon.destroy
+    if @kon.destroy
+        redirect_to :back, notice: "Konfirmasi telah ditolak!"
+    end
+    Cart.find(params[:id]).update(:state => 10)
+    mycart = Cart.find(params[:id])
+    status = "Pembayaran TIDAK diterima Admin"
+    Notifikasi.sample_email(current_user, mycart, status).deliver_later
+  end
   def becomeadmin
     if current_user.admin
       User.find(params[:id]).update(:admin => true)

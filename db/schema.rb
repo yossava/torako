@@ -105,6 +105,21 @@ ActiveRecord::Schema.define(version: 20160606013032425444) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "konfirmasis", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "cart_id"
+    t.string   "tanggal"
+    t.string   "bulan"
+    t.string   "tahun"
+    t.string   "metode"
+    t.string   "dari"
+    t.string   "tujuan"
+    t.string   "keterangan"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "jumlah"
+  end
+
   create_table "pets", force: :cascade do |t|
     t.string   "name"
     t.text     "description"

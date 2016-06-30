@@ -42,6 +42,8 @@ class ApplicationController < ActionController::Base
       @troli6 = current_user.cart.where(:state => 6)
       @troli7 = current_user.cart.where(:state => 7)
       @troli8 = current_user.cart.where(:state => 8)
+      @troli9 = current_user.cart.where(:state => 9)
+      @troli10 = current_user.cart.where(:state => 10)
     end
     if user_signed_in? && Cart.where(:seller_id => current_user.id).present?
       @stroli3 = Cart.where(:seller_id => current_user.id, :state => 3)
@@ -49,6 +51,8 @@ class ApplicationController < ActionController::Base
       @stroli6 = Cart.where(:seller_id => current_user.id, :state => 6)
       @stroli4 = Cart.where(:seller_id => current_user.id, :state => 4)
       @stroli5 = Cart.where(:seller_id => current_user.id, :state => 5)
+      @stroli9 = Cart.where(:seller_id => current_user.id, :state => 9)
+      @stroli10 = Cart.where(:seller_id => current_user.id, :state => 10)
     end
   end
 

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  cart_id: 1
+  tanggal: MyString
+  bulan: MyString
+  tahun: MyString
+  metode: MyString
+  dari: MyString
+  tujuan: MyString
+  keterangan: MyString
+
+two:
+  user_id: 1
+  cart_id: 1
+  tanggal: MyString
+  bulan: MyString
+  tahun: MyString
+  metode: MyString
+  dari: MyString
+  tujuan: MyString
+  keterangan: MyString

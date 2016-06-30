@@ -8,13 +8,6 @@ class CartsController < ApplicationController
     @carts = Cart.all
   end
 
-  def konfirmasi
-    Cart.find(params[:id]).update(:state => 3)
-    redirect_to :back
-    mycart = Cart.find(params[:id])
-    status = "Telah Dikonfirmasi Buyer"
-    Notifikasi.sample_email(current_user, mycart, status).deliver_later
-  end
   def diterima
     Cart.find(params[:id]).update(:state => 6)
     redirect_to :back
@@ -51,7 +44,7 @@ class CartsController < ApplicationController
     Notifikasi.sample_email(current_user, mycart, status).deliver_later
   end
   def checkout
-    Cart.where(:user_id => current_user.id).update_all(:state =>2)
+    Cart.where(:user_id => current_user.id).update_all(:state => 2)
     Notifikasi.invoice_email(current_user).deliver_later
     redirect_to '/payment'
   end

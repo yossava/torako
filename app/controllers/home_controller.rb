@@ -29,6 +29,10 @@ class HomeController < ApplicationController
   end
   def profil
   end
+  def formkonfirmasi
+    @cart = Cart.find(params[:id])
+    @konfirmasi = Konfirmasi.new
+  end
 
   def edit
   end

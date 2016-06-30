@@ -1,0 +1,53 @@
+<%= form_for(@konfirmasi) do |f| %>
+  <% if @konfirmasi.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@konfirmasi.errors.count, "error") %> prohibited this konfirmasi from being saved:</h2>
+
+      <ul>
+      <% @konfirmasi.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :cart_id %><br>
+    <%= f.number_field :cart_id %>
+  </div>
+  <div class="field">
+    <%= f.label :tanggal %><br>
+    <%= f.text_field :tanggal %>
+  </div>
+  <div class="field">
+    <%= f.label :bulan %><br>
+    <%= f.text_field :bulan %>
+  </div>
+  <div class="field">
+    <%= f.label :tahun %><br>
+    <%= f.text_field :tahun %>
+  </div>
+  <div class="field">
+    <%= f.label :metode %><br>
+    <%= f.text_field :metode %>
+  </div>
+  <div class="field">
+    <%= f.label :dari %><br>
+    <%= f.text_field :dari %>
+  </div>
+  <div class="field">
+    <%= f.label :tujuan %><br>
+    <%= f.text_field :tujuan %>
+  </div>
+  <div class="field">
+    <%= f.label :keterangan %><br>
+    <%= f.text_field :keterangan %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

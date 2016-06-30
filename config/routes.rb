@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :konfirmasis
   resources :homeitems
   resources :statics
   resources :feedbacks
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-  get "/formkonfirmasi" => "home#formkonfirmasi"
+  get "/formkonfirmasi/:id" => "home#formkonfirmasi"
   get "/hitungongkir" => "produks#hitungongkir"
   get "/display" => "home#display"
   get "/tentang" => "home#tentang"
@@ -38,7 +39,6 @@ Rails.application.routes.draw do
   get "/checkout" => "carts#checkout"
   get "/konfirmasi-pengiriman/:id/:resi" => "carts#kirim_pesanan"
   get "/pengiriman-sampai/:id" => "carts#pesanan_sampai"
-  get "/konfirmasi-transfer/:id" => "carts#konfirmasi"
   get "/terima-pesanan/:id" => "carts#terima_pesanan"
   get "/tolak-pesanan/:id" => "carts#tolak_pesanan"
   get "/diterima" => "carts#diterima"
@@ -64,6 +64,10 @@ Rails.application.routes.draw do
   #get "/editalamat:id", to: "alamats#edit", as: 'alamat'
 
   #AMDIN#ADMIN#ADMIN
+  get 'admin/terimakonfirmasi/:id/:konfirmasi_id' => "admins#terimakonfirmasi"
+  get 'admin/tolakkonfirmasi/:id/:konfirmasi_id' => "admins#tolakkonfirmasi"
+  get 'admin/konfirmasi/:id' => "admins#konfirmasi"
+  get 'admin/konfirmasi' => "admins#konfirmasi"
   get 'admin/beadmin/:id' => "admins#becomeadmin"
   get 'admin/deladmin/:id' => "admins#deleteadmin"
   get 'admin/users' => "admins#users"

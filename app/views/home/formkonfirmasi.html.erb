@@ -57,80 +57,121 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="colomacr">
+                <%= form_for(@konfirmasi) do |f| %>
+                <input type="hidden" name="konfirmasi[cart_id]" value="<%= @cart.id %>">
+                <input type="hidden" name="cart_id" value="<%= @cart.id %>">
                 <div class="ctnblok-logreg">
 									<div class="form-row has-error">
 										<label for="nmalamat">Invoice</label>
-										<p><strong>inv/20140816/989767/8676xxx</strong></p>
+										<p><strong><%= @cart.invoice %></strong></p>
 										<!--<p><i class="fa fa-exclamation-triangle"></i> &nbsp;Isikan Username</p>-->
 									</div>
 									<div class="form-row">
 										<label for="penerima">Total Tagihan</label>
-										<p><strong class="typeorange">Total : Rp 235.000 ,-</strong></p>
+										<p><strong class="typeorange">Total : <%= number_to_currency(@cart.subtotal, locale: :id) %></strong></p>
 									</div>
 									<div class="form-row">
 										<label for="tgllhr">Tanggal Pembayaran</label>
 										<div class="row" id="tgllhr">
 											<div class="col-md-4">
-												<select>
+												<select name="konfirmasi[tanggal]" >
 													<option>Tanggal</option>
-													<option>10</option>
-													<option>11</option>
-													<option>12</option>
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+                          <option>10</option>
+                          <option>11</option>
+                          <option>12</option>
+                          <option>13</option>
+                          <option>14</option>
+                          <option>15</option>
+                          <option>16</option>
+                          <option>17</option>
+                          <option>18</option>
+                          <option>19</option>
+                          <option>20</option>
+                          <option>21</option>
+                          <option>22</option>
+                          <option>23</option>
+                          <option>24</option>
+                          <option>25</option>
+                          <option>26</option>
+                          <option>27</option>
+                          <option>28</option>
+                          <option>29</option>
+                          <option>30</option>
+                          <option>31</option>
 												</select>
 											</div>
 											<div class="col-md-5">
-												<select>
+												<select name="konfirmasi[bulan]">
 													<option>Bulan</option>
-													<option>September</option>
-													<option>Oktober</option>
-													<option>November</option>
+													<option>Januari</option>
+                          <option>Februari</option>
+                          <option>Maret</option>
+                          <option>April</option>
+                          <option>Mei</option>
+                          <option>Juni</option>
+                          <option>Juli</option>
+                          <option>Agustus</option>
+                          <option>September</option>
+                          <option>Oktober</option>
+                          <option>November</option>
+                          <option>Desember</option>
 												</select>
 											</div>
 											<div class="col-md-3">
-												<select>
+												<select name="konfirmasi[tahun]">
 													<option>Tahun</option>
-													<option>1990</option>
-													<option>1991</option>
-													<option>1992</option>
+													<option>2016</option>
+                          <option>2017</option>
+                          <option>2018</option>
+                          <option>2019</option>
+                          <option>2020</option>
+                          <option>2021</option>
+                          <option>2022</option>
+                          <option>2023</option>
+                          <option>2024</option>
 												</select>
 											</div>
 										</div>
 									</div>
 									<div class="form-row">
 										<label for="kota">Metode Pembayaran</label>
-										<select id="kota">
+										<select id="kota" name="konfirmasi[metode]">
 											<option>Bank Transfer</option>
-											<option>10</option>
-											<option>11</option>
-											<option>12</option>
 										</select>
 									</div>
 									<div class="form-row">
 										<label for="kec">Dari Rekening</label>
-										<select id="kec">
-											<option>90002177637165xxx</option>
-											<option>10</option>
-											<option>11</option>
-											<option>12</option>
+										<select id="kec" name="konfirmasi[dari]">
+                      <option>Pilih Rekening Anda</option>
+                      <% current_user.rekenings.each do |r| %>
+											<option><%= r.nama_bank %>-<%= r.nomor_rekening %>-<%= r.pemilik %></option>
+                      <% end %>
 										</select>
 									</div>
 									<hr style="border-color:#ddd;"></hr>
 									<div class="form-row">
 										<label for="kec">Rekening Tujuan</label>
-										<select id="kec">
-											<option>90002177637165xxx</option>
-											<option>10</option>
-											<option>11</option>
-											<option>12</option>
+										<select id="kec" name="konfirmasi[tujuan]">
+											<option>Mandiri 90002177637165 TORAKO</option>
+                      <option>BCA 23277899007 TORAKO</option>
 										</select>
 									</div>
 									<div class="form-row">
 										<label for="jmlt">Jumlah yang Telah Dibayar</label>
-										<input type="text" name="" id="jmlt">
+										<input type="text" name="konfirmasi[jumlah]" id="jmlt">
 									</div>
 									<div class="form-row">
 										<label for="jmlt">Keterangan *</label>
-										<input type="text" name="" id="jmlt">
+										<input name="konfirmasi[keterangan]" type="text" name="keterangan" id="jmlt">
 									</div>
 									<br>
 									<p><em>* optional</em></p>
@@ -142,6 +183,7 @@
 										<a href="#" id="batalbtn">Batal</a>
 									</div>
 								</div>
+                <% end %>
 							</div>
 						</div>
 					</div>

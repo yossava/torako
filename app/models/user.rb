@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :konfirmasis,    dependent: :destroy
   has_many :pets,    dependent: :destroy
   has_many :alamats,    dependent: :destroy
   has_many :rekenings,    dependent: :destroy

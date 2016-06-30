@@ -78,8 +78,74 @@
 					<div class="row">
 						<div class="col-md-12 wraplist-neworder">
 							<ul>
-                <% if @stroli3 %>
                 <% @stroli3.each do |s| %>
+								<li>
+									<div class="row">
+										<div class="col-md-3">
+											<span class="thumbft_pembeli"><img src="<%= User.find(s.user_id).profil_image.url %>" class="responsiveimg"></span>
+										</div>
+										<div class="col-md-9 rightneworder-ctn">
+											<p class="title">Pembelian oleh <a href="#"><%= User.find(s.user_id).namalengkap %> - <%= s.invoice %></a></p>
+											<p class="tgln"><span>Tanggal Transaksi: <%= s.created_at %></span> &nbsp;-&nbsp; Batal Otomatis <span class="label label-danger">3 hari lagi</span></p>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="wrapdtkonf">
+														<div class="heading-wdkf">
+															<h4>Pembelian oleh : <strong><%= User.find(s.user_id).namalengkap %></strong></h4>
+															<span class="inv"><%= s.invoice %></span>
+														</div>
+														<div class="row">
+															<div class="col-md-6 lpwp">
+																<span class="imglpwp"><img src="<%= Produk.find(s.produk_id).foto_produk1.url %>" class="responsiveimg"></span>
+																<h4><%= Produk.find(s.produk_id).nama_produk %></h4>
+																<p><%= s.jumlah %> X <%= Produk.find(s.produk_id).harga %></p>
+															</div>
+															<div class="col-md-3">
+																<label>Subtotal</label>
+																<p><%= Produk.find(s.produk_id).harga * s.jumlah %></p>
+															</div>
+															<div class="col-md-3">
+																<label>Ongkir</label>
+																<p><%= s.ongkir %></p>
+															</div>
+														</div>
+														<hr style="border-color:#ddd;"></hr>
+														<div class="row">
+															<div class="col-md-6">
+																<label>Tujuan Pengiriman</label>
+																<p>Penerima : <%= Alamat.find(s.alamat_id).nama_penerima %></p>
+																<p>Telp : <%= Alamat.find(s.alamat_id).nomor_telepon %></p>
+																<p>
+																	<%= Alamat.find(s.alamat_id).alamat %>, <%= Alamat.find(s.alamat_id).kecamatan %>, <%= Alamat.find(s.alamat_id).provinsi %> <%= Alamat.find(s.alamat_id).kode_pos %>
+																</p>
+															</div>
+															<div class="col-md-6">
+																<label>Kurir</label>
+																<p><%= s.kurir %></p>
+																<label>Keterangan</label>
+																<p><%= s.catatan %></p>
+															</div>
+														</div>
+														<hr style="border-color:#ddd;"></hr>
+														<div class="row">
+															<div class="col-md-12" style="text-align:right;font-size:18px;">
+																<label class="typeorange">Total : <%= s.subtotal %></label>
+															</div>
+														</div>
+													</div>
+													<a href="#" class="showdtkonf"><i class="fa fa-plus"></i>&nbsp; Tampilkan Detail</a>
+													<a href="#" class="hidedtkonf hide"><i class="fa fa-minus"></i>&nbsp; Sembunyikan Detail</a>
+												</div>
+											</div>
+											<div class="spacermedium"></div>
+											<div>
+                        <p class="label label-success"> Pembayaran sedang diverifikasi Admin </p>
+											</div>
+										</div>
+									</div>
+								</li>
+                <% end %>
+                <% @stroli9.each do |s| %>
 								<li>
 									<div class="row">
 										<div class="col-md-3">
@@ -145,11 +211,6 @@
 											</div>
 										</div>
 									</div>
-								</li>
-                <% end %>
-                <% else%>
-                <li>
-                  <p>Tidak ada pesanan baru</p>
 								</li>
                 <% end %>
 							</ul>

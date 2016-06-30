@@ -3,4 +3,5 @@ class Cart < ActiveRecord::Base
   has_many :produks
   has_many :tokos
   has_many :alamats
+  has_one :konfirmasi
 end

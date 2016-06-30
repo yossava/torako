@@ -1,0 +1,125 @@
+<div class="wrapper">
+
+  <%= render 'admins/topbar' %>
+  <!-- Left side column. contains the logo and sidebar -->
+  <%= render 'admins/sidebar' %>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Konfirmasi Pembayaran
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Pemesanan</a></li>
+        <li class="active">Konfirmasi Pembayaran</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+            <% if notice %>
+               <span style="margin-top:10px;" class="bg-green-active"><%= notice %></span>
+            <% end %>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+
+              <% if @konfirmasi.present? %>
+              <% @konfirmasi.each do |u| %>
+              <div class="box-header">
+              <h3 class="box-title"><%= u.cart.invoice %></h3>
+              </div>
+              <table class="table table-striped">
+                <tr>
+                  <td style="width:200px;" ><strong>ID Konfirmasi</strong></td>
+                  <td><%= u.id %></td>
+                </tr>
+                <tr>
+                  <td><strong>Nama User</strong></td>
+                  <td><%= u.user.namalengkap %></td>
+                </tr>
+                <tr>
+                  <td><strong>Invoice</strong></td>
+                  <td><%= u.cart.invoice %></td>
+                </tr>
+                <tr>
+                  <td><strong>Nama Produk</strong></td>
+                  <td><%= Produk.find(u.cart.produk_id).nama_produk %></td>
+                </tr>
+                <tr>
+                  <td><strong>Jumlah</strong></td>
+                  <td><%= u.cart.jumlah %></td>
+                </tr>
+                 <tr>
+                  <td><strong>Ongkos Kirim</strong></td>
+                  <td><%= u.cart.ongkir %></td>
+                </tr>
+                <tr>
+                  <td><strong>Total</strong></td>
+                  <td><%= number_to_currency(u.cart.subtotal, locale: :id) %></td>
+                </tr>
+                <tr>
+                  <td><strong>Jumlah Transfer</strong></td>
+                  <td><%= number_to_currency(u.jumlah, locale: :id) %></td>
+                </tr>
+                <tr>
+                  <td><strong>Pengirim</strong></td>
+                  <td><%= u.dari %></td>
+                </tr>
+                <tr>
+                  <td><strong>Penerima</strong></td>
+                  <td><%= u.tujuan %></td>
+                </tr>
+                <tr>
+                  <td><strong>Tanggal Transfer</strong></td>
+                  <td><%= u.tanggal %> <%= u.bulan %> <%= u.tahun %></td>
+                </tr>
+                <tr>
+                  <td><strong>Jumlah Transfer</strong></td>
+                  <td><%= number_to_currency(u.jumlah, locale: :id) %></td>
+                </tr>
+                <tr>
+                  <td><strong>Keterangan</strong></td>
+                  <td><%= u.keterangan %><br /></td>
+                </tr>
+                <tr>
+                  <td><strong>Terima / Tolak Konfirmasi</strong></td>
+                  <td><a data-confirm="Anda akan menyetujui konfirmasi ini?" class="btn btn-success" href="/admin/terimakonfirmasi/<%= u.cart_id %>/<%= u.id %>">TERIMA</a> | <a data-confirm="Anda akan menolak konfirmasi ini?" class="btn btn-danger" href="/admin/tolakkonfirmasi/<%= u.cart_id %>/<%= u.id %>">TOLAK</a></td>
+                </tr>
+              </table>
+              <hr/>
+              <% end %>
+              <% else %>
+              Tidak ada pembayaran
+              <% end %>
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+  </footer>
+
+
+</div>
+<!-- page script -->
+
+

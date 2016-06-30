@@ -10,7 +10,7 @@ Rails.application.configure do
       :domain => "torako.herokuapp.com",
       :authentication => :login,
       :user_name => "support@netvcc.co.id",
-      :password => "yRm9FH\y7.De};]Z"
+      :password => "sy0ssaV@s"
     }
   # Code is not reloaded between requests.
   config.cache_classes = true

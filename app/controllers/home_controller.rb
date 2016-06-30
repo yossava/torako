@@ -35,6 +35,7 @@ class HomeController < ApplicationController
   def finish
   end
   def bayar
+    @currentcart = Cart.where(:user_id => current_user.id, :state => 1)
     @status = Status.new
     @subtotal = []
     current_user.cart.each do |c|

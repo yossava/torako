@@ -43,7 +43,7 @@
 			<div class="spacermedium"></div>
 			<div class="row">
 				<div class="col-md-12">
-          <% current_user.cart.each do |c| %>
+          <% @currentcart.each do |c| %>
 					<div class="wrapdtkonf nothide ">
 						<div class="heading-wdkf cartlist">
               <h4>Pembelian dari Toko : <span style="text-transform:capitalize;font-weight:bold;"> <%= Toko.find(c.toko_id).nama_toko %></span></h4>
@@ -99,7 +99,7 @@
 		</div>
 	</div>
 	</div>
-<% end %>
+          <% end %>
 <div class="spacermedium"></div>
 <div class="row">
 	<div class="col-md-12">
@@ -108,11 +108,13 @@
 				<a href="/" id="lnjt_blnj"><i class="fa fa-angle-left"></i> &nbsp; Kembali</a>
 			</div>
 			<div class="col-md-3 col-sm-3 cp-borderedright col-xs-6">
+        <% if @currentcart.present? %>
 				<strong class="ttp">Total Pembayaran</strong>
 				<h4><%= number_to_currency(@subtotal.sum, locale: :id) %></h4>
+        <% end %>
 			</div>
 			<div class="col-md-2 col-sm-3 col-xs-12">
-        <% if current_user.cart.present? %>
+        <% if @currentcart.present? %>
         <a href="/checkout" class="ckbtn-krnjng" >Bayar &nbsp; <i class="fa fa-angle-right"></i></a>
         <% else %>
         <a style="background-color:grey;" href="#" class="ckbtn-krnjng" >Bayar &nbsp; <i class="fa fa-angle-right"></i></a>
@@ -121,6 +123,7 @@
 		</div>
 	</div>
 </div>
+
 </div>
 </div>
 </div>
